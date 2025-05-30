@@ -1,3 +1,5 @@
+
+
 function toggleCapacitePanneaux(val) {
   const conteneur = document.getElementById('capaciteContainer');
   conteneur.style.display = val === 'oui' ? 'block' : 'none';
@@ -22,11 +24,11 @@ function calculerSolaire() {
   const consoTotale = charge * duree;
 
   const html = `
-    <p>🔆 Production journalière : <strong>${prodSolaire} Wh</strong></p>
-    <p>🔋 Batterie disponible : <strong>${capBatterieWh} Wh</strong></p>
-    <p>⚡ Consommation : <strong>${consoTotale} Wh</strong></p>
-    <p>${prodSolaire >= consoTotale ? '✅ Production suffisante' : '⚠️ Production insuffisante'}</p>
-    <p>${capBatterieWh >= consoTotale ? '✅ Batterie suffisante' : '⚠️ Batterie insuffisante'}</p>
+	<p>🔆 Production journalière : <strong>${prodSolaire} Wh</strong></p>
+	<p>🔋 Batterie disponible : <strong>${capBatterieWh} Wh</strong></p>
+	<p>⚡ Consommation : <strong>${consoTotale} Wh</strong></p>
+	<p>${prodSolaire >= consoTotale ? '✅ Production suffisante' : '⚠️ Production insuffisante'}</p>
+	<p>${capBatterieWh >= consoTotale ? '✅ Batterie suffisante' : '⚠️ Batterie insuffisante'}</p>
   `;
 
   document.getElementById('resultSolaire').innerHTML = html;
@@ -44,10 +46,10 @@ function calculerGroupe() {
   const consoCarburant = ((charge / pDispo) * 0.8) * duree; // estimation
 
   const html = `
-    <p>⏱ Charge demandée : <strong>${charge} W pendant ${duree}h</strong></p>
-    <p>🔌 Groupe (${type}) : puissance dispo ${pDispo} W</p>
-    <p>${suffisant ? '✅ Groupe peut alimenter la charge' : '⚠️ Groupe insuffisant'}</p>
-    <p>⛽ Estimation consommation : <strong>${consoCarburant.toFixed(2)} L</strong></p>
+	<p>⏱ Charge demandée : <strong>${charge} W pendant ${duree}h</strong></p>
+	<p>🔌 Groupe (${type}) : puissance dispo ${pDispo} W</p>
+	<p>${suffisant ? '✅ Groupe peut alimenter la charge' : '⚠️ Groupe insuffisant'}</p>
+	<p>⛽ Estimation consommation : <strong>${consoCarburant.toFixed(2)} L</strong></p>
   `;
 
   document.getElementById('resultGroupe').innerHTML = html;
@@ -64,9 +66,9 @@ function calculerBatterie() {
   const besoin = charge * duree;
 
   const html = `
-    <p>🔋 Batterie : ${cap}Ah × ${volt}V = <strong>${energieBat} Wh</strong></p>
-    <p>⚡ Besoin total : <strong>${besoin} Wh</strong></p>
-    <p>${energieBat >= besoin ? '✅ Batterie suffisante' : '⚠️ Batterie insuffisante'}</p>
+	<p>🔋 Batterie : ${cap}Ah × ${volt}V = <strong>${energieBat} Wh</strong></p>
+	<p>⚡ Besoin total : <strong>${besoin} Wh</strong></p>
+	<p>${energieBat >= besoin ? '✅ Batterie suffisante' : '⚠️ Batterie insuffisante'}</p>
   `;
 
   document.getElementById('resultBatterie').innerHTML = html;
@@ -83,9 +85,9 @@ function calculerReseau() {
   const besoin = charge * temps;
 
   const html = `
-    <p>⚡ Puissance réseau dispo : <strong>${dispoWh} Wh</strong></p>
-    <p>🔌 Besoin des appareils : <strong>${besoin} Wh</strong></p>
-    <p>${dispoWh >= besoin ? '✅ Réseau suffisant' : '⚠️ Insuffisant ou délestage probable'}</p>
+	<p>⚡ Puissance réseau dispo : <strong>${dispoWh} Wh</strong></p>
+	<p>🔌 Besoin des appareils : <strong>${besoin} Wh</strong></p>
+	<p>${dispoWh >= besoin ? '✅ Réseau suffisant' : '⚠️ Insuffisant ou délestage probable'}</p>
   `;
 
   document.getElementById('resultReseau').innerHTML = html;
