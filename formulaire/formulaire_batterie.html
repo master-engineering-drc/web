@@ -1,0 +1,29 @@
+<!-- formulaire_batterie.html -->
+<div id="form-batterie" class="formulaire">
+  <h2>🔋 Batterie seule</h2>
+
+  <label for="typeBat">Type de batterie :</label>
+  <select id="typeBat">
+    <option>Li-ion</option>
+    <option>AGM</option>
+    <option>Gel</option>
+  </select>
+
+  <label for="capBat">Capacité (Ah) :</label>
+  <input type="number" id="capBat">
+
+  <label for="voltBat">Tension (V) :</label>
+  <input type="number" id="voltBat">
+
+  <label for="chargeBat">Charge totale (W) :</label>
+  <input type="number" id="chargeBat">
+
+  <label for="dureeBat">Durée d'utilisation (h) :</label>
+  <input type="number" id="dureeBat">
+
+  <button onclick="calculerBatterie()">Calculer</button>
+
+  <div id="resultBatterie"></div>
+</div>
+
+<script src="formulaire.js"></script>

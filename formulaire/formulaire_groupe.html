@@ -1,0 +1,25 @@
+<!-- formulaire_groupe.html -->
+<div id="form-groupe" class="formulaire">
+  <h2>🔌 Groupe électrogène</h2>
+
+  <label for="typeGroupe">Type :</label>
+  <select id="typeGroupe">
+    <option>Essence</option>
+    <option>Diesel</option>
+  </select>
+
+  <label for="puissanceGroupe">Puissance disponible (W) :</label>
+  <input type="number" id="puissanceGroupe">
+
+  <label for="chargeGroupe">Charge (W) :</label>
+  <input type="number" id="chargeGroupe">
+
+  <label for="dureeGroupe">Durée d'utilisation (h) :</label>
+  <input type="number" id="dureeGroupe">
+
+  <button onclick="calculerGroupe()">Calculer</button>
+
+  <div id="resultGroupe"></div>
+</div>
+
+<script src="formulaire.js"></script>

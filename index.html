@@ -321,6 +321,21 @@
         </div>
     </section>
 
+    <section class="calculatrice-section">
+        <h2>Simulateur de consommation</h2>
+        <label for="sourceSelect">Choisissez votre source d'énergie :</label>
+        <select id="sourceSelect" onchange="chargerFormulaire()">
+            <option value="">-- Sélectionnez --</option>
+            <option value="solaire">☀️ Panneaux solaires</option>
+            <option value="groupe">🔌 Groupe électrogène</option>
+            <option value="batterie">🔋 Batterie seule</option>
+            <option value="reseau">⚡ Réseau électrique</option>
+        </select>
+
+        <div id="formulaireContainer" style="margin-top: 30px;"></div>
+        </section>
+
+
     <section class="contact">
         <form>
             <h2>Envoyer un message</h2>
@@ -342,6 +357,41 @@
     </footer>
     <button id="topBtn" title="Retour en haut">↑</button>
 
+    <script src="formulaire.js"></script>
+    <script>
+        async function chargerFormulaire() {
+            const container = document.getElementById('formulaireContainer');
+            const choix = document.getElementById('sourceSelect').value;
+            let url = "";
+
+            switch (choix) {
+            case "solaire":
+                url = "formulaire/formulaire_solaire.html";
+                break;
+            case "groupe":
+                url = "formulaire/formulaire_groupe.html";
+                break;
+            case "batterie":
+                url = "formulaire/formulaire_batterie.html";
+                break;
+            case "reseau":
+                url = "formulaire/formulaire_reseau.html";
+                break;
+            default:
+                container.innerHTML = "";
+                return;
+            }
+
+            try {
+            const res = await fetch(url);
+            const html = await res.text();
+            container.innerHTML = html;
+            } catch (err) {
+            console.error("Erreur lors du chargement du formulaire :", err);
+            container.innerHTML = "<p style='color: red;'>Impossible de charger le formulaire.</p>";
+            }
+        }
+    </script>
 
     <script>
        let topBtn = document.getElementById("topBtn");

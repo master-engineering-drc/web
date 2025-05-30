@@ -1,0 +1,22 @@
+<!-- formulaire_reseau.html -->
+<div id="form-reseau" class="formulaire">
+  <h2>⚡ Réseau électrique</h2>
+
+  <label for="puissanceReseau">Puissance disponible (W) :</label>
+  <input type="number" id="puissanceReseau">
+
+  <label for="dureeReseau">Durée disponible (h) :</label>
+  <input type="number" id="dureeReseau">
+
+  <label for="chargeReseau">Charge totale (W) :</label>
+  <input type="number" id="chargeReseau">
+
+  <label for="tempsReseau">Durée d'utilisation des appareils (h) :</label>
+  <input type="number" id="tempsReseau">
+
+  <button onclick="calculerReseau()">Calculer</button>
+
+  <div id="resultReseau"></div>
+</div>
+
+<script src="formulaire.js"></script>
