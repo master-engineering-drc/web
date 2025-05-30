@@ -1,0 +1,31 @@
+/* SECTION - Responsive pour tous les éléments */
+@media (max-width: 768px) {
+  header {
+    padding: 100px 15px 30px;
+  }
+
+  .services, .works, .contact {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .services div, .contact form, .contact .info {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .about p, .about h2 {
+    width: 100%;
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .works .gallery {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  }
+
+  footer {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
