@@ -1,33 +1,213 @@
-# Master Engineering Drc (MED)
+Voici le **README.md** complet, prêt à coller dans votre dépôt :
 
-MED est spécialisé dans l'installation et la maintenance électrique, offrant des services professionnels adaptés aux besoins des particuliers et des entreprises.
+````markdown
+# Master Engineering DRC (MED)
 
-## Services proposés
+Site vitrine + suite de **simulateurs techniques** pour l’électricité et le solaire.  
+**MED** est spécialisé dans l’installation, la mise aux normes et la maintenance électrique pour particuliers, entreprises et sites industriels.
 
-- Installation électrique résidentielle et industrielle
-- Maintenance et dépannage électrique
-- Mise en conformité des installations
-- Conseils et audits techniques
+---
 
-## Installation
+## ✨ Fonctionnalités
 
-1. Clonez le dépôt :
-    ```
-    git clone <url-du-depot>
-    ```
-2. Ouvrez le dossier du projet.
-3. Lancez le fichier `index.html` dans votre navigateur.
+- **Interface responsive** (mobile → desktop)
+- **Mode sombre** natif (lisibilité renforcée, FAQ & Avis en blanc)
+- Palette cohérente **bleu · jaune · blanc · noir**
+- **Navigation collante** avec menu mobile
+- **Hero** illustré + KPI
+- **Galerie** de réalisations avec *lightbox*
+- **Formulaire** de contact (WhatsApp auto-rempli + fallback `mailto`)
+- **9 simulateurs** avec **bloc d’explication dynamique** et **bouton “Remplir l’exemple”**
+- A11Y : focus visibles, contrastes, aria-* pour onglets
 
-## Technologies utilisées
+---
 
-- HTML5
-- CSS3
-- JavaScript
+## 🧩 Sections de la page
 
-## Contribution
+- **Header / Navigation**
+- **Hero** (accroche + CTA)
+- **Services**
+- **Processus** (3 étapes)
+- **Réalisations** (grille + lightbox)
+- **Simulateurs** (9 modules interactifs)
+- **Avis** (carrousel)
+- **FAQ**
+- **Contact** (numéros clicables + WhatsApp direct + formulaire)
+- **Footer**
 
-Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou une pull request.
+---
 
-## Licence
+## 🛠️ Services MED (exemples)
 
-Ce projet est sous licence MIT.
+- Installation électrique (résidentiel, tertiaire, industriel)
+- Maintenance & dépannage
+- Mise en conformité / audits techniques
+- Conseils & solutions solaires hybrides
+
+---
+
+## 🚀 Démarrage rapide
+
+### Prérequis
+Aucun outil de build : le projet fonctionne **en statique** (HTML + Tailwind CDN + JS).
+
+### Installation
+```bash
+git clone <url-du-depot>
+cd <nom-du-dossier>
+````
+
+### Lancement
+
+* Double-cliquez sur `index.html`, **ou**
+* Utilisez une extension type **Live Server** (recommandé pour éviter les restrictions CORS locales).
+
+### Arborescence minimale
+
+```
+.
+├─ index.html
+└─ image/
+   ├─ MED.png
+   ├─ MED_img.png
+   └─ IMG-*.jpg  (vos photos de chantiers)
+```
+
+> Assurez-vous que les chemins d’images du dossier `image/` correspondent bien aux références dans `index.html`.
+
+---
+
+## 🎨 Thème & couleurs (Tailwind CDN)
+
+Le projet utilise **Tailwind via CDN** avec une palette étendue. Dans `<head>` de `index.html` :
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+<script>
+  tailwind.config = {
+    darkMode: 'media',
+    theme: {
+      container: { center: true, padding: '1rem' },
+      extend: {
+        colors: {
+          brand: '#004080',       // Bleu principal
+          yellowBrand: '#FFD700', // Jaune
+          ink: '#000000',         // Noir (texte)
+          muted: '#555555'        // Texte secondaire
+        },
+        boxShadow: { card: '0 10px 30px rgba(0,0,0,0.08)' },
+        borderRadius: { xl: '18px' }
+      }
+    }
+  }
+</script>
+```
+
+* **Changer une couleur ?** Modifiez les valeurs ci-dessus puis mettez à jour les classes utilitaires (`text-brand`, `bg-yellowBrand`, etc.) si besoin.
+* **Mode sombre** : activé automatiquement selon `prefers-color-scheme`.
+
+---
+
+## 🧪 Simulateurs inclus
+
+Chaque simulateur possède :
+
+* un **onglet** dédié,
+* un **bloc d’explication dynamique**,
+* un bouton **“Remplir l’exemple”** pour préremplir les champs,
+* des **résultats** affichés instantanément.
+
+> ⚠️ Les résultats sont **indicatifs** (hypothèses simplifiées). Faites valider tout projet réel par un technicien MED.
+
+1. **Conso & coût (1 appareil)**
+
+   * Formule : `kWh = (W/1000) × h/j × jours` ; `Coût = kWh × tarif`.
+2. **Multi-appareils**
+
+   * Somme des kWh individuels puis multiplication par le tarif.
+3. **Solaire (PV + batteries)**
+
+   * PV (kW) ≈ `conso_jour / (PSH × rendement système)`
+   * Batteries (kWh) ≈ `(conso_jour × jours) / (DoD × η onduleur)`
+   * Suggestion d’onduleur à partir de la pointe (marge).
+4. **Autonomie batterie**
+
+   * `h = (kWh_batt × DoD × η onduleur) / (W/1000)`.
+5. **Câble & chute de tension**
+
+   * `ΔV = (2 × L × I × ρ) / A` ; `%ΔV = ΔV / V × 100` ; choix de la **section** qui respecte `%ΔV max`.
+6. **Groupe électrogène**
+
+   * `kVA ≈ (W_régime × k_surtension) / (1000 × PF) × marge` ; conversion en kW via PF.
+7. **Éclairage (lux)**
+
+   * Flux requis (lm) ≈ `(lux_cible × surface) / (UF × MF)` ; nombre de luminaires = `ceil(flux_requis / flux_luminaire)`.
+8. **ROI solaire**
+
+   * Économies année 1 = `prod × tarif − maintenance`
+   * Payback ≈ `coût / économies` ; **NPV** = somme des économies actualisées − coût.
+9. **Équilibrage des phases**
+
+   * Déséquilibre (%) = `(max − min) / moyenne × 100` ; suggestion de déplacement de charge.
+
+---
+
+## 📚 Technologies
+
+* **HTML5**
+* **Tailwind CSS (CDN)** — pas de compilation
+* **JavaScript** (vanilla)
+
+---
+
+## 🔎 Accessibilité & qualité
+
+* Contrastes vérifiés (modes **clair/sombre**) — **FAQ** & **Avis** en **texte blanc** en dark mode.
+* États **:focus-visible** personnalisés (claviers / lecteurs d’écran).
+* Labels pour champs & `aria-*` pour les onglets.
+
+---
+
+## 🌐 Déploiement
+
+Solution **statique** :
+
+* GitHub Pages, Netlify, Vercel, ou tout hébergement statique.
+* Uploadez simplement `index.html` et le dossier `image/`.
+
+---
+
+## 🤝 Contribution
+
+Les contributions sont bienvenues :
+
+1. Ouvrir une **issue** pour décrire la proposition/bug.
+2. **Fork** puis créer une branche :
+
+   ```bash
+   git checkout -b feat/ma-fonction
+   ```
+3. Faire une **pull request** documentée (description, captures si besoin).
+
+**Bonnes pratiques**
+
+* Commits clairs (`feat:`, `fix:`, `docs:`, `style:`…)
+* Respect de la **palette MED** et de l’**accessibilité**
+
+---
+
+## 📄 Licence
+
+Ce projet est sous licence **MIT**.
+Voir le fichier `LICENSE` pour les détails.
+
+---
+
+## 📬 Contact
+
+* **Téléphone** : +243 844 894 508 / +243 900 174 502
+* **Email** : [masterengineeringdrc1@gmail.com](mailto:masterengineeringdrc1@gmail.com)
+* **Site** : [https://med-electricite.com](https://med-electricite.com)
+
+```
+```
