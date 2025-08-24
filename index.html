@@ -1,413 +1,461 @@
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Electrician Services</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            color: #2c2c2c;
-            background-color: #f5f7fa;
-        }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MED • Électricité & Solaire | Lubumbashi & Kolwezi</title>
+  <meta name="description" content="Master Engineering DRC (MED) — installations électriques, maintenance, mise aux normes, éclairage, énergies renouvelables, tableaux électriques. Interventions rapides et garanties."/>
+  <meta property="og:title" content="MED • Électricité & Solaire" />
+  <meta property="og:description" content="Installations électriques fiables, solaires hybrides, maintenance et mise aux normes." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#004080" />
+  <style>
+    /* ===== Design system ===== */
+    :root {
+      --brand:#004080;      /* Bleu MED */
+      --brand-2:#06b35f;    /* Vert MED */
+      --ink:#1e293b;        /* gris bleuté */
+      --muted:#64748b;      /* gris */
+      --bg:#f5f7fa;         /* fond clair */
+      --card:#ffffff;
+      --shadow:0 10px 30px rgba(2, 12, 27, .08);
+      --radius:18px;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, Noto Sans, sans-serif;color:var(--ink);background:var(--bg)}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{width:min(1200px, 92%);margin-inline:auto}
+    .btn{display:inline-flex;align-items:center;gap:.6rem;padding:.95rem 1.2rem;border-radius:12px;font-weight:600;border:1px solid transparent;box-shadow:var(--shadow);transition:.25s ease;cursor:pointer}
+    .btn-primary{background:linear-gradient(135deg, var(--brand), #012b52);color:#fff}
+    .btn-primary:hover{transform:translateY(-2px)}
+    .btn-ghost{background:#fff;border-color:#e2e8f0;color:var(--brand)}
+    .tag{display:inline-flex;align-items:center;gap:.4rem;background:#e8fff2;color:#09683a;border:1px solid #b8f0d2;padding:.35rem .7rem;border-radius:999px;font-size:.85rem}
+    .section{padding:64px 0}
+    .title{font-size:clamp(1.6rem,2.4vw,2.2rem);margin:0 0 10px;color:var(--brand)}
+    .subtitle{color:var(--muted);margin:0 0 30px}
 
-        header {
-            color: rgb(9, 47, 83);
-            text-align: center;
-            padding: 150px 70px 80px;
-            position: relative;
-        }
+    /* ===== Header / Nav ===== */
+    header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.7);backdrop-filter:saturate(120%) blur(10px);border-bottom:1px solid #e5e7eb}
+    .brand{display:flex;align-items:center;gap:.75rem;font-weight:800;letter-spacing:.3px}
+    .brand .logo{inline-size:42px;block-size:42px;border-radius:12px;display:grid;place-items:center;background:radial-gradient(80% 80% at 20% 20%, #08d372, var(--brand));color:#fff;font-weight:900;box-shadow:var(--shadow)}
+    .nav a.link{padding:.6rem .9rem;border-radius:10px;color:#0f172a;font-weight:600}
+    .nav a.link:hover{background:#eff6ff}
+    .nav-actions{display:flex;align-items:center;gap:.6rem}
 
-        header::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        header h1 {
-            font-size: 48px;
-            margin: 0;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
-            position: relative;
-            z-index: 1;
-        }
-
-        header .contact-info {
-            margin-top: 30px;
-            font-size: 18px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 12px 20px;
-            border-radius: 6px;
-            display: inline-block;
-            position: relative;
-            z-index: 1;
-        }
-
-        section {
-            padding: 60px 20px;
-        }
-
-        section h2 {
-            font-size: 36px;
-            text-align: center;
-            position: relative;
-            margin-bottom: 40px;
-            color: #004080;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-        }
-
-        section h2::after {
-            content: '';
-            width: 60px;
-            height: 4px;
-            background: #06b35f;
-            position: absolute;
-            left: 50%;
-            bottom: -10px;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .about {
-          text-align: center;
-           padding: 40px 20px;
-        }
-
-        .about h2 {
-           display: inline-block;
-           border: 2px solid #ccc;
-           padding: 10px 25px;
-           border-radius: 8px;
-           margin-bottom: 30px;
-           background-color: #f9f9f9;
-           color: #333;
-        }
-
-        .about img {
-          border-radius: 50%;
-          width: 180px;
-          border: 5px solid #06b35f;
-          margin: 20px 0;
-       
-        }
-
-       .about p {
-          border: 1px solid #ddd;
-          background-color: #fcfcfc;
-          padding: 20px;
-          margin: 0 auto;
-          max-width: 600px;
-          border-radius: 10px;
-          font-size: 18px;
-          line-height: 1.6;
-          color: #444;
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.7rem 0;flex-wrap:wrap}
+    .menu{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+    @media (max-width: 768px){
+    .menu{width:100%;justify-content:flex-start}
 }
 
 
-        .produits p {
-            text-align: center;
-            font-weight: bold;
-            background: #004080;
-            color: #fff;
-            padding: 20px 30px;
-            border-radius: 12px;
-            font-size: 26px;
-            max-width: 500px;
-            margin: 30px auto;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        .services-section {
-            background-color: #eef2f5;
-            border-top: 4px solid #06b35f;
-        }
-
-        .services {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .services div {
-            flex: 1 1 250px;
-            background: #ffffff;
-            padding: 25px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .services div:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .services div h3 {
-            color: #004080;
-            margin-bottom: 10px;
-        }
-
-        .works-section {
-            background-color: #1e1e1e;
-            color: white;
-        }
-
-        .works-section .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .works-section .gallery img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 1px 6px rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .works-section .gallery img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.3);
-        }
-
-        .contact {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .contact form {
-            flex: 2;
-            background: #fff;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact form input,
-        .contact form textarea,
-        .contact form button {
-            width: 100%;
-            margin: 12px 0;
-            padding: 12px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            font-size: 16px;
-        }
-
-        .contact form button {
-            background-color: #004080;
-            color: white;
-            border: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .contact form button:hover {
-            background-color: #003060;
-        }
-
-        .contact .info {
-            flex: 1;
-            background: #004080;
-            color: white;
-            padding: 25px;
-            border-radius: 10px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 15px;
-            background: #002244;
-            color: white;
-            
-        }
-
-        #topBtn {
-          display: none;
-          position: fixed;
-          bottom: 30px;
-          right: 30px;
-          z-index: 1000;
-          font-size: 20px;
-          border: none;
-          background-color: #004080;
-          color: white;
-          padding: 12px 16px;
-          border-radius: 8px;
-          cursor: pointer;
-        }
-
-        #topBtn:hover {
-           background-color: #002244;
-        }
 
 
 
-        
-    </style>
+
+
+
+    /* ===== Hero ===== */
+    .hero{position:relative;isolation:isolate;min-height:72dvh;display:grid;align-items:center}
+    .hero::before{content:"";position:absolute;inset:0;background:url('image/MED.png') center/cover no-repeat;z-index:-2}
+    .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.35) 30%, rgba(255,255,255,.0) 70%), linear-gradient(120deg, rgba(0,64,128,.45), transparent 55%);z-index:-1}
+    .hero .inner{display:grid;gap:1.2rem;padding:96px 0;color:#fff}
+    .hero .kpis{display:flex;flex-wrap:wrap;gap:14px}
+    .kpi{backdrop-filter:blur(6px);background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.28);padding:.6rem .9rem;border-radius:12px;font-weight:600}
+
+    /* ===== Services ===== */
+    .cards{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .card{grid-column:span 4;background:var(--card);border-radius:var(--radius);padding:22px;border:1px solid #e5e7eb;box-shadow:var(--shadow);transition:.25s}
+    .card:hover{transform:translateY(-4px)}
+    .card h3{margin:.4rem 0;color:#0f172a}
+    .card p{color:var(--muted)}
+    .card .pill{display:inline-block;margin-top:10px;padding:.3rem .6rem;border-radius:999px;background:#f0f9ff;color:#075985;font-size:.8rem;font-weight:700}
+    @media (max-width: 900px){.card{grid-column:span 6}}
+    @media (max-width: 640px){.card{grid-column:span 12}}
+
+    /* ===== Processus ===== */
+    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    .step{background:linear-gradient(180deg,#ffffff, #f9fbff);border:1px solid #e5e7eb;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .step .num{inline-size:36px;block-size:36px;border-radius:10px;display:grid;place-items:center;background:var(--brand);color:#fff;font-weight:800}
+    .step h4{margin:10px 0}
+    .step small{color:var(--muted)}
+    @media (max-width: 900px){.steps{grid-template-columns:1fr}}
+
+    /* ===== Réalisations ===== */
+    .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:10px}
+    .gl{grid-column:span 3;position:relative;overflow:hidden;border-radius:14px}
+    .gl img{aspect-ratio:1/1;object-fit:cover;transition:transform .4s}
+    .gl:hover img{transform:scale(1.05)}
+    .gl::after{content:"Voir";position:absolute;inset:auto 10px 10px auto;background:rgba(0,0,0,.65);color:#fff;padding:.25rem .55rem;border-radius:8px;font-size:.8rem}
+    @media (max-width: 900px){.gl{grid-column:span 6}}
+    @media (max-width: 640px){.gl{grid-column:span 12}}
+
+    /* Lightbox */
+    dialog.lightbox{border:none;border-radius:16px;padding:0;max-width:min(92vw,1000px);box-shadow:var(--shadow)}
+    dialog::backdrop{background:rgba(0,0,0,.6)}
+    .lightbox img{width:100%;height:auto;border-radius:16px}
+
+    /* ===== Simulateur ===== */
+    .sim{display:grid;grid-template-columns:2fr 1fr;gap:18px}
+    .panel{background:var(--card);border:1px solid #e5e7eb;border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+    .field{display:grid;gap:6px;margin:10px 0}
+    .field input{padding:.8rem;border:1px solid #cbd5e1;border-radius:12px}
+    .result{font-size:1.25rem;font-weight:800;color:var(--brand)}
+    @media (max-width:900px){.sim{grid-template-columns:1fr}}
+
+    /* ===== Avis ===== */
+    .carousel{display:flex;gap:12px;overflow:auto;scroll-snap-type:x mandatory;padding-bottom:8px}
+    .review{flex:0 0 320px;scroll-snap-align:start;background:var(--card);border:1px solid #e5e7eb;border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}
+    .stars{color:#f59e0b}
+
+    /* ===== FAQ ===== */
+    .faq details{background:var(--card);border:1px solid #e5e7eb;border-radius:14px;padding:14px;margin:8px 0}
+    .faq summary{font-weight:700;cursor:pointer}
+    .faq p{color:var(--muted)}
+
+    /* ===== Contact ===== */
+    form.contact{display:grid;gap:10px}
+    form.contact input, form.contact textarea, form.contact select{padding:.9rem;border:1px solid #cbd5e1;border-radius:12px}
+
+    footer{background:#001a33;color:#cbd5e1}
+    footer .cols{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;padding:36px 0}
+    footer small{display:block;color:#8fa6bf}
+    @media (max-width:900px){footer .cols{grid-template-columns:1fr 1fr}}
+    @media (max-width:640px){footer .cols{grid-template-columns:1fr}}
+
+    /* ===== Floating actions ===== */
+    .float-wa{position:fixed;right:18px;bottom:18px;z-index:60;display:grid;gap:8px}
+    .fab{inline-size:54px;block-size:54px;border-radius:16px;display:grid;place-items:center;background:#25D366;color:#fff;box-shadow:var(--shadow);font-weight:900}
+    .to-top{background:#0ea5e9}
+
+    /* ===== Dark mode ===== */
+    @media (prefers-color-scheme: dark){
+      :root{--bg:#0b1220;--ink:#e5e7eb;--muted:#9fb2ca;--card:#0f172a}
+      header.site{background:rgba(10,17,32,.7);border-color:#1f2937}
+      .btn-ghost{background:#0f172a;border-color:#1f2937;color:#e5e7eb}
+      .card, .panel, .step, .faq details, .review{border-color:#1f2937}
+      footer{background:#000c19}
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="contact-info">
-            <img src="image/WhatsApp Image 2025-05-29 à 17.42.01_57c99ce1.jpg" alt="Electrician">
-            <p>📞 0990880720 | 📧 fredericbetukumesukabamba@gmail.com</p>
+  <!-- ===== Navigation ===== -->
+  <header class="site">
+    <div class="container nav">
+      <a class="brand" href="#">
+        <span class="logo"><img src="image/MED_img.png" alt=""></span>
+        <span>MED • Master Engineering DRC</span>
+      </a>
+      <nav class="menu">
+        <a class="link" href="#services">Services</a>
+        <a class="link" href="#process">Processus</a>
+        <a class="link" href="#realisations">Réalisations</a>
+        <a class="link" href="#simulateur">Simulateur</a>
+        <a class="link" href="#contact">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <a class="btn btn-ghost" href="tel:+243844894508">📞  +243 844 894 508</a>
+        <a class="btn btn-primary" href="#devis">Demander un devis</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== Hero ===== -->
+  <section class="hero">
+    <div class="container inner">
+      <span class="tag">Entreprise locale • Lubumbashi & Kolwezi</span>
+      <h1 style="font-size:clamp(2rem,5vw,3.4rem);line-height:1.15;margin:0">Installations électriques <em>fiables</em> & solutions solaires <em>performantes</em>.</h1>
+      <p class="subtitle">Conception, installation, maintenance et mise aux normes pour particuliers, sociétés et sites industriels. Interventions rapides, garanties, conformité assurée.</p>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+        <a class="btn btn-primary" href="#contact">Parler à un expert</a>
+        <button class="btn btn-ghost" id="openSim">📊 Estimer ma consommation</button>
+      </div>
+      <div class="kpis">
+        <div class="kpi">⚙️ Maintenance préventive & curative</div>
+        <div class="kpi">🔌 Tableaux & protections certifiés</div>
+        <div class="kpi">🌞 Systèmes solaires hybrides</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Services ===== -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2 class="title">Nos services</h2>
+      <p class="subtitle">Des prestations pensées pour la sécurité, la performance et l'économie d'énergie.</p>
+      <div class="cards">
+        <article class="card">
+          <h3>Installation électrique</h3>
+          <p>Habitation, commerce, industrie — étude de charge, câblage, prises, éclairage, protections.</p>
+          <span class="pill">Normes & conformité</span>
+        </article>
+        <article class="card">
+          <h3>Entretien & dépannage</h3>
+          <p>Diagnostic rapide, réparations, remplacement de composants, plan de maintenance.</p>
+          <span class="pill">24/7 sur contrat</span>
+        </article>
+        <article class="card">
+          <h3>Mise aux normes</h3>
+          <p>Mise à niveau des installations existantes : mise à la terre, DDR, équilibrage des phases.</p>
+          <span class="pill">Audit complet</span>
+        </article>
+        <article class="card">
+          <h3>Éclairages</h3>
+          <p>LED int./ext., sécurité, décoratif, projecteurs, gestion DALI, détecteurs de présence.</p>
+          <span class="pill">jusqu'à -60% conso</span>
+        </article>
+        <article class="card">
+          <h3>Solaire & hybrides</h3>
+          <p>Dimensionnement, onduleurs hybrides, batteries Li-ion, couplage réseau/groupe.</p>
+          <span class="pill">ROI optimisé</span>
+        </article>
+        <article class="card">
+          <h3>Tableaux & comptage</h3>
+          <p>Conception TGBT/TD, sélectivité, ATS, comptage sous-billing, étiquetage.</p>
+          <span class="pill">Schémas livrés</span>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Processus (3 étapes) ===== -->
+  <section id="process" class="section" style="background:#eef2f5;border-block:1px solid #e5e7eb">
+    <div class="container">
+      <h2 class="title">Notre processus</h2>
+      <p class="subtitle">Clair, rapide et sécurisé. Chaque étape est documentée et validée avec vous.</p>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h4>Étude & devis</h4>
+          <small>Visite du site, calculs de charge, choix du matériel. Envoi d'un devis détaillé.</small>
         </div>
-    </header>
-
-    <section class="about-section">
-        <h2>A propos de nous</h2>
-        <div class="about">
-            <img src="image/IMG-20250128-WA0050.jpg" alt="Electrician">
-            <p>Bienvenue chez MED (Master engineering DRC), votre expert de confiance pour tous vos besoins électriques. Depuis 2023, nous offrons des solutions complètes et fiables pour les particuliers, les entreprises et les industries.</p>
+        <div class="step">
+          <div class="num">2</div>
+          <h4>Installation</h4>
+          <small>Traçage/saignées, pose des conduits & câbles, tableaux, éclairage, essais.</small>
         </div>
-    </section>
-
-    <section class="produits">
-        <p>Nos Services</p>
-    </section>
-
-    <section class="services-section">
-        <div class="services">
-            <div>
-                <h3>1. Installation électrique</h3>
-                <p>Mise en place de systèmes électriques résidentiels, commerciaux et industriels conformes aux normes de sécurité.</p>
-            </div>
-            <div>
-                <h3>2. Entretien et réparation</h3>
-                <p>Diagnostic et résolution rapide des pannes pour garantir un fonctionnement optimal de vos équipements.</p>
-            </div>
-            <div>
-                <h3>3. Mise aux normes</h3>
-                <p>Mise à jour des installations électriques anciennes pour les rendre conformes aux réglementations en vigueur.</p>
-            </div>
-            <div>
-                <h3>4. Éclairage</h3>
-                <p>Installation d'éclairages modernes, intérieurs et extérieurs, pour améliorer votre espace et réduire votre consommation d'énergie.</p>
-            </div>
-            <div>
-                <h3>5. Énergies renouvelables</h3>
-                <p>Installation de panneaux solaires et systèmes d'énergie renouvelable pour réduire votre empreinte carbone.</p>
-            </div>
-            <div>
-                <h3>6. Tableaux électriques</h3>
-                <p>Conception, installation et entretien de tableaux électriques pour assurer une distribution fiable de l'énergie.</p>
-            </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h4>Recette & garantie</h4>
+          <small>PV de tests, schémas, mise en service, garantie 6 mois (dommages mineurs).</small>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section class="works-section">
-        <h2>Nos Réalisations</h2>
-        <div class="gallery">
-            <img src="image/IMG-20250128-WA0046.jpg" alt="Work 1">
-            <img src="image/IMG-20250128-WA0052.jpg" alt="Work 2">
-            <img src="image/IMG-20250128-WA0042.jpg" alt="Work 3">
-            <img src="image/IMG-20250128-WA0053.jpg" alt="Work 4">
-            <img src="image/IMG-20250128-WA0043.jpg" alt="Work 5">
-            <img src="image/IMG-20250128-WA0044.jpg" alt="Work 6">
-            <img src="image/IMG-20250128-WA0047.jpg" alt="Work 7">
-            <img src="image/IMG-20250128-WA0048.jpg" alt="Work 8">
+  <!-- ===== Réalisations ===== -->
+ <section id="realisations" class="section">
+  <div class="container">
+    <h2 class="title">Réalisations récentes</h2>
+    <p class="subtitle">Un aperçu de nos chantiers. Cliquez pour agrandir.</p>
+    <div class="gallery">
+      <!-- IMPORTANT : index.html est dans "page web med/", les images sont dans "image/" à la racine -->
+      <!-- On a renommé les fichiers pour éviter les espaces et caractères spéciaux -->
+      <a class="gl" href="#" data-img="image/IMG-20250128-WA0042.jpg"><img loading="lazy" src="image/IMG-20250128-WA0042.jpg" alt="Installation 1"></a>
+      <a class="gl" href="#" data-img="image/IMG-20250128-WA0052.jpg"><img loading="lazy" src="image/IMG-20250128-WA0052.jpg" alt="Installation 2"></a>
+      <a class="gl" href="#" data-img="image/IMG-20250128-WA0043.jpg"><img loading="lazy" src="image/IMG-20250128-WA0043.jpg" alt="Installation 3"></a>
+      <a class="gl" href="#" data-img="image/IMG-20250128-WA0053.jpg"><img loading="lazy" src="image/IMG-20250128-WA0053.jpg" alt="Installation 4"></a>
+      <a class="gl" href="#" data-img="image/IMG-20250128-WA0044.jpg"><img loading="lazy" src="image/IMG-20250128-WA0044.jpg" alt="Installation 5"></a>
+      <a class="gl" href="#" data-img="image/IMG-20250128-WA0047.jpg"><img loading="lazy" src="image/IMG-20250128-WA0047.jpg" alt="Installation 6"></a>
+      <a class="gl" href="#" data-img="image/IMG-20250128-WA0048.jpg"><img loading="lazy" src="image/IMG-20250128-WA0048.jpg" alt="Installation 7"></a>
+      <a class="gl" href="#" data-img="image/IMG-20250128-WA0052.jpg"><img loading="lazy" src="image/IMG-20250128-WA0052.jpg" alt="Installation 8"></a>
+    </div>
+  </div>
+</section>
+
+  <!-- ===== Simulateur de consommation ===== -->
+  <section id="simulateur" class="section" style="background:#0b1220;color:#e5e7eb">
+    <div class="container">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:10px">
+        <h2 class="title" style="color:#7dd3fc">Simulateur rapide</h2>
+        <span class="tag">Estimez kWh & coût – indicatif</span>
+      </div>
+      <div class="sim">
+        <div class="panel">
+          <div class="field">
+            <label>Puissance de l'appareil (W)</label>
+            <input id="watt" type="number" placeholder="Ex: 1200" value="1200" />
+          </div>
+          <div class="field">
+            <label>Heures par jour</label>
+            <input id="hours" type="number" placeholder="Ex: 3" value="3" />
+          </div>
+          <div class="field">
+            <label>Nombre de jours</label>
+            <input id="days" type="number" placeholder="Ex: 30" value="30" />
+          </div>
+          <div class="field">
+            <label>Tarif (USD/kWh) – modifiable</label>
+            <input id="tarif" type="number" step="0.001" value="0.25" />
+          </div>
+          <button class="btn btn-primary" id="calcBtn">Calculer</button>
         </div>
-    </section>
-
-    <section class="calculatrice-section">
-        <h2>Simulateur de consommation</h2>
-        <label for="sourceSelect">Choisissez votre source d'énergie :</label>
-        <select id="sourceSelect" onchange="chargerFormulaire()">
-            <option value="">-- Sélectionnez --</option>
-            <option value="solaire">☀️ Panneaux solaires</option>
-            <option value="groupe">🔌 Groupe électrogène</option>
-            <option value="batterie">🔋 Batterie seule</option>
-            <option value="reseau">⚡ Réseau électrique</option>
-        </select>
-
-        <div id="formulaireContainer" style="margin-top: 30px;"></div>
-        </section>
-
-
-    <section class="contact">
-        <form>
-            <h2>Envoyer un message</h2>
-            <input type="text" placeholder="Nom">
-            <input type="email" placeholder="Email">
-            <textarea placeholder="Message"></textarea>
-            <button type="submit">Envoyer</button>
-        </form>
-        <div class="info">
-            <h3>Contact</h3>
-            <p>WhatsApp : 0990880720</p>
-            <p>📞 Tél : +243 844 894 508</p>
-            <p>📞 Tél : +243 900 174 502</p>
+        <div class="panel">
+          <p class="subtitle">Résultat</p>
+          <div class="result" id="kwh">0.00 kWh</div>
+          <div class="result" id="cost">$0.00</div>
+          <small>Formule: kWh = (W/1000) × h × jours. Coût = kWh × tarif.</small>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <footer>
-        <p>© 2025 Electrician Services - Tous droits réservés</p>
-    </footer>
-    <button id="topBtn" title="Retour en haut">↑</button>
+  <!-- ===== Avis clients ===== -->
+  <section class="section">
+    <div class="container">
+      <h2 class="title">Avis clients</h2>
+      <p class="subtitle">La satisfaction au cœur de notre travail.</p>
+      <div class="carousel" aria-label="Avis MED">
+        <article class="review"><div class="stars">★★★★★</div><p>Installation solaire impeccable, baisse de la facture et zéro coupure. Merci l'équipe MED !</p><small>— Mme K., Lubumbashi</small></article>
+        <article class="review"><div class="stars">★★★★★</div><p>Dépannage en urgence sur tableau : diagnostic clair et remise aux normes le jour même.</p><small>— J. M., Golf</small></article>
+        <article class="review"><div class="stars">★★★★☆</div><p>Chantier propre et bien documenté, j'ai reçu les schémas et un rapport complet.</p><small>— Waffle Security</small></article>
+      </div>
+    </div>
+  </section>
 
-    <script src="formulaire.js"></script>
-    <script>
-        async function chargerFormulaire() {
-            const container = document.getElementById('formulaireContainer');
-            const choix = document.getElementById('sourceSelect').value;
-            let url = "";
+  <!-- ===== FAQ ===== -->
+  <section class="section faq" style="background:#eef2f5">
+    <div class="container">
+      <h2 class="title">Questions fréquentes</h2>
+      <details>
+        <summary>Proposez-vous des contrats de maintenance ?</summary>
+        <p>Oui. Préventif (visites planifiées) et curatif (interventions rapides). Remises pour sites multi‑points.</p>
+      </details>
+      <details>
+        <summary>Faites-vous des installations solaires hybrides ?</summary>
+        <p>Oui : onduleurs hybrides, batteries Li‑ion, priorités réseau/groupe/solaire selon votre profil de charge.</p>
+      </details>
+      <details>
+        <summary>Quelles garanties ?</summary>
+        <p>Garantie 6 mois sur nos travaux (dommages mineurs) + garanties constructeur sur le matériel.</p>
+      </details>
+    </div>
+  </section>
 
-            switch (choix) {
-            case "solaire":
-                url = "formulaire/formulaire_solaire.html";
-                break;
-            case "groupe":
-                url = "formulaire/formulaire_groupe.html";
-                break;
-            case "batterie":
-                url = "formulaire/formulaire_batterie.html";
-                break;
-            case "reseau":
-                url = "formulaire/formulaire_reseau.html";
-                break;
-            default:
-                container.innerHTML = "";
-                return;
-            }
+  <!-- ===== Devis / Contact ===== -->
+ <!-- ===== Section Contact ===== -->
+<section id="contact" class="section" style="background:linear-gradient(135deg,#012b52,#004080);color:#e5f4ff">
+  <div class="container">
+    <h2 class="title" style="color:#a7f3d0">Contact direct</h2>
+    <p class="subtitle">Cliquez sur un numéro ou un lien pour nous joindre immédiatement.</p>
 
-            try {
-            const res = await fetch(url);
-            const html = await res.text();
-            container.innerHTML = html;
-            } catch (err) {
-            console.error("Erreur lors du chargement du formulaire :", err);
-            container.innerHTML = "<p style='color: red;'>Impossible de charger le formulaire.</p>";
-            }
-        }
+    <div style="margin-bottom:20px;font-size:1.1rem;line-height:1.8">
+      <p><strong>📞 Téléphone :</strong> <a href="tel:+243844894508" style="color:#a7f3d0">+243 844 894 508</a> | <a href="tel:+243900174502" style="color:#a7f3d0">+243 900 174 502</a></p>
+      <p><strong>💬 WhatsApp :</strong> <a href="https://wa.me/243990880720" target="_blank" style="color:#a7f3d0">+243 990 880 720</a></p>
+      <p><strong>🌐 Site web :</strong> <a href="https://med-electricite.com" target="_blank" style="color:#a7f3d0">med-electricite.com</a></p>
+      <p><strong>🔗 Facebook :</strong> <a href="https://facebook.com/MEDLubumbashi" target="_blank" style="color:#a7f3d0">facebook.com/MEDLubumbashi</a></p>
+    </div>
 
-       let topBtn = document.getElementById("topBtn");
+    <form class="contact" id="devisForm">
+      <input name="name" required placeholder="Votre nom" />
+      <input name="phone" required placeholder="Téléphone / WhatsApp" />
+      <select name="service" required>
+        <option value="">Choisir un service…</option>
+        <option>Installation électrique</option>
+        <option>Maintenance / Dépannage</option>
+        <option>Mise aux normes</option>
+        <option>Éclairage LED</option>
+        <option>Solaire / Hybride</option>
+        <option>Tableaux & Comptage</option>
+      </select>
+      <textarea name="message" rows="4" placeholder="Décrivez le site, la puissance approximative, les délais…"></textarea>
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+        <button class="btn btn-ghost" type="reset">Effacer</button>
+        <button class="btn btn-primary" type="submit">Envoyer la demande</button>
+        <a id="waQuick" class="btn btn-ghost" href="#">WhatsApp direct</a>
+      </div>
+      <small id="formMsg"></small>
+    </form>
+  </div>
+</section>
 
-       window.onscroll = function () {
-          if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
-             topBtn.style.display = "block";
-          } else {
-              topBtn.style.display = "none";
-        }
-        };
 
-        topBtn.onclick = function () {
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-       };
-</script>
+  <!-- ===== Footer ===== -->
+  <footer>
+    <div class="container cols">
+      <div>
+        <strong>MED • Master Engineering DRC</strong>
+        <small>CD/LSH/RCCM/25-B-00693</small>
+        <small>Lubumbashi — Interventions Kolwezi & région</small>
+      </div>
+      <div>
+        <strong>Contact</strong>
+        <small>📞 +243 844 894 508</small>
+        <small>📞 +243 900 174 502</small>
+        <small>✉️ masterengineeringdrc1@gmail.com</small>
+      </div>
+      <div>
+        <strong>Horaires</strong>
+        <small>Lun–Sam : 8h–17h</small>
+        <small>Urgences sous contrat</small>
+      </div>
+      <div>
+        <strong>Légal</strong>
+        <small>© 2025 — Tous droits réservés</small>
+        <small>Conformité & sécurité électrique</small>
+      </div>
+    </div>
+  </footer>
 
+  <!-- Floating actions -->
+  <div class="float-wa">
+    <a class="fab" title="Écrire sur WhatsApp" aria-label="WhatsApp" href="https://wa.me/243990880720" target="_blank" rel="noopener">🟢</a>
+    <a class="fab to-top" title="Haut de page" aria-label="Haut" href="#">↑</a>
+  </div>
+
+  <!-- Lightbox -->
+  <dialog class="lightbox" id="lightbox"><img id="lightImg" alt="Photo chantier"/></dialog>
+
+  <script>
+    // ===== Gallery lightbox =====
+    const dlg = document.getElementById('lightbox');
+    const lightImg = document.getElementById('lightImg');
+    document.querySelectorAll('.gl').forEach(a=>{
+      a.addEventListener('click', e=>{e.preventDefault();lightImg.src=a.dataset.img;dlg.showModal();})
+    });
+    dlg?.addEventListener('click', () => dlg.close());
+
+    // ===== Simulateur (section & bouton dans le hero) =====
+    document.getElementById('openSim')?.addEventListener('click',()=>{
+      document.getElementById('simulateur')?.scrollIntoView({behavior:'smooth'});
+    });
+    const fmt = n => Number(n).toLocaleString(undefined,{maximumFractionDigits:2});
+    document.getElementById('calcBtn')?.addEventListener('click',()=>{
+      const W = +document.getElementById('watt').value||0;
+      const h = +document.getElementById('hours').value||0;
+      const d = +document.getElementById('days').value||0;
+      const t = +document.getElementById('tarif').value||0;
+      const kwh = (W/1000) * h * d;
+      const cost = kwh * t;
+      document.getElementById('kwh').textContent = fmt(kwh) + ' kWh';
+      document.getElementById('cost').textContent = '$' + fmt(cost);
+    });
+
+    // ===== Formulaire devis: lien WhatsApp auto-rempli + fallback mailto =====
+    const f = document.getElementById('devisForm');
+    const msg = document.getElementById('formMsg');
+    const waQuick = document.getElementById('waQuick');
+    const waNumber = '243990880720';
+    f?.addEventListener('input',()=>{
+      const data = new FormData(f);
+      const text = `Bonjour MED, je souhaite un devis pour: ${data.get('service')||''}%0A`+
+                   `Nom: ${data.get('name')||''}%0A`+
+                   `Téléphone: ${data.get('phone')||''}%0A`+
+                   `Détails: ${encodeURIComponent(data.get('message')||'')}%0A`;
+      waQuick.href = `https://wa.me/${waNumber}?text=${text}`;
+    });
+    f?.addEventListener('submit',(e)=>{
+      e.preventDefault();
+      const data = new FormData(f);
+      const body = `Nom: ${data.get('name')}%0A`+
+                   `Téléphone: ${data.get('phone')}%0A`+
+                   `Service: ${data.get('service')}%0A`+
+                   `Message: ${encodeURIComponent(data.get('message')||'')}`;
+      location.href = `mailto:masterengineeringdrc1@gmail.com?subject=Demande de devis MED&body=${body}`;
+      msg.textContent = 'Ouverture de votre application mail… Vous pouvez aussi cliquer sur "WhatsApp direct".';
+    });
+  </script>
 </body>
 </html>
