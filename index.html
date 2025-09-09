@@ -639,6 +639,19 @@
         <small class="text-muted dark:text-gray-300">— Waffle Security</small>
       </article>
     </div>
+
+    <div class="flex gap-3 overflow-x-auto pb-2 snap-x" id="reviewsList">
+  <!-- ... tes <article> d'avis existants ... -->
+    </div>
+
+<!-- Bouton pour ouvrir le formulaire d'avis -->
+    <div class="mt-4">
+      <button id="openReview"
+       class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">
+       Laisser un avis
+      </button>
+    </div>
+
   </div>
 </section>
 
@@ -752,6 +765,35 @@
 
   <!-- ===== Lightbox ===== -->
   <dialog class="lightbox" id="lightbox"><img id="lightImg" alt="Photo chantier"/></dialog>
+
+  <!-- ===== Modal : Laisser un avis ===== -->
+<dialog class="lightbox" id="reviewDlg">
+  <form id="reviewForm" class="p-5 sm:p-6 bg-white rounded-xl text-ink grid gap-3 min-w-[min(92vw,520px)]">
+    <h3 class="text-lg font-bold">Laisser un avis</h3>
+
+    <input name="name" required placeholder="Votre nom"
+           class="p-3 rounded-lg border border-gray-300" />
+
+    <div class="flex items-center gap-2">
+      <span class="font-semibold">Note :</span>
+      <div id="stars" class="flex gap-1 text-2xl select-none"></div>
+      <input type="hidden" name="rating" id="rating" value="5" />
+    </div>
+
+    <textarea name="message" rows="4" required placeholder="Votre message…"
+              class="p-3 rounded-lg border border-gray-300"></textarea>
+
+    <div class="grid gap-2 sm:flex sm:justify-end">
+      <button type="button" id="reviewMail"
+              class="px-3 py-2 rounded-lg border border-black text-brand font-semibold">Envoyer par e-mail</button>
+      <button type="button" id="reviewWA"
+              class="px-3 py-2 rounded-lg border border-yellowBrand text-yellowBrand font-semibold">Envoyer par WhatsApp</button>
+      <button type="button" id="reviewCancel"
+              class="px-3 py-2 rounded-lg border border-gray-300">Annuler</button>
+    </div>
+  </form>
+</dialog>
+
 
   <!-- ===== JS ===== -->
   <script>
@@ -1130,6 +1172,70 @@
     document.getElementById('s9_tot').textContent = `L1: ${fmt(S[0])} W | L2: ${fmt(S[1])} W | L3: ${fmt(S[2])} W`;
     document.getElementById('s9_imb').textContent = `Déséquilibre ≈ ${fmt(imb)} %`;
     document.getElementById('s9_sug').textContent = sug;
+  });
+
+
+
+   // ----- Avis clients : ouverture/fermeture du modal -----
+  const openReview = document.getElementById('openReview');
+  const reviewDlg  = document.getElementById('reviewDlg');
+  const reviewCancel = document.getElementById('reviewCancel');
+
+  openReview?.addEventListener('click', () => reviewDlg.showModal());
+  reviewCancel?.addEventListener('click', () => reviewDlg.close());
+  // Ferme en cliquant hors du formulaire
+  reviewDlg?.addEventListener('click', (e) => { if (e.target === reviewDlg) reviewDlg.close(); });
+
+  // ----- Étoiles cliquables -----
+  const starsEl = document.getElementById('stars');
+  const ratingInput = document.getElementById('rating');
+
+  function renderStars(r){
+    // recrée 5 spans à chaque fois pour être simple et fiable
+    starsEl.innerHTML = '';
+    for(let i=1;i<=5;i++){
+      const s = document.createElement('span');
+      s.textContent = i <= r ? '★' : '☆';
+      s.dataset.v = i;
+      s.className = 'cursor-pointer';
+      starsEl.appendChild(s);
+    }
+    ratingInput.value = r;
+  }
+  if (starsEl) {
+    renderStars(5);
+    starsEl.addEventListener('click', (e) => {
+      const v = +e.target?.dataset?.v;
+      if (v) renderStars(v);
+    });
+  }
+
+  // ----- Envoi WhatsApp ou e-mail -----
+  const reviewForm = document.getElementById('reviewForm');
+  const reviewWA   = document.getElementById('reviewWA');
+  const reviewMail = document.getElementById('reviewMail');
+
+  function getReviewPayload(){
+    const data = new FormData(reviewForm);
+    const name = (data.get('name')||'').toString().trim();
+    const rating = (data.get('rating')||'5').toString();
+    const msg = (data.get('message')||'').toString().trim();
+    return { name, rating, msg };
+  }
+
+  reviewWA?.addEventListener('click', () => {
+    const { name, rating, msg } = getReviewPayload();
+    const text = `Nouvel avis%0A%0ANom: ${encodeURIComponent(name)}%0ANote: ${rating}/5%0AMessage:%0A${encodeURIComponent(msg)}`;
+    const wa = `https://wa.me/${waNumber}?text=${text}`;
+    window.open(wa, '_blank');
+    reviewDlg.close();
+  });
+
+  reviewMail?.addEventListener('click', () => {
+    const { name, rating, msg } = getReviewPayload();
+    const body = `Nom: ${encodeURIComponent(name)}%0ANote: ${encodeURIComponent(rating)}/5%0A%0A${encodeURIComponent(msg)}`;
+    location.href = `mailto:masterengineeringdrc1@gmail.com?subject=Avis client MED&body=${body}`;
+    reviewDlg.close();
   });
 </script>
 </body>
