@@ -1335,16 +1335,27 @@
   }
 
   function appendReviewToList({name, rating, message, date}){
-    const list = document.getElementById('reviewsList');
+    
     if (!list) return;
     const wrap = document.createElement('article');
     wrap.className = "snap-start min-w-[280px] sm:min-w-[320px] bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-xl p-5 shadow-card dark:text-white";
-    const stars = document.createElement('div'); stars.innerHTML = starsHTMLDisplay(rating);
-    const p = document.createElement('p'); p.textContent = message || '';
-    const small = document.createElement('small'); small.className="text-muted dark:text-gray-300";
+    
+    const stars = document.createElement('div'); 
+    stars.innerHTML = starsHTML(rating);
+    
+    const p = document.createElement('p'); 
+    p.textContent = String(message || '');
+    
+    const small = document.createElement('small'); 
+    small.className="text-muted dark:text-gray-300";
+    
     const dateStr = date ? new Date(date).toLocaleDateString(undefined,{year:'numeric',month:'2-digit',day:'2-digit'}) : '';
     small.textContent = `— ${name || 'Client'}${dateStr ? ' • '+dateStr : ''}`;
-    wrap.appendChild(stars); wrap.appendChild(p); wrap.appendChild(small);
+    
+    wrap.appendChild(stars); 
+    wrap.appendChild(p); 
+    wrap.appendChild(small);
+    
     list.prepend(wrap); // tout en haut
   }
 
