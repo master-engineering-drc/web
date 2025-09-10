@@ -622,24 +622,7 @@
   <div class="container max-w-6xl">
     <h2 class="text-2xl sm:text-3xl font-bold text-brand mb-2">Avis clients</h2>
     <p class="text-muted mb-6">La satisfaction au cœur de notre travail.</p>
-    <div class="flex gap-3 overflow-x-auto pb-2 snap-x">
-      <article class="snap-start min-w-[280px] sm:min-w-[320px] bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-xl p-5 shadow-card dark:text-white">
-        <div class="text-yellowBrand">★★★★★</div>
-        <p>Installation solaire impeccable, baisse de la facture et zéro coupure. Merci l'équipe MED !</p>
-        <small class="text-muted dark:text-gray-300">— Mme K., Lubumbashi</small>
-      </article>
-      <article class="snap-start min-w-[280px] sm:min-w-[320px] bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-xl p-5 shadow-card dark:text-white">
-        <div class="text-yellowBrand">★★★★★</div>
-        <p>Dépannage en urgence sur tableau : diagnostic clair et remise aux normes le jour même.</p>
-        <small class="text-muted dark:text-gray-300">— J. M., Golf</small>
-      </article>
-      <article class="snap-start min-w-[280px] sm:min-w-[320px] bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-xl p-5 shadow-card dark:text-white">
-        <div class="text-yellowBrand">★★★★☆</div>
-        <p>Chantier propre et bien documenté, j'ai reçu les schémas et un rapport complet.</p>
-        <small class="text-muted dark:text-gray-300">— Waffle Security</small>
-      </article>
-    </div>
-
+    
     <div class="flex gap-3 overflow-x-auto pb-2 snap-x" id="reviewsList">
   <!-- ... tes <article> d'avis existants ... -->
     </div>
@@ -772,24 +755,41 @@
     <h3 class="text-lg font-bold">Laisser un avis</h3>
 
     <input name="name" required placeholder="Votre nom"
-           class="p-3 rounded-lg border border-gray-300" />
+          class="p-3 rounded-lg border border-gray-300"  />
 
     <div class="flex items-center gap-2">
       <span class="font-semibold">Note :</span>
       <div id="stars" class="flex gap-1 text-2xl select-none"></div>
-      <input type="hidden" name="rating" id="rating" value="5" />
+      <input type="hidden" name="rating" id="rating" value="5" required/>
     </div>
 
     <textarea name="message" rows="4" required placeholder="Votre message…"
               class="p-3 rounded-lg border border-gray-300"></textarea>
 
+    <div class="sr-only" aria-hidden="true">
+      <label>Site web <input type="text" name="website" id="hp_website" tabindex="-1" autocomplete="off"></label>
+    </div>
+
     <div class="grid gap-2 sm:flex sm:justify-end">
       <button type="button" id="reviewMail"
-              class="px-3 py-2 rounded-lg border border-black text-brand font-semibold">Envoyer par e-mail</button>
+        class="px-3 py-2 rounded-lg border border-black text-brand font-semibold">
+        Envoyer par e-mail
+      </button>
+
       <button type="button" id="reviewWA"
-              class="px-3 py-2 rounded-lg border border-yellowBrand text-yellowBrand font-semibold">Envoyer par WhatsApp</button>
+        class="px-3 py-2 rounded-lg border border-yellowBrand text-yellowBrand font-semibold">
+        Envoyer par WhatsApp
+      </button>
+
+      <button type="button" id="reviewPublish"
+        class="px-3 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold">
+        Publier sur le site
+      </button>
+
       <button type="button" id="reviewCancel"
-              class="px-3 py-2 rounded-lg border border-gray-300">Annuler</button>
+        class="px-3 py-2 rounded-lg border border-gray-300">
+        Annuler
+      </button>
     </div>
   </form>
 </dialog>
@@ -797,66 +797,102 @@
 
   <!-- ===== JS ===== -->
   <script>
-    // Menu mobile
-    const navToggle = document.getElementById('navToggle');
-    const mobileMenu = document.getElementById('mobileMenu');
-    navToggle?.addEventListener('click', () => {
-      const isHidden = mobileMenu.classList.contains('hidden');
-      mobileMenu.classList.toggle('hidden');
-      navToggle.setAttribute('aria-expanded', String(isHidden));
-    });
+  // Menu mobile
+  const navToggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  navToggle?.addEventListener('click', () => {
+    const isHidden = mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    navToggle.setAttribute('aria-expanded', String(isHidden));
+  });
 
-    // Gallery lightbox
-    const dlg = document.getElementById('lightbox');
-    const lightImg = document.getElementById('lightImg');
-    document.querySelectorAll('.gl').forEach(a=>{
-      a.addEventListener('click', e=>{e.preventDefault();lightImg.src=a.dataset.img;dlg.showModal();})
-    });
-    dlg?.addEventListener('click', () => dlg.close());
+  // Gallery lightbox
+  const dlg = document.getElementById('lightbox');
+  const lightImg = document.getElementById('lightImg');
+  document.querySelectorAll('.gl').forEach(a=>{
+    a.addEventListener('click', e=>{e.preventDefault();lightImg.src=a.dataset.img;dlg.showModal();})
+  });
+  dlg?.addEventListener('click', () => dlg.close());
 
-    // Hero -> scroll vers simulateur
-    document.getElementById('openSim')?.addEventListener('click',()=>{
-      document.getElementById('simulateur')?.scrollIntoView({behavior:'smooth'});
-    });
+  // Hero -> scroll vers simulateur
+  document.getElementById('openSim')?.addEventListener('click',()=>{
+    document.getElementById('simulateur')?.scrollIntoView({behavior:'smooth'});
+  });
 
-    // Simulateur
-    const fmt = n => Number(n).toLocaleString(undefined,{maximumFractionDigits:2});
-    document.getElementById('calcBtn')?.addEventListener('click',()=>{
-      const W = +document.getElementById('watt').value||0;
-      const h = +document.getElementById('hours').value||0;
-      const d = +document.getElementById('days').value||0;
-      const t = +document.getElementById('tarif').value||0;
-      const kwh = (W/1000) * h * d;
-      const cost = kwh * t;
-      document.getElementById('kwh').textContent = fmt(kwh) + ' kWh';
-      document.getElementById('cost').textContent = 'FC' + fmt(cost);
-    });
+  // Simulateur
+  const fmt = n => Number(n).toLocaleString(undefined,{maximumFractionDigits:2});
+  document.getElementById('calcBtn')?.addEventListener('click',()=>{
+    const W = +document.getElementById('watt').value||0;
+    const h = +document.getElementById('hours').value||0;
+    const d = +document.getElementById('days').value||0;
+    const t = +document.getElementById('tarif').value||0;
+    const kwh = (W/1000) * h * d;
+    const cost = kwh * t;
+    document.getElementById('kwh').textContent = fmt(kwh) + ' kWh';
+    document.getElementById('cost').textContent = 'FC' + fmt(cost);
+  });
 
-    // Devis: WhatsApp auto + fallback mailto
-    const f = document.getElementById('devisForm');
-    const msg = document.getElementById('formMsg');
-    const waQuick = document.getElementById('waQuick');
-    const waNumber = '243990880720';
-    f?.addEventListener('input',()=>{
-      const data = new FormData(f);
-      const text = `Bonjour MED, je souhaite un devis pour: ${data.get('service')||''}%0A`+
-                   `Nom: ${data.get('name')||''}%0A`+
-                   `Téléphone: ${data.get('phone')||''}%0A`+
-                   `Détails: ${encodeURIComponent(data.get('message')||'')}%0A`;
-      waQuick.href = `https://wa.me/${waNumber}?text=${text}`;
-    });
-    f?.addEventListener('submit',(e)=>{
+  // Devis: WhatsApp auto + fallback mailto (avec validation)
+  const f = document.getElementById('devisForm');
+  const msg = document.getElementById('formMsg');
+  const waQuick = document.getElementById('waQuick');
+  const waNumber = '243990880720';
+
+  // Construit le lien WA à partir du formulaire
+  function buildWAFromForm(form){
+    const data = new FormData(form);
+    const text = `Bonjour MED, je souhaite un devis pour: ${data.get('service')||''}%0A`+
+                 `Nom: ${data.get('name')||''}%0A`+
+                 `Téléphone: ${data.get('phone')||''}%0A`+
+                 `Détails: ${encodeURIComponent(data.get('message')||'')}%0A`;
+    return `https://wa.me/${waNumber}?text=${text}`;
+  }
+
+  // Active/désactive le bouton WhatsApp selon la validité
+  function refreshWAQuick(){
+    if (f?.checkValidity()) {
+      waQuick.href = buildWAFromForm(f);
+      waQuick.removeAttribute('aria-disabled');
+      waQuick.classList.remove('opacity-60','pointer-events-none');
+    } else {
+      waQuick.href = '#';
+      waQuick.setAttribute('aria-disabled','true');
+      waQuick.classList.add('opacity-60','pointer-events-none');
+    }
+  }
+
+  f?.addEventListener('input',()=>{
+    refreshWAQuick();
+  });
+
+  // Empêche le clic WA si formulaire incomplet
+  waQuick?.addEventListener('click',(e)=>{
+    if (!f?.checkValidity()) {
       e.preventDefault();
-      const data = new FormData(f);
-      const body = `Nom: ${data.get('name')}%0A`+
-                   `Téléphone: ${data.get('phone')}%0A`+
-                   `Service: ${data.get('service')}%0A`+
-                   `Message: ${encodeURIComponent(data.get('message')||'')}`;
-      location.href = `mailto:masterengineeringdrc1@gmail.com?subject=Demande de devis MED&body=${body}`;
-      msg.textContent = 'Ouverture de votre application mail… Vous pouvez aussi cliquer sur "WhatsApp direct".';
-    });
+      f.reportValidity();
+      msg.textContent = 'Complétez les champs requis avant d’envoyer par WhatsApp.';
+    }
+  });
+
+  // Soumission par e-mail : bloque si invalide
+  f?.addEventListener('submit',(e)=>{
+    if (!f.checkValidity()) {
+      e.preventDefault();
+      f.reportValidity();
+      msg.textContent = 'Veuillez compléter tous les champs requis.';
+      return;
+    }
+    e.preventDefault();
+    const data = new FormData(f);
+    const body = `Nom: ${data.get('name')}%0A`+
+                 `Téléphone: ${data.get('phone')}%0A`+
+                 `Service: ${data.get('service')}%0A`+
+                 `Message: ${encodeURIComponent(data.get('message')||'')}`;
+    location.href = `mailto:masterengineeringdrc1@gmail.com?subject=Demande de devis MED&body=${body}`;
+    msg.textContent = 'Ouverture de votre application mail… Vous pouvez aussi cliquer sur "WhatsApp direct".';
+  });
+
   // ---------- Helpers ----------
-  // const fmt = n => Number(n).toLocaleString(undefined,{maximumFractionDigits:2});
   const val = id => +document.getElementById(id).value || 0;
 
   // ---------- Onglets + explications dynamiques ----------
@@ -867,7 +903,6 @@
   const expEx    = document.getElementById('exp-example');
   const fillBtn  = document.getElementById('fillExampleBtn');
 
-  // Contenu d'explication & fonctions "Remplir l'exemple"
   const EXPLAINS = {
     '#sim1': {
       title: 'Conso & coût (1 appareil)',
@@ -1058,7 +1093,6 @@
   }
 
   tabs.forEach(b => b.addEventListener('click', () => activateTab(b.dataset.target)));
-  // Activer le premier par défaut
   activateTab('#sim1');
 
   // ---------- Calculs ----------
@@ -1174,43 +1208,255 @@
     document.getElementById('s9_sug').textContent = sug;
   });
 
-
-
-   // ----- Avis clients : ouverture/fermeture du modal -----
+  // ----- Avis clients : ouverture/fermeture du modal -----
   const openReview = document.getElementById('openReview');
   const reviewDlg  = document.getElementById('reviewDlg');
   const reviewCancel = document.getElementById('reviewCancel');
 
-  openReview?.addEventListener('click', () => reviewDlg.showModal());
+  openReview?.addEventListener('click', () => {
+    reviewDlg.showModal();
+    // Réinitialise le formulaire
+    document.getElementById('reviewForm').reset();
+    // Par défaut: aucune note sélectionnée (oblige l’utilisateur à choisir)
+    setRating(0);
+  });
   reviewCancel?.addEventListener('click', () => reviewDlg.close());
-  // Ferme en cliquant hors du formulaire
   reviewDlg?.addEventListener('click', (e) => { if (e.target === reviewDlg) reviewDlg.close(); });
 
   // ----- Étoiles cliquables -----
   const starsEl = document.getElementById('stars');
   const ratingInput = document.getElementById('rating');
 
+  // Injecte un peu de CSS pour l'effet "moitié remplie"
+(() => {
+  const style = document.createElement('style');
+  style.textContent = `
+    #stars{display:flex;gap:.25rem}
+    #stars .star{position:relative;font-size:1.75rem;line-height:1;cursor:pointer;color:#d1d5db;user-select:none}
+    #stars .star::before{content:"★";position:absolute;inset:0;width:var(--fill,0%);overflow:hidden;color:#fbbf24}
+    #stars .star:focus{outline:2px solid #fbbf24;outline-offset:2px;border-radius:.25rem}
+  `;
+  document.head.appendChild(style);
+})();
+
   function renderStars(r){
-    // recrée 5 spans à chaque fois pour être simple et fiable
     starsEl.innerHTML = '';
     for(let i=1;i<=5;i++){
       const s = document.createElement('span');
-      s.textContent = i <= r ? '★' : '☆';
-      s.dataset.v = i;
-      s.className = 'cursor-pointer';
+      s.className = 'star';
+      s.textContent = '★';            // étoile de base grise
+      s.dataset.i = i;                // index 1..5
+      s.tabIndex = 0;
+      s.setAttribute('role','radio');
+      
+       // pour l'accessibilité, on marque “sélectionné” si on est sur l'étoile qui couvre la note
+      const checked = Math.ceil(r) === i;
+      s.setAttribute('aria-checked', String(checked));
+
+      // pourcentage de remplissage de CETTE étoile
+      const fillUnit = Math.max(0, Math.min(1, r - (i-1))); // 0..1
+      s.style.setProperty('--fill', (fillUnit*100)+'%');
+
+      // Clic: demi (gauche) / entier (droite)
+      s.addEventListener('click', (e)=>{
+        const rect = s.getBoundingClientRect();
+        const half = ((e.clientX - rect.left) / rect.width) <= 0.5 ? 0.5 : 1.0;
+        setRating((i-1) + half);
+      });
+
+      // Clavier: ←/→ par 0.5, Home=0, End=5, Entrée/Espace = 1.0 sur l’étoile focus
+      s.addEventListener('keydown',(e)=>{
+        let rNow = parseFloat(ratingInput.value||'0') || 0;
+        if(e.key==='ArrowRight'){ e.preventDefault(); setRating(Math.min(5, rNow+0.5)); }
+        else if(e.key==='ArrowLeft'){ e.preventDefault(); setRating(Math.max(0, rNow-0.5)); }
+        else if(e.key==='Home'){ e.preventDefault(); setRating(0); }
+        else if(e.key==='End'){ e.preventDefault(); setRating(5); }
+        else if(e.key==='Enter' || e.key===' '){ e.preventDefault(); setRating(i); }
+      });
+
       starsEl.appendChild(s);
     }
+
     ratingInput.value = r;
-  }
-  if (starsEl) {
-    renderStars(5);
-    starsEl.addEventListener('click', (e) => {
-      const v = +e.target?.dataset?.v;
-      if (v) renderStars(v);
-    });
+    // Custom validity si pas de note
+    if (r < 0.5) {
+      ratingInput.setCustomValidity('Veuillez sélectionner une note (0.5 à 5).');
+    } else {
+      ratingInput.setCustomValidity('');
+    }
   }
 
-  // ----- Envoi WhatsApp ou e-mail -----
+  function setRating(r){
+    const val = Math.max(0, Math.min(5, Math.round((Number(r)||0)*2)/2)); // arrondi aux 0.5
+    renderStars(val);
+  }
+
+  if (starsEl) {
+  // Par défaut: aucune note sélectionnée (oblige l’utilisateur à choisir)
+  setRating(0);
+
+  starsEl.addEventListener('click', (e) => {
+    const v = +e.target?.dataset?.v;
+    if (v) setRating(v);
+  });
+
+  // Support clavier (Entrée/Espace pour valider une étoile)
+  starsEl.addEventListener('keydown', (e) => {
+    const v = +e.target?.dataset?.v;
+    if (v && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault();
+      setRating(v);
+    }
+  });
+}
+
+// ===== Avis : charger depuis Google Sheets (Apps Script) =====
+(async function loadAndRenderReviews(){
+  const list = document.getElementById('reviewsList');
+  if (!list) return;
+
+  const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxvcaHqc3h2nl-3aNkPUE7uhyyVSmEhGAXKEpY-8FX2H2Tev1q1w6ryP3nzFtGZKtCSaw/exec'; // <-- remplace par ton URL /exec
+
+  // Petite étoile "moitié remplie" (lecture seule) — demi-notes OK
+  function starsHTML(r){
+    const safe = Math.max(0, Math.min(5, Number(r)||0));
+    let html = '<div class="flex items-center gap-0.5" aria-label="'+safe+' sur 5">';
+    for (let i=1;i<=5;i++){
+      const fill = Math.max(0, Math.min(1, safe - (i-1))); // 0..1
+      const pct = Math.round(fill*100);
+      html += `
+        <span class="relative inline-block align-middle" style="width:1.1em;line-height:1;">
+          <span style="color:#e5e7eb">★</span>
+          <span style="color:#FFD700;position:absolute;inset:0;width:${pct}%;overflow:hidden">★</span>
+        </span>`;
+    }
+    html += '</div>';
+    return html;
+  }
+
+  function appendReviewToList({name, rating, message, date}){
+    const list = document.getElementById('reviewsList');
+    if (!list) return;
+    const wrap = document.createElement('article');
+    wrap.className = "snap-start min-w-[280px] sm:min-w-[320px] bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-xl p-5 shadow-card dark:text-white";
+    const stars = document.createElement('div'); stars.innerHTML = starsHTMLDisplay(rating);
+    const p = document.createElement('p'); p.textContent = message || '';
+    const small = document.createElement('small'); small.className="text-muted dark:text-gray-300";
+    const dateStr = date ? new Date(date).toLocaleDateString(undefined,{year:'numeric',month:'2-digit',day:'2-digit'}) : '';
+    small.textContent = `— ${name || 'Client'}${dateStr ? ' • '+dateStr : ''}`;
+    wrap.appendChild(stars); wrap.appendChild(p); wrap.appendChild(small);
+    list.prepend(wrap); // tout en haut
+  }
+
+  // --- Publication depuis le modal ---
+  const reviewPublish = document.getElementById('reviewPublish');
+
+  reviewPublish?.addEventListener('click', async () => {
+    if (!validateReview()) return; // ta fonction existante (avec demi-étoiles)
+    const btn = reviewPublish;
+    const hp  = document.getElementById('hp_website')?.value || '';
+    const data = new FormData(reviewForm);
+    const name = (data.get('name')||'').toString().trim();
+    const rating = parseFloat((data.get('rating')||'0'));
+    const message = (data.get('message')||'').toString().trim();
+
+    // anti double-clic
+    btn.disabled = true;
+    const oldTxt = btn.textContent;
+    btn.textContent = 'Publication…';
+
+    try {
+      // Pas d'en-têtes custom !
+      // Le navigateur enverra application/x-www-form-urlencoded automatiquement.
+      const body = new URLSearchParams({
+        name, rating: String(rating), message, hp // hp = honeypot (vide)
+      });
+      const res = await fetch(ENDPOINT, { method:'POST', body });
+
+
+      let ok = res.ok;
+      let json = null;
+      try { json = await res.json(); if ('ok' in (json||{})) ok = !!json.ok; } catch {}
+
+      if (!ok) throw new Error((json && json.error) || ('HTTP '+res.status));
+
+      // Succès : ferme le modal, réinitialise, et ajoute visuellement l’avis
+      reviewDlg.close();
+      reviewForm.reset();
+      if (typeof setRating === 'function') setRating(0); // remet la note à 0 si tu utilises cette fonction
+      appendReviewToList({
+        name, rating, message,
+        date: (json && json.stored && json.stored.date) ? json.stored.date : new Date().toISOString()
+      });
+      alert('Merci ! Votre avis a été publié.');
+    } catch (err) {
+      alert("Échec de la publication de l'avis. Réessayez plus tard.");
+      console.error(err);
+    } finally {
+      btn.disabled = false;
+      btn.textContent = oldTxt;
+    }
+  });
+
+
+  function fmtDate(d){
+    const dt = new Date(d);
+    return isNaN(dt) ? (d||'') :
+      dt.toLocaleDateString(undefined, {year:'numeric', month:'2-digit', day:'2-digit'});
+  }
+
+  // Carte d'avis (sécurisée : texte injecté via textContent)
+  function card({name, rating, message, date}){
+    const wrap = document.createElement('article');
+    wrap.className = "snap-start min-w-[280px] sm:min-w-[320px] bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-xl p-5 shadow-card dark:text-white";
+    const stars = document.createElement('div');
+    stars.innerHTML = starsHTML(rating);
+    const p = document.createElement('p'); p.textContent = message || '';
+    const small = document.createElement('small'); small.className="text-muted dark:text-gray-300";
+    small.textContent = `— ${name || 'Client'}${date ? ' • '+fmtDate(date) : ''}`;
+    wrap.appendChild(stars); wrap.appendChild(p); wrap.appendChild(small);
+    return wrap;
+  }
+
+  // Loader
+  list.innerHTML = `
+    <article class="snap-start min-w-[280px] sm:min-w-[320px] bg-white/60 dark:bg-[#111827]/60 border border-dashed border-gray-300 rounded-xl p-5">
+      <small class="text-muted">Chargement des avis…</small>
+    </article>`;
+
+  try {
+    const res = await fetch(ENDPOINT, {cache:'no-store'});
+    if (!res.ok) throw new Error('HTTP '+res.status);
+    const rows = await res.json();
+
+    // Normalisation des clés (accepte: date/Date, name/Nom, rating/note, message/Message)
+    const items = (rows || []).map(x => ({
+      date:   x.date   ?? x.Date   ?? '',
+      name:   x.name   ?? x.Nom    ?? 'Client',
+      rating: parseFloat(x.rating ?? x.note ?? x.Rating ?? x.Note) || 0,
+      message:x.message?? x.Message?? ''
+    }));
+
+    // Tri par date desc si possible
+    items.sort((a,b)=>{
+      const A = new Date(a.date), B = new Date(b.date);
+      return (isNaN(B)-isNaN(A)) || (B - A);
+    });
+
+    list.innerHTML = '';
+    if (!items.length) {
+      list.innerHTML = '<p class="text-muted">Aucun avis pour le moment.</p>';
+      return;
+    }
+    items.forEach(r => list.appendChild(card(r)));
+  } catch (e) {
+    list.innerHTML = '<p class="text-muted">Impossible de charger les avis pour l’instant.</p>';
+    // console.warn(e);
+  }
+})();
+
+
+  // ----- Envoi WhatsApp ou e-mail (avec validation) -----
   const reviewForm = document.getElementById('reviewForm');
   const reviewWA   = document.getElementById('reviewWA');
   const reviewMail = document.getElementById('reviewMail');
@@ -1219,24 +1465,44 @@
     const data = new FormData(reviewForm);
     const name = (data.get('name')||'').toString().trim();
     const rating = (data.get('rating')||'5').toString();
-    const msg = (data.get('message')||'').toString().trim();
-    return { name, rating, msg };
+    const msgTxt = (data.get('message')||'').toString().trim();
+    return { name, rating, msgTxt };
   }
 
-  reviewWA?.addEventListener('click', () => {
-    const { name, rating, msg } = getReviewPayload();
-    const text = `Nouvel avis%0A%0ANom: ${encodeURIComponent(name)}%0ANote: ${rating}/5%0AMessage:%0A${encodeURIComponent(msg)}`;
+  function validateReview(){
+    if (!reviewForm.checkValidity()) {
+      reviewForm.reportValidity();
+      return false;
+    }
+    const r = +(ratingInput?.value || 0);
+    if (!(r >= 0.5 && r <= 5 && r % 0.5 === 0)) {
+      // Déclenche la bulle native via le champ hidden
+      ratingInput.reportValidity();
+      return false;
+    }
+    return true;
+  }
+
+  reviewWA?.addEventListener('click', (e) => {
+    if (!validateReview()) { e.preventDefault(); return; }
+    const { name, rating, msgTxt } = getReviewPayload();
+    const text = `Nouvel avis%0A%0ANom: ${encodeURIComponent(name)}%0ANote: ${rating}/5%0AMessage:%0A${encodeURIComponent(msgTxt)}`;
     const wa = `https://wa.me/${waNumber}?text=${text}`;
     window.open(wa, '_blank');
     reviewDlg.close();
   });
 
-  reviewMail?.addEventListener('click', () => {
-    const { name, rating, msg } = getReviewPayload();
-    const body = `Nom: ${encodeURIComponent(name)}%0ANote: ${encodeURIComponent(rating)}/5%0A%0A${encodeURIComponent(msg)}`;
+  reviewMail?.addEventListener('click', (e) => {
+    if (!validateReview()) { e.preventDefault(); return; }
+    const { name, rating, msgTxt } = getReviewPayload();
+    const body = `Nom: ${encodeURIComponent(name)}%0ANote: ${encodeURIComponent(rating)}/5%0A%0A${encodeURIComponent(msgTxt)}`;
     location.href = `mailto:masterengineeringdrc1@gmail.com?subject=Avis client MED&body=${body}`;
     reviewDlg.close();
   });
+
+  // Initialiser l'état du bouton WhatsApp "devis"
+  refreshWAQuick();
 </script>
+
 </body>
 </html>
