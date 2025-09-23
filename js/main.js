@@ -6,6 +6,15 @@ const val = id => +document.getElementById(id).value || 0;
 // ---------- Menu mobile ----------
 const navToggle = document.getElementById('navToggle');
 const mobileMenu = document.getElementById('mobileMenu');
+const links = mobileMenu.querySelectorAll("a");
+
+// Quand on clique sur un lien → fermer le menu
+links.forEach(link => {
+  link.addEventListener("click", () => {
+    mobileMenu.classList.add("hidden");
+    navToggle.setAttribute("aria-expanded", "false");
+  });
+});
 
 navToggle?.addEventListener('click', () => {
   const isHidden = mobileMenu.classList.contains('hidden');
