@@ -5,12 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>MED • Électricité & Solaire | Lubumbashi & Kolwezi</title>
   <meta name="description" content="Master Engineering DRC (MED) — installations électriques, maintenance, mise aux normes, éclairage, énergies renouvelables, tableaux électriques. Interventions rapides et garanties."/>
+
+  <!-- Open Graph / SEO -->
+  <link rel="canonical" href="https://master-engineering-drc.github.io/web/">
   <meta property="og:title" content="MED • Électricité & Solaire" />
   <meta property="og:description" content="Installations électriques fiables, solaires hybrides, maintenance et mise aux normes." />
   <meta property="og:type" content="website" />
+  <meta property="og:image" content="image/og-cover.jpg" />
+  <meta property="og:site_name" content="MED • Master Engineering DRC" />
+  <meta name="robots" content="index,follow" />
   <meta name="theme-color" content="#004080" />
 
-  <!-- ✅ Tailwind CDN officiel (v3) + config palette -->
+  <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -35,21 +41,23 @@
     }
   </script>
 
-  <!-- Mini CSS util pour le <dialog> -->
+  <!-- Mini CSS util pour le <dialog> + scroll doux -->
   <style>
+    html{scroll-behavior:smooth}
     dialog.lightbox { border: none; border-radius: 16px; padding: 0; max-width: min(92vw, 1000px); box-shadow: 0 10px 30px rgba(0,0,0,.18) }
     dialog::backdrop { background: rgba(0,0,0,.6) }
   </style>
 </head>
 <body class="bg-white text-ink antialiased">
+  <div id="top"></div>
 
   <!-- ===== Header ===== -->
   <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
     <div class="container max-w-6xl flex items-center justify-between py-3">
       <!-- Brand -->
-      <a href="#" class="flex items-center gap-3 font-extrabold">
+      <a href="#top" class="flex items-center gap-3 font-extrabold" aria-label="Revenir en haut de page">
         <span class="w-10 h-10 rounded-lg overflow-hidden grid place-items-center bg-gradient-to-br from-yellowBrand to-brand shadow-card">
-          <img src="image/MED_img.png" alt="Logo MED" class="w-full h-full object-cover">
+          <img src="image/MED_img.png" alt="Logo MED" class="w-full h-full object-cover" loading="lazy">
         </span>
         <span class="text-sm sm:text-base">MED • Master Engineering DRC</span>
       </a>
@@ -88,7 +96,6 @@
           <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50" href="#simulateur">Simulateur</a>
           <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50" href="#contact">Contact</a>
           <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50" href="#securite">Sécurité</a>
-
         </nav>
         <div class="mt-3 grid gap-2 sm:flex sm:items-center sm:gap-2">
           <a href="tel:+243844894508" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card">📞 +243 844 894 508</a>
@@ -100,8 +107,8 @@
 
   <!-- ===== Hero ===== -->
   <section class="relative min-h-[64vh] sm:min-h-[70vh] md:min-h-[72vh] grid items-center text-white">
-    <div class="absolute inset-0 bg-[url('image/MED.png')] bg-cover bg-center -z-10"></div>
-    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/40 to-transparent"></div>
+    <div class="absolute inset-0 bg-[url('image/MED.png')] bg-cover bg-center -z-10" aria-hidden="true"></div>
+    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/40 to-transparent" aria-hidden="true"></div>
 
     <div class="container max-w-6xl grid gap-5 py-16 sm:py-20 md:py-24">
       <span class="inline-flex items-center gap-2 bg-yellow-100 text-black border border-yellowBrand px-3 py-1 rounded-full text-xs sm:text-sm font-semibold w-fit">
@@ -122,7 +129,6 @@
         <div class="backdrop-blur bg-white/20 border border-white/30 rounded-lg px-3 py-2 text-sm sm:text-base font-semibold">🔌 Tableaux & protections certifiés</div>
         <div class="backdrop-blur bg-white/20 border border-white/30 rounded-lg px-3 py-2 text-sm sm:text-base font-semibold">🌞 Systèmes solaires hybrides</div>
         <div class="backdrop-blur bg-white/20 border border-white/30 rounded-lg px-3 py-2 text-sm sm:text-base font-semibold">🎥 Vidéosurveillance & alarmes</div>
-
       </div>
     </div>
   </section>
@@ -178,14 +184,14 @@
           <span class="inline-block mt-3 px-2.5 py-1 rounded-full bg-blue-100 text-brand text-xs font-extrabold">Surveillance 24/7</span>
         </article>
 
-         <!-- Plomberie -->
+        <!-- Plomberie -->
         <article class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl border border-gray-200 p-6 shadow-card">
           <h3 class="text-lg sm:text-xl font-bold mb-1">Plomberie</h3>
           <p class="text-muted">Alimentation eau froide/chaude, évacuations, chauffe-eau, pompes, détection & réparation de fuites.</p>
           <span class="inline-block mt-3 px-2.5 py-1 rounded-full bg-blue-100 text-brand text-xs font-extrabold">Interventions rapides</span>
         </article>
 
-         <!-- Applications web & mobile -->
+        <!-- Applications web & mobile -->
         <article class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl border border-gray-200 p-6 shadow-card">
           <h3 class="text-lg sm:text-xl font-bold mb-1">Apps web & mobile</h3>
           <p class="text-muted">Sites vitrines, dashboards, e-commerce, Android/iOS, intégration API, hébergement & maintenance.</p>
@@ -196,44 +202,43 @@
     </div>
   </section>
 
-
+  <!-- Sécurité -->
   <section id="securite" class="py-14 sm:py-16 bg-[#eef6ff] border-y border-gray-200">
-  <div class="container max-w-6xl">
-    <div class="grid gap-6 md:grid-cols-2 items-center">
-      <!-- Texte -->
-      <div>
-        <h2 class="text-2xl sm:text-3xl font-bold text-brand mb-3">Sécurité & CCTV — protégez vos sites 24/7</h2>
-        <p class="text-muted mb-4">Nous concevons des solutions de vidéosurveillance et d’alarme adaptées aux maisons, magasins, dépôts et sites industriels.</p>
+    <div class="container max-w-6xl">
+      <div class="grid gap-6 md:grid-cols-2 items-center">
+        <!-- Texte -->
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-bold text-brand mb-3">Sécurité & CCTV — protégez vos sites 24/7</h2>
+          <p class="text-muted mb-4">Nous concevons des solutions de vidéosurveillance et d’alarme adaptées aux maisons, magasins, dépôts et sites industriels.</p>
 
-        <ul class="grid sm:grid-cols-2 gap-2 mb-5">
-          <li class="flex items-start gap-2"><span>✅</span><span>Caméras IP 2–8MP (jour/nuit, IR, dôme & bullet)</span></li>
-          <li class="flex items-start gap-2"><span>✅</span><span>Enregistreurs NVR/HDD + stockage cloud</span></li>
-          <li class="flex items-start gap-2"><span>✅</span><span>Vision à distance (app mobile) & alertes</span></li>
-          <li class="flex items-start gap-2"><span>✅</span><span>Alarmes intrusion, contrôle d’accès, interphonie</span></li>
-          <li class="flex items-start gap-2"><span>✅</span><span>Étude des angles morts & plan de câblage</span></li>
-          <li class="flex items-start gap-2"><span>✅</span><span>Maintenance & SLA (remplacement rapide)</span></li>
-        </ul>
+          <ul class="grid sm:grid-cols-2 gap-2 mb-5">
+            <li class="flex items-start gap-2"><span>✅</span><span>Caméras IP 2–8MP (jour/nuit, IR, dôme & bullet)</span></li>
+            <li class="flex items-start gap-2"><span>✅</span><span>Enregistreurs NVR/HDD + stockage cloud</span></li>
+            <li class="flex items-start gap-2"><span>✅</span><span>Vision à distance (app mobile) & alertes</span></li>
+            <li class="flex items-start gap-2"><span>✅</span><span>Alarmes intrusion, contrôle d’accès, interphonie</span></li>
+            <li class="flex items-start gap-2"><span>✅</span><span>Étude des angles morts & plan de câblage</span></li>
+            <li class="flex items-start gap-2"><span>✅</span><span>Maintenance & SLA (remplacement rapide)</span></li>
+          </ul>
 
-        <div class="flex flex-wrap gap-2 mb-5">
-          <span class="px-3 py-1 rounded-full bg-white border border-black text-brand text-sm font-semibold shadow-card">Garantie 12 mois</span>
-          <span class="px-3 py-1 rounded-full bg-white border border-black text-brand text-sm font-semibold shadow-card">Matériel pro (Hikvision/Dahua ou équiv.)</span>
-          <span class="px-3 py-1 rounded-full bg-white border border-black text-brand text-sm font-semibold shadow-card">Conformité câblage & parasurtenseurs</span>
+          <div class="flex flex-wrap gap-2 mb-5">
+            <span class="px-3 py-1 rounded-full bg-white border border-black text-brand text-sm font-semibold shadow-card">Garantie 12 mois</span>
+            <span class="px-3 py-1 rounded-full bg-white border border-black text-brand text-sm font-semibold shadow-card">Matériel pro (Hikvision/Dahua ou équiv.)</span>
+            <span class="px-3 py-1 rounded-full bg-white border border-black text-brand text-sm font-semibold shadow-card">Conformité câblage & parasurtenseurs</span>
+          </div>
+
+          <a href="#contact" class="inline-flex items-center px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">
+            Demander un audit sécurité gratuit
+          </a>
         </div>
 
-        <a href="#contact" class="inline-flex items-center px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">
-          Demander un audit sécurité gratuit
-        </a>
-      </div>
-
-      <!-- Visuel -->
-      <div class="relative rounded-xl overflow-hidden shadow-card border border-gray-200 bg-white">
-        <img src="image/cctv-hero.jpg" alt="Système de caméras CCTV MED" class="w-full h-full object-cover">
-        <div class="absolute left-3 bottom-3 bg-black/70 text-white px-3 py-1 rounded-md text-sm">Accès mobile • Alertes instantanées</div>
+        <!-- Visuel -->
+        <div class="relative rounded-xl overflow-hidden shadow-card border border-gray-200 bg-white">
+          <img src="image/cctv-hero.jpg" alt="Système de caméras CCTV MED" class="w-full h-full object-cover" loading="lazy">
+          <div class="absolute left-3 bottom-3 bg-black/70 text-white px-3 py-1 rounded-md text-sm">Accès mobile • Alertes instantanées</div>
+        </div>
       </div>
     </div>
-  </div>
-</section>
-
+  </section>
 
   <!-- ===== Processus ===== -->
   <section id="process" class="py-14 sm:py-16 bg-[#eef2f5] border-y border-gray-200">
@@ -266,403 +271,392 @@
       <h2 class="text-2xl sm:text-3xl font-bold text-brand mb-2">Réalisations récentes</h2>
       <p class="text-muted mb-6">Un aperçu de nos chantiers. Cliquez pour agrandir.</p>
 
-      <!-- Grille responsive : 1 → 2 → 4 colonnes (✅ suppression de xs:) -->
       <div class="grid grid-cols-12 gap-2 sm:gap-3">
+        <!-- images lazy -->
         <a class="col-span-12 sm:col-span-6 md:col-span-3 relative overflow-hidden rounded-lg group gl" href="#" data-img="image/IMG-20250128-WA0042.jpg">
-          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/IMG-20250128-WA0042.jpg" alt="Installation 1">
+          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/IMG-20250128-WA0042.jpg" alt="Installation 1" loading="lazy">
           <span class="absolute right-2 bottom-2 text-white text-xs bg-black/65 px-2 py-1 rounded">Voir</span>
         </a>
         <a class="col-span-12 sm:col-span-6 md:col-span-3 relative overflow-hidden rounded-lg group gl" href="#" data-img="image/IMG-20250128-WA0052.jpg">
-          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/IMG-20250128-WA0052.jpg" alt="Installation 2">
+          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/IMG-20250128-WA0052.jpg" alt="Installation 2" loading="lazy">
           <span class="absolute right-2 bottom-2 text-white text-xs bg-black/65 px-2 py-1 rounded">Voir</span>
         </a>
         <a class="col-span-12 sm:col-span-6 md:col-span-3 relative overflow-hidden rounded-lg group gl" href="#" data-img="image/IMG-20250128-WA0043.jpg">
-          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/IMG-20250128-WA0043.jpg" alt="Installation 3">
+          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/IMG-20250128-WA0043.jpg" alt="Installation 3" loading="lazy">
           <span class="absolute right-2 bottom-2 text-white text-xs bg-black/65 px-2 py-1 rounded">Voir</span>
         </a>
         <a class="col-span-12 sm:col-span-6 md:col-span-3 relative overflow-hidden rounded-lg group gl" href="#" data-img="image/IMG-20250128-WA0053.jpg">
-          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/IMG-20250128-WA0053.jpg" alt="Installation 4">
+          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/IMG-20250128-WA0053.jpg" alt="Installation 4" loading="lazy">
           <span class="absolute right-2 bottom-2 text-white text-xs bg-black/65 px-2 py-1 rounded">Voir</span>
         </a>
         <a class="col-span-12 sm:col-span-6 md:col-span-3 relative overflow-hidden rounded-lg group gl" href="#" data-img="image/IMG-20250128-WA0044.jpg">
-          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/IMG-20250128-WA0044.jpg" alt="Installation 5">
+          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/IMG-20250128-WA0044.jpg" alt="Installation 5" loading="lazy">
           <span class="absolute right-2 bottom-2 text-white text-xs bg-black/65 px-2 py-1 rounded">Voir</span>
         </a>
         <a class="col-span-12 sm:col-span-6 md:col-span-3 relative overflow-hidden rounded-lg group gl" href="#" data-img="image/IMG-20250128-WA0047.jpg">
-          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/IMG-20250128-WA0047.jpg" alt="Installation 6">
+          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/IMG-20250128-WA0047.jpg" alt="Installation 6" loading="lazy">
           <span class="absolute right-2 bottom-2 text-white text-xs bg-black/65 px-2 py-1 rounded">Voir</span>
         </a>
         <a class="col-span-12 sm:col-span-6 md:col-span-3 relative overflow-hidden rounded-lg group gl" href="#" data-img="image/IMG-20250128-WA0048.jpg">
-          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/IMG-20250128-WA0048.jpg" alt="Installation 7">
+          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/IMG-20250128-WA0048.jpg" alt="Installation 7" loading="lazy">
           <span class="absolute right-2 bottom-2 text-white text-xs bg-black/65 px-2 py-1 rounded">Voir</span>
         </a>
         <a class="col-span-12 sm:col-span-6 md:col-span-3 relative overflow-hidden rounded-lg group gl" href="#" data-img="image/IMG-20250128-WA0052.jpg">
-          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/IMG-20250128-WA0052.jpg" alt="Installation 8">
+          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/IMG-20250128-WA0052.jpg" alt="Installation 8" loading="lazy">
           <span class="absolute right-2 bottom-2 text-white text-xs bg-black/65 px-2 py-1 rounded">Voir</span>
         </a>
       </div>
     </div>
   </section>
 
-<!-- ===== Simulateurs (bloc d'explication dynamique) ===== -->
-<section id="simulateur" class="py-14 sm:py-16 bg-[#0b1220] text-gray-200">
-  <div class="container max-w-6xl">
-    <div class="flex items-center justify-between gap-4 flex-wrap mb-4">
-      <h2 class="text-2xl sm:text-3xl font-bold text-blue-300">Simulateurs techniques</h2>
-      <span class="bg-yellow-100 text-black border border-yellowBrand px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
-        Outils indicatifs (réglables)
-      </span>
+  <!-- ===== Simulateurs ===== -->
+  <section id="simulateur" class="py-14 sm:py-16 bg-[#0b1220] text-gray-200">
+    <div class="container max-w-6xl">
+      <div class="flex items-center justify-between gap-4 flex-wrap mb-4">
+        <h2 class="text-2xl sm:text-3xl font-bold text-blue-300">Simulateurs techniques</h2>
+        <span class="bg-yellow-100 text-black border border-yellowBrand px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
+          Outils indicatifs (réglables)
+        </span>
+      </div>
+
+      <!-- Onglets -->
+      <div class="flex flex-wrap gap-2 mb-5" role="tablist" aria-label="Simulateurs">
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white text-brand border border-black font-semibold shadow-card"
+                data-target="#sim1" role="tab" aria-controls="sim1" aria-selected="true">Conso & coût</button>
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
+                data-target="#sim2" role="tab" aria-controls="sim2" aria-selected="false">Multi-appareils</button>
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
+                data-target="#sim3" role="tab" aria-controls="sim3" aria-selected="false">Solaire (PV+batt.)</button>
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
+                data-target="#sim4" role="tab" aria-controls="sim4" aria-selected="false">Autonomie batt.</button>
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
+                data-target="#sim5" role="tab" aria-controls="sim5" aria-selected="false">Câble & ΔV</button>
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
+                data-target="#sim6" role="tab" aria-controls="sim6" aria-selected="false">Groupe électrogène</button>
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
+                data-target="#sim7" role="tab" aria-controls="sim7" aria-selected="false">Éclairage (lux)</button>
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
+                data-target="#sim8" role="tab" aria-controls="sim8" aria-selected="false">ROI solaire</button>
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
+                data-target="#sim9" role="tab" aria-controls="sim9" aria-selected="false">Équilibrage phases</button>
+      </div>
+
+      <!-- Bloc d'explication dynamique -->
+      <div id="sim-explain" class="rounded-xl border border-gray-200/30 bg-white/10 p-4 sm:p-5 shadow-card mb-6" aria-live="polite">
+        <h3 id="exp-title" class="text-lg sm:text-xl font-bold text-yellowBrand mb-2">Conso & coût (1 appareil)</h3>
+        <p id="exp-body" class="text-sm sm:text-base text-blue-100">
+          <strong>kWh</strong> = (W/1000) × heures/jour × jours. <strong>Coût</strong> = kWh × tarif (CDF/kWh).
+        </p>
+        <div id="exp-example" class="mt-3 text-sm sm:text-base text-blue-100">
+          <h4 class="font-semibold text-blue-200 mb-1">Exemple</h4>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Puissance 1200 W, 3 h/j, 30 jours, tarif 800 CDF/kWh.</li>
+            <li>Cliquer sur <em>Remplir l’exemple</em> puis <strong>Calculer</strong>.</li>
+          </ul>
+        </div>
+        <button id="fillExampleBtn" class="mt-3 px-3 py-2 rounded-lg bg-white text-brand border border-black font-semibold shadow-card">
+          Remplir l’exemple
+        </button>
+      </div>
+
+      <!-- PANELS -->
+      <div class="grid gap-5">
+        <!-- 1) Conso & coût -->
+        <div id="sim1" class="sim-panel grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim1">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card">
+            <div class="grid gap-3">
+              <label class="font-semibold">Puissance (W)</label>
+              <input id="s1_w" type="number" value="1200" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              <label class="font-semibold">Heures par jour</label>
+              <input id="s1_h" type="number" value="3" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              <label class="font-semibold">Nombre de jours</label>
+              <input id="s1_d" type="number" value="30" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              <label class="font-semibold">Tarif (CDF/kWh)</label>
+              <input id="s1_t" type="number" step="0.001" value="800" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              <button id="s1_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer</button>
+              <div class="mt-2 text-brand dark:text-blue-300 font-extrabold">
+                <div id="s1_kwh">0.00 kWh</div>
+                <div id="s1_cost">FC0.00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2) Multi-appareils -->
+        <div id="sim2" class="sim-panel hidden" role="tabpanel" aria-labelledby="tab-sim2">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <label class="font-semibold">Tarif (CDF/kWh)</label>
+              <input id="s2_tarif" type="number" step="0.001" value="800" class="p-2 rounded border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              <button id="s2_add" class="px-3 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card">➕ Ajouter une ligne</button>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="min-w-[680px] w-full text-sm">
+                <thead>
+                  <tr class="text-left text-gray-600 dark:text-gray-300">
+                    <th class="py-2">Appareil</th><th>W</th><th>h/j</th><th>jours</th><th></th>
+                  </tr>
+                </thead>
+                <tbody id="s2_rows"></tbody>
+              </table>
+            </div>
+            <div class="mt-3 flex flex-wrap gap-2 items-center">
+              <button id="s2_calc" class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer total</button>
+              <div id="s2_out" class="text-brand dark:text-blue-300 font-extrabold"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3) Solaire (PV + batteries) -->
+        <div id="sim3" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim3">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
+            <label class="font-semibold">Conso journalière (kWh/j)</label>
+            <input id="s3_kwhd" type="number" step="0.01" value="15" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Heures de soleil (PSH)</label>
+            <input id="s3_psh" type="number" step="0.1" value="5" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Rendement système (0-1)</label>
+            <input id="s3_sysEff" type="number" step="0.01" value="0.75" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Jours d’autonomie</label>
+            <input id="s3_days" type="number" step="0.1" value="1.5" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">DoD (0-1)</label>
+            <input id="s3_dod" type="number" step="0.01" value="0.8" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Rendement onduleur (0-1)</label>
+            <input id="s3_invEff" type="number" step="0.01" value="0.92" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="font-semibold">Puissance panneau (W)</label>
+                <input id="s3_pvw" type="number" value="550" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">Tension batterie (V)</label>
+                <input id="s3_vbat" type="number" value="48" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+            </div>
+            <label class="font-semibold">Charge de pointe (W) (optionnel)</label>
+            <input id="s3_peak" type="number" value="3500" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <button id="s3_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Dimensionner</button>
+            <div class="mt-2 text-brand dark:text-blue-300 font-extrabold space-y-1">
+              <div id="s3_pv">PV ≈ – kW (– panneaux)</div>
+              <div id="s3_bat">Batteries ≈ – kWh (≈ – Ah @ – V)</div>
+              <div id="s3_inv">Onduleur recommandé : – kW</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4) Autonomie batterie -->
+        <div id="sim4" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim4">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
+            <label class="font-semibold">Capacité batterie (kWh)</label>
+            <input id="s4_kwh" type="number" step="0.1" value="10" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">DoD (0-1)</label>
+            <input id="s4_dod" type="number" step="0.01" value="0.8" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Rendement onduleur (0-1)</label>
+            <input id="s4_eff" type="number" step="0.01" value="0.92" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Charge (W)</label>
+            <input id="s4_w" type="number" value="800" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <button id="s4_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer</button>
+            <div class="mt-2 text-brand dark:text-blue-300 font-extrabold" id="s4_out">– h (– h – min)</div>
+          </div>
+        </div>
+
+        <!-- 5) Câble & ΔV -->
+        <div id="sim5" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim5">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="font-semibold">Longueur aller (m)</label>
+                <input id="s5_L" type="number" value="30" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">Courant (A)</label>
+                <input id="s5_I" type="number" value="16" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="font-semibold">Tension (V)</label>
+                <input id="s5_V" type="number" value="230" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">Matériau</label>
+                <select id="s5_mat" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+                  <option value="cu">Cuivre</option>
+                  <option value="al">Aluminium</option>
+                </select>
+              </div>
+            </div>
+            <label class="font-semibold">Chute max autorisée (%)</label>
+            <input id="s5_max" type="number" step="0.1" value="3" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <button id="s5_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Dimensionner</button>
+            <div class="mt-2 text-brand dark:text-blue-300 font-extrabold space-y-1">
+              <div id="s5_rec">Section recommandée : – mm²</div>
+              <div id="s5_drop">Chute réelle ≈ – %</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6) Groupe électrogène -->
+        <div id="sim6" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim6">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
+            <label class="font-semibold">Puissance totale en régime (W)</label>
+            <input id="s6_w" type="number" value="5000" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Facteur de surtension</label>
+            <input id="s6_k" type="number" step="0.1" value="1.2" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="font-semibold">PF (0-1)</label>
+                <input id="s6_pf" type="number" step="0.01" value="0.8" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">Marge</label>
+                <input id="s6_m" type="number" step="0.05" value="1.25" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+            </div>
+            <button id="s6_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer</button>
+            <div class="mt-2 text-brand dark:text-blue-300 font-extrabold" id="s6_out">– kVA (≈ – kW)</div>
+          </div>
+        </div>
+
+        <!-- 7) Éclairage (lux) -->
+        <div id="sim7" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim7">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="font-semibold">Surface (m²)</label>
+                <input id="s7_area" type="number" value="50" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">Lux cible</label>
+                <input id="s7_lux" type="number" value="300" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="font-semibold">UF (0-1)</label>
+                <input id="s7_uf" type="number" step="0.05" value="0.6" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">MF (0-1)</label>
+                <input id="s7_mf" type="number" step="0.05" value="0.8" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="font-semibold">Flux luminaire (lm)</label>
+                <input id="s7_lm" type="number" value="3000" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">Puissance luminaire (W)</label>
+                <input id="s7_w" type="number" value="24" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+            </div>
+            <button id="s7_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer</button>
+            <div class="mt-2 text-brand dark:text-blue-300 font-extrabold space-y-1">
+              <div id="s7_count">– luminaires</div>
+              <div id="s7_power">Puissance totale ≈ – W</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8) ROI solaire -->
+        <div id="sim8" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim8">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
+            <label class="font-semibold">Coût système (CDF)</label>
+            <input id="s8_cost" type="number" value="8000" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Production annuelle (kWh)</label>
+            <input id="s8_prod" type="number" value="6000" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Tarif réseau (CDF/kWh)</label>
+            <input id="s8_tarif" type="number" step="0.001" value="800" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Maintenance annuelle (CDF)</label>
+            <input id="s8_maint" type="number" value="120" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <div class="grid sm:grid-cols-3 gap-3">
+              <div>
+                <label class="font-semibold">Années</label>
+                <input id="s8_years" type="number" value="20" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">Index tarif (%)</label>
+                <input id="s8_escal" type="number" step="0.1" value="3" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">Taux d’actualisation (%)</label>
+                <input id="s8_disc" type="number" step="0.1" value="8" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+            </div>
+            <button id="s8_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer ROI</button>
+            <div class="mt-2 text-brand dark:text-blue-300 font-extrabold space-y-1">
+              <div id="s8_sav">Économies année 1 : – CDF</div>
+              <div id="s8_pb">Payback simple : – ans</div>
+              <div id="s8_npv">NPV (– ans) : – CDF</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9) Équilibrage des phases -->
+        <div id="sim9" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim9">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
+            <p class="text-sm text-muted dark:text-gray-300">Entrez des charges (W) séparées par des virgules pour chaque phase.</p>
+            <label class="font-semibold">L1 (W)</label>
+            <input id="s9_l1" placeholder="ex: 1200, 800, 500" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">L2 (W)</label>
+            <input id="s9_l2" placeholder="ex: 1000, 600" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">L3 (W)</label>
+            <input id="s9_l3" placeholder="ex: 900, 700" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <button id="s9_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Analyser</button>
+            <div class="mt-2 text-brand dark:text-blue-300 font-extrabold space-y-1">
+              <div id="s9_tot">L1: – W | L2: – W | L3: – W</div>
+              <div id="s9_imb">Déséquilibre ≈ – %</div>
+              <div id="s9_sug" class="text-sm font-bold"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
-
-    <!-- Onglets -->
-    <div class="flex flex-wrap gap-2 mb-5" role="tablist" aria-label="Simulateurs">
-      <button class="sim-tab px-3 py-2 rounded-lg bg-white text-brand border border-black font-semibold shadow-card"
-              data-target="#sim1" role="tab" aria-controls="sim1" aria-selected="true">Conso & coût</button>
-      <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
-              data-target="#sim2" role="tab" aria-controls="sim2" aria-selected="false">Multi-appareils</button>
-      <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
-              data-target="#sim3" role="tab" aria-controls="sim3" aria-selected="false">Solaire (PV+batt.)</button>
-      <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
-              data-target="#sim4" role="tab" aria-controls="sim4" aria-selected="false">Autonomie batt.</button>
-      <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
-              data-target="#sim5" role="tab" aria-controls="sim5" aria-selected="false">Câble & ΔV</button>
-      <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
-              data-target="#sim6" role="tab" aria-controls="sim6" aria-selected="false">Groupe électrogène</button>
-      <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
-              data-target="#sim7" role="tab" aria-controls="sim7" aria-selected="false">Éclairage (lux)</button>
-      <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
-              data-target="#sim8" role="tab" aria-controls="sim8" aria-selected="false">ROI solaire</button>
-      <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
-              data-target="#sim9" role="tab" aria-controls="sim9" aria-selected="false">Équilibrage phases</button>
-    </div>
-
-    <!-- ✅ Bloc d'explication dynamique -->
-    <div id="sim-explain" class="rounded-xl border border-gray-200/30 bg-white/10 p-4 sm:p-5 shadow-card mb-6" aria-live="polite">
-      <h3 id="exp-title" class="text-lg sm:text-xl font-bold text-yellowBrand mb-2">Conso & coût (1 appareil)</h3>
-      <p id="exp-body" class="text-sm sm:text-base text-blue-100">
-        <strong>kWh</strong> = (W/1000) × heures/jour × jours. <strong>Coût</strong> = kWh × tarif (CDF/kWh).
-      </p>
-      <div id="exp-example" class="mt-3 text-sm sm:text-base text-blue-100">
-        <h4 class="font-semibold text-blue-200 mb-1">Exemple</h4>
-        <ul class="list-disc pl-5 space-y-1">
-          <li>Puissance 1200 W, 3 h/j, 30 jours, tarif 800 CDF/kWh.</li>
-          <li>Cliquer sur <em>Remplir l’exemple</em> puis <strong>Calculer</strong>.</li>
-        </ul>
-      </div>
-      <button id="fillExampleBtn" class="mt-3 px-3 py-2 rounded-lg bg-white text-brand border border-black font-semibold shadow-card">
-        Remplir l’exemple
-      </button>
-    </div>
-
-    <!-- PANELS (un seul visible) -->
-    <div class="grid gap-5">
-
-      <!-- 1) Conso & coût (1 appareil) -->
-      <div id="sim1" class="sim-panel grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim1">
-        <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card">
-          <div class="grid gap-3">
-            <label class="font-semibold">Puissance (W)</label>
-            <input id="s1_w" type="number" value="1200" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-            <label class="font-semibold">Heures par jour</label>
-            <input id="s1_h" type="number" value="3" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-            <label class="font-semibold">Nombre de jours</label>
-            <input id="s1_d" type="number" value="30" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-            <label class="font-semibold">Tarif (CDF/kWh)</label>
-            <input id="s1_t" type="number" step="0.001" value="800" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-            <button id="s1_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer</button>
-            <div class="mt-2 text-brand dark:text-blue-300 font-extrabold">
-              <div id="s1_kwh">0.00 kWh</div>
-              <div id="s1_cost">FC0.00</div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 2) Multi-appareils -->
-      <div id="sim2" class="sim-panel hidden" role="tabpanel" aria-labelledby="tab-sim2">
-        <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card">
-          <div class="flex flex-wrap gap-2 mb-3">
-            <label class="font-semibold">Tarif (CDF/kWh)</label>
-            <input id="s2_tarif" type="number" step="0.001" value="800" class="p-2 rounded border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-            <button id="s2_add" class="px-3 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card">➕ Ajouter une ligne</button>
-          </div>
-          <div class="overflow-x-auto">
-            <table class="min-w-[680px] w-full text-sm">
-              <thead>
-                <tr class="text-left text-gray-600 dark:text-gray-300">
-                  <th class="py-2">Appareil</th><th>W</th><th>h/j</th><th>jours</th><th></th>
-                </tr>
-              </thead>
-              <tbody id="s2_rows"></tbody>
-            </table>
-          </div>
-          <div class="mt-3 flex flex-wrap gap-2 items-center">
-            <button id="s2_calc" class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer total</button>
-            <div id="s2_out" class="text-brand dark:text-blue-300 font-extrabold"></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 3) Solaire (PV + batteries) -->
-      <div id="sim3" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim3">
-        <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
-          <label class="font-semibold">Conso journalière (kWh/j)</label>
-          <input id="s3_kwhd" type="number" step="0.01" value="15" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-          <label class="font-semibold">Heures de soleil (PSH)</label>
-          <input id="s3_psh" type="number" step="0.1" value="5" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-          <label class="font-semibold">Rendement système (0-1)</label>
-          <input id="s3_sysEff" type="number" step="0.01" value="0.75" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-          <label class="font-semibold">Jours d’autonomie</label>
-          <input id="s3_days" type="number" step="0.1" value="1.5" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-          <label class="font-semibold">DoD (0-1)</label>
-          <input id="s3_dod" type="number" step="0.01" value="0.8" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-          <label class="font-semibold">Rendement onduleur (0-1)</label>
-          <input id="s3_invEff" type="number" step="0.01" value="0.92" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-          <div class="grid sm:grid-cols-2 gap-3">
-            <div>
-              <label class="font-semibold">Puissance panneau (W)</label>
-              <input id="s3_pvw" type="number" value="550" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-            </div>
-            <div>
-              <label class="font-semibold">Tension batterie (V)</label>
-              <input id="s3_vbat" type="number" value="48" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-            </div>
-          </div>
-          <label class="font-semibold">Charge de pointe (W) (optionnel)</label>
-          <input id="s3_peak" type="number" value="3500" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-          <button id="s3_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Dimensionner</button>
-          <div class="mt-2 text-brand dark:text-blue-300 font-extrabold space-y-1">
-            <div id="s3_pv">PV ≈ – kW (– panneaux)</div>
-            <div id="s3_bat">Batteries ≈ – kWh (≈ – Ah @ – V)</div>
-            <div id="s3_inv">Onduleur recommandé : – kW</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 4) Autonomie batterie -->
-      <div id="sim4" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim4">
-        <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
-          <label class="font-semibold">Capacité batterie (kWh)</label>
-          <input id="s4_kwh" type="number" step="0.1" value="10" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-          <label class="font-semibold">DoD (0-1)</label>
-          <input id="s4_dod" type="number" step="0.01" value="0.8" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-          <label class="font-semibold">Rendement onduleur (0-1)</label>
-          <input id="s4_eff" type="number" step="0.01" value="0.92" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-          <label class="font-semibold">Charge (W)</label>
-          <input id="s4_w" type="number" value="800" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-          <button id="s4_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer</button>
-          <div class="mt-2 text-brand dark:text-blue-300 font-extrabold" id="s4_out">– h (– h – min)</div>
-        </div>
-      </div>
-
-      <!-- 5) Câble & chute de tension -->
-      <div id="sim5" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim5">
-        <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
-          <div class="grid sm:grid-cols-2 gap-3">
-            <div>
-              <label class="font-semibold">Longueur aller (m)</label>
-              <input id="s5_L" type="number" value="30" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-            </div>
-            <div>
-              <label class="font-semibold">Courant (A)</label>
-              <input id="s5_I" type="number" value="16" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-            </div>
-          </div>
-          <div class="grid sm:grid-cols-2 gap-3">
-            <div>
-              <label class="font-semibold">Tension (V)</label>
-              <input id="s5_V" type="number" value="230" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-            </div>
-            <div>
-              <label class="font-semibold">Matériau</label>
-              <select id="s5_mat" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-                <option value="cu">Cuivre</option>
-                <option value="al">Aluminium</option>
-              </select>
-            </div>
-          </div>
-          <label class="font-semibold">Chute max autorisée (%)</label>
-          <input id="s5_max" type="number" step="0.1" value="3" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-          <button id="s5_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Dimensionner</button>
-          <div class="mt-2 text-brand dark:text-blue-300 font-extrabold space-y-1">
-            <div id="s5_rec">Section recommandée : – mm²</div>
-            <div id="s5_drop">Chute réelle ≈ – %</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 6) Groupe électrogène -->
-      <div id="sim6" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim6">
-        <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
-          <label class="font-semibold">Puissance totale en régime (W)</label>
-          <input id="s6_w" type="number" value="5000" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-          <label class="font-semibold">Facteur de surtension</label>
-          <input id="s6_k" type="number" step="0.1" value="1.2" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-          <div class="grid sm:grid-cols-2 gap-3">
-            <div>
-              <label class="font-semibold">PF (0-1)</label>
-              <input id="s6_pf" type="number" step="0.01" value="0.8" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-            </div>
-            <div>
-              <label class="font-semibold">Marge</label>
-              <input id="s6_m" type="number" step="0.05" value="1.25" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-            </div>
-          </div>
-          <button id="s6_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer</button>
-          <div class="mt-2 text-brand dark:text-blue-300 font-extrabold" id="s6_out">– kVA (≈ – kW)</div>
-        </div>
-      </div>
-
-      <!-- 7) Éclairage (lux) -->
-      <div id="sim7" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim7">
-        <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
-          <div class="grid sm:grid-cols-2 gap-3">
-            <div>
-              <label class="font-semibold">Surface (m²)</label>
-              <input id="s7_area" type="number" value="50" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-            </div>
-            <div>
-              <label class="font-semibold">Lux cible</label>
-              <input id="s7_lux" type="number" value="300" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-            </div>
-          </div>
-          <div class="grid sm:grid-cols-2 gap-3">
-            <div>
-              <label class="font-semibold">UF (0-1)</label>
-              <input id="s7_uf" type="number" step="0.05" value="0.6" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-            </div>
-            <div>
-              <label class="font-semibold">MF (0-1)</label>
-              <input id="s7_mf" type="number" step="0.05" value="0.8" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-            </div>
-          </div>
-          <div class="grid sm:grid-cols-2 gap-3">
-            <div>
-              <label class="font-semibold">Flux luminaire (lm)</label>
-              <input id="s7_lm" type="number" value="3000" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-            </div>
-            <div>
-              <label class="font-semibold">Puissance luminaire (W)</label>
-              <input id="s7_w" type="number" value="24" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-            </div>
-          </div>
-          <button id="s7_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer</button>
-          <div class="mt-2 text-brand dark:text-blue-300 font-extrabold space-y-1">
-            <div id="s7_count">– luminaires</div>
-            <div id="s7_power">Puissance totale ≈ – W</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 8) ROI solaire -->
-      <div id="sim8" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim8">
-        <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
-          <label class="font-semibold">Coût système (CDF)</label>
-          <input id="s8_cost" type="number" value="8000" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-          <label class="font-semibold">Production annuelle (kWh)</label>
-          <input id="s8_prod" type="number" value="6000" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-          <label class="font-semibold">Tarif réseau (CDF/kWh)</label>
-          <input id="s8_tarif" type="number" step="0.001" value="800" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-          <label class="font-semibold">Maintenance annuelle (CDF)</label>
-          <input id="s8_maint" type="number" value="120" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-          <div class="grid sm:grid-cols-3 gap-3">
-            <div>
-              <label class="font-semibold">Années</label>
-              <input id="s8_years" type="number" value="20" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-            </div>
-            <div>
-              <label class="font-semibold">Index tarif (%)</label>
-              <input id="s8_escal" type="number" step="0.1" value="3" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-            </div>
-            <div>
-              <label class="font-semibold">Taux d’actualisation (%)</label>
-              <input id="s8_disc" type="number" step="0.1" value="8" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-            </div>
-          </div>
-          <button id="s8_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer ROI</button>
-          <div class="mt-2 text-brand dark:text-blue-300 font-extrabold space-y-1">
-            <div id="s8_sav">Économies année 1 : – CDF</div>
-            <div id="s8_pb">Payback simple : – ans</div>
-            <div id="s8_npv">NPV (– ans) : – CDF</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- 9) Équilibrage des phases -->
-      <div id="sim9" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim9">
-        <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
-          <p class="text-sm text-muted dark:text-gray-300">Entrez des charges (W) séparées par des virgules pour chaque phase.</p>
-          <label class="font-semibold">L1 (W)</label>
-          <input id="s9_l1" placeholder="ex: 1200, 800, 500" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-          <label class="font-semibold">L2 (W)</label>
-          <input id="s9_l2" placeholder="ex: 1000, 600" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-          <label class="font-semibold">L3 (W)</label>
-          <input id="s9_l3" placeholder="ex: 900, 700" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
-          <button id="s9_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Analyser</button>
-          <div class="mt-2 text-brand dark:text-blue-300 font-extrabold space-y-1">
-            <div id="s9_tot">L1: – W | L2: – W | L3: – W</div>
-            <div id="s9_imb">Déséquilibre ≈ – %</div>
-            <div id="s9_sug" class="text-sm font-bold"></div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-
-
-
-
+  </section>
 
   <!-- ===== Avis ===== -->
-<section class="py-14 sm:py-16">
-  <div class="container max-w-6xl">
-    <h2 class="text-2xl sm:text-3xl font-bold text-brand mb-2">Avis clients</h2>
-    <p class="text-muted mb-6">La satisfaction au cœur de notre travail.</p>
-    
-    <div class="flex gap-3 overflow-x-auto pb-2 snap-x" id="reviewsList">
-  <!-- ... tes <article> d'avis existants ... -->
+  <section class="py-14 sm:py-16">
+    <div class="container max-w-6xl">
+      <h2 class="text-2xl sm:text-3xl font-bold text-brand mb-2">Avis clients</h2>
+      <p class="text-muted mb-6">La satisfaction au cœur de notre travail.</p>
+
+      <div class="flex gap-3 overflow-x-auto pb-2 snap-x" id="reviewsList">
+        <!-- Items injectés par JS -->
+      </div>
+
+      <!-- Bouton pour ouvrir le formulaire d'avis -->
+      <div class="mt-4">
+        <button id="openReview"
+          class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">
+          Laisser un avis
+        </button>
+      </div>
     </div>
+  </section>
 
-<!-- Bouton pour ouvrir le formulaire d'avis -->
-    <div class="mt-4">
-      <button id="openReview"
-       class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">
-       Laisser un avis
-      </button>
+  <!-- ===== FAQ ===== -->
+  <section class="py-14 sm:py-16 bg-[#eef2f5] dark:bg-[#111827]">
+    <div class="container max-w-6xl">
+      <h2 class="text-2xl sm:text-3xl font-bold text-brand mb-4">Questions fréquentes</h2>
+      <details class="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-lg p-4 mb-3 dark:text-white">
+        <summary class="font-bold cursor-pointer">Proposez-vous des contrats de maintenance ?</summary>
+        <p class="text-muted dark:text-gray-300 mt-2">Oui. Préventif (visites planifiées) et curatif (interventions rapides). Remises pour sites multi-points.</p>
+      </details>
+      <details class="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-lg p-4 mb-3 dark:text-white">
+        <summary class="font-bold cursor-pointer">Faites-vous des installations solaires hybrides ?</summary>
+        <p class="text-muted dark:text-gray-300 mt-2">Oui : onduleurs hybrides, batteries Li-ion, priorités réseau/groupe/solaire selon votre profil de charge.</p>
+      </details>
+      <details class="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-lg p-4 dark:text-white">
+        <summary class="font-bold cursor-pointer">Quelles garanties ?</summary>
+        <p class="text-muted dark:text-gray-300 mt-2">Garantie 6 mois sur nos travaux (dommages mineurs) + garanties constructeur sur le matériel.</p>
+      </details>
+      <details class="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-lg p-4 mb-3 dark:text-white">
+        <summary class="font-bold cursor-pointer">Puis-je voir mes caméras sur téléphone ?</summary>
+        <p class="text-muted dark:text-gray-300 mt-2">Oui. Nous configurons l’accès sécurisé (app mobile/PC), alertes mouvement, partage d’accès et sauvegarde distante.</p>
+      </details>
     </div>
-
-  </div>
-</section>
-
-<!-- ===== FAQ ===== -->
-<section class="py-14 sm:py-16 bg-[#eef2f5] dark:bg-[#111827]">
-  <div class="container max-w-6xl">
-    <h2 class="text-2xl sm:text-3xl font-bold text-brand mb-4">Questions fréquentes</h2>
-    <details class="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-lg p-4 mb-3 dark:text-white">
-      <summary class="font-bold cursor-pointer">Proposez-vous des contrats de maintenance ?</summary>
-      <p class="text-muted dark:text-gray-300 mt-2">Oui. Préventif (visites planifiées) et curatif (interventions rapides). Remises pour sites multi-points.</p>
-    </details>
-    <details class="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-lg p-4 mb-3 dark:text-white">
-      <summary class="font-bold cursor-pointer">Faites-vous des installations solaires hybrides ?</summary>
-      <p class="text-muted dark:text-gray-300 mt-2">Oui : onduleurs hybrides, batteries Li-ion, priorités réseau/groupe/solaire selon votre profil de charge.</p>
-    </details>
-    <details class="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-lg p-4 dark:text-white">
-      <summary class="font-bold cursor-pointer">Quelles garanties ?</summary>
-      <p class="text-muted dark:text-gray-300 mt-2">Garantie 6 mois sur nos travaux (dommages mineurs) + garanties constructeur sur le matériel.</p>
-    </details>
-
-    <details class="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-lg p-4 mb-3 dark:text-white">
-      <summary class="font-bold cursor-pointer">Puis-je voir mes caméras sur téléphone ?</summary>
-      <p class="text-muted dark:text-gray-300 mt-2">Oui. Nous configurons l’accès sécurisé (app mobile/PC), alertes mouvement, partage d’accès et sauvegarde distante.</p>
-    </details>
-
-  </div>
-</section>
-
+  </section>
 
   <!-- ===== Contact ===== -->
   <section id="contact" class="py-14 sm:py-16 text-[#e5f4ff]" style="background:linear-gradient(135deg,#012b52,#004080)">
@@ -672,12 +666,12 @@
 
       <div class="mb-6 text-[1.02rem] sm:text-[1.05rem] leading-8">
         <p><strong>📞 Téléphone :</strong> <a class="text-yellowBrand underline-offset-2 hover:underline" href="tel:+243990880720">+243 990 880 720</a> | <a class="text-yellowBrand underline-offset-2 hover:underline" href="tel:+243977078717">+243 977 078 717</a></p>
-        <p><strong>💬 WhatsApp :</strong> <a class="text-yellowBrand underline-offset-2 hover:underline" target="_blank" href="https://wa.me/243990880720" rel="noopener noreferrer">+243 844 894 508</a></p>
+        <p><strong>💬 WhatsApp :</strong> <a class="text-yellowBrand underline-offset-2 hover:underline" target="_blank" href="https://wa.me/243844894508" rel="noopener noreferrer">+243 844 894 508</a></p>
         <p><strong>🌐 Site web :</strong> <a class="text-yellowBrand underline-offset-2 hover:underline" target="_blank" href="https://master-engineering-drc.github.io/web/" rel="noopener noreferrer">med-electricite.com</a></p>
         <p><strong>🔗 Facebook :</strong> <a class="text-yellowBrand underline-offset-2 hover:underline" target="_blank" href="https://facebook.com/MEDLubumbashi" rel="noopener noreferrer">facebook.com/MEDLubumbashi</a></p>
       </div>
 
-      <!-- Form: 1 colonne mobile → 2 colonnes md -->
+      <!-- Form -->
       <form id="devisForm" class="grid gap-3 md:grid-cols-2">
         <input name="name" required placeholder="Votre nom"
                class="p-3 rounded-lg border border-white/40 bg-white/10 placeholder-blue-100/70 text-white md:col-span-1" />
@@ -695,7 +689,6 @@
           <option>Caméras CCTV / Alarme</option>
           <option>Plomberie</option>
           <option>Applications web & mobile</option>
-
         </select>
         <textarea name="message" rows="4" placeholder="Décrivez le site, la puissance approximative, les délais…"
                   class="p-3 rounded-lg border border-white/40 bg-white/10 placeholder-blue-100/70 text-white md:col-span-2"></textarea>
@@ -741,779 +734,45 @@
   <div class="fixed right-4 bottom-4 z-50 grid gap-2">
     <a class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl grid place-items-center bg-yellowBrand text-black font-extrabold shadow-card"
        title="Écrire sur WhatsApp" aria-label="WhatsApp"
-       href="https://wa.me/243990880720" target="_blank" rel="noopener noreferrer">WA</a>
+       href="https://wa.me/243844894508" target="_blank" rel="noopener noreferrer">WA</a>
     <a class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl grid place-items-center bg-brand text-white font-extrabold shadow-card"
-       title="Haut de page" aria-label="Haut" href="#">↑</a>
+       title="Haut de page" aria-label="Haut" href="#top">↑</a>
   </div>
 
-  <!-- ===== Lightbox ===== -->
+  <!-- ===== Lightboxes / Modals ===== -->
   <dialog class="lightbox" id="lightbox"><img id="lightImg" alt="Photo chantier"/></dialog>
 
-  <!-- ===== Modal : Laisser un avis ===== -->
-<dialog class="lightbox" id="reviewDlg">
-  <form id="reviewForm" class="p-5 sm:p-6 bg-white rounded-xl text-ink grid gap-3 min-w-[min(92vw,520px)]">
-    <h3 class="text-lg font-bold">Laisser un avis</h3>
-
-    <input name="name" required placeholder="Votre nom"
-          class="p-3 rounded-lg border border-gray-300"  />
-
-    <div class="flex items-center gap-2">
-      <span class="font-semibold">Note :</span>
-      <div id="stars" class="flex gap-1 text-2xl select-none"></div>
-      <input type="hidden" name="rating" id="rating" value="5" required/>
-    </div>
-
-    <textarea name="message" rows="4" required placeholder="Votre message…"
-              class="p-3 rounded-lg border border-gray-300"></textarea>
-
-    <div class="sr-only" aria-hidden="true">
-      <label>Site web <input type="text" name="website" id="hp_website" tabindex="-1" autocomplete="off"></label>
-    </div>
-
-    <div class="grid gap-2 sm:flex sm:justify-end">
-      <button type="button" id="reviewMail"
-        class="px-3 py-2 rounded-lg border border-black text-brand font-semibold">
-        Envoyer par e-mail
-      </button>
-
-      <button type="button" id="reviewWA"
-        class="px-3 py-2 rounded-lg border border-yellowBrand text-yellowBrand font-semibold">
-        Envoyer par WhatsApp
-      </button>
-
-      <button type="button" id="reviewPublish"
-        class="px-3 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold">
-        Publier sur le site
-      </button>
-
-      <button type="button" id="reviewCancel"
-        class="px-3 py-2 rounded-lg border border-gray-300">
-        Annuler
-      </button>
-    </div>
-  </form>
-</dialog>
-
-
-  <!-- ===== JS ===== -->
-  <script>
-  // Menu mobile
-  const navToggle = document.getElementById('navToggle');
-  const mobileMenu = document.getElementById('mobileMenu');
-  navToggle?.addEventListener('click', () => {
-    const isHidden = mobileMenu.classList.contains('hidden');
-    mobileMenu.classList.toggle('hidden');
-    navToggle.setAttribute('aria-expanded', String(isHidden));
-  });
-
-  // Gallery lightbox
-  const dlg = document.getElementById('lightbox');
-  const lightImg = document.getElementById('lightImg');
-  document.querySelectorAll('.gl').forEach(a=>{
-    a.addEventListener('click', e=>{e.preventDefault();lightImg.src=a.dataset.img;dlg.showModal();})
-  });
-  dlg?.addEventListener('click', () => dlg.close());
-
-  // Hero -> scroll vers simulateur
-  document.getElementById('openSim')?.addEventListener('click',()=>{
-    document.getElementById('simulateur')?.scrollIntoView({behavior:'smooth'});
-  });
-
-  // Simulateur
-  const fmt = n => Number(n).toLocaleString(undefined,{maximumFractionDigits:2});
-  document.getElementById('calcBtn')?.addEventListener('click',()=>{
-    const W = +document.getElementById('watt').value||0;
-    const h = +document.getElementById('hours').value||0;
-    const d = +document.getElementById('days').value||0;
-    const t = +document.getElementById('tarif').value||0;
-    const kwh = (W/1000) * h * d;
-    const cost = kwh * t;
-    document.getElementById('kwh').textContent = fmt(kwh) + ' kWh';
-    document.getElementById('cost').textContent = 'FC' + fmt(cost);
-  });
-
-  // Devis: WhatsApp auto + fallback mailto (avec validation)
-  const f = document.getElementById('devisForm');
-  const msg = document.getElementById('formMsg');
-  const waQuick = document.getElementById('waQuick');
-  const waNumber = '243990880720';
-
-  // Construit le lien WA à partir du formulaire
-  function buildWAFromForm(form){
-    const data = new FormData(form);
-    const text = `Bonjour MED, je souhaite un devis pour: ${data.get('service')||''}%0A`+
-                 `Nom: ${data.get('name')||''}%0A`+
-                 `Téléphone: ${data.get('phone')||''}%0A`+
-                 `Détails: ${encodeURIComponent(data.get('message')||'')}%0A`;
-    return `https://wa.me/${waNumber}?text=${text}`;
-  }
-
-  // Active/désactive le bouton WhatsApp selon la validité
-  function refreshWAQuick(){
-    if (f?.checkValidity()) {
-      waQuick.href = buildWAFromForm(f);
-      waQuick.removeAttribute('aria-disabled');
-      waQuick.classList.remove('opacity-60','pointer-events-none');
-    } else {
-      waQuick.href = '#';
-      waQuick.setAttribute('aria-disabled','true');
-      waQuick.classList.add('opacity-60','pointer-events-none');
-    }
-  }
-
-  f?.addEventListener('input',()=>{
-    refreshWAQuick();
-  });
-
-  // Empêche le clic WA si formulaire incomplet
-  waQuick?.addEventListener('click',(e)=>{
-    if (!f?.checkValidity()) {
-      e.preventDefault();
-      f.reportValidity();
-      msg.textContent = 'Complétez les champs requis avant d’envoyer par WhatsApp.';
-    }
-  });
-
-  // Soumission par e-mail : bloque si invalide
-  f?.addEventListener('submit',(e)=>{
-    if (!f.checkValidity()) {
-      e.preventDefault();
-      f.reportValidity();
-      msg.textContent = 'Veuillez compléter tous les champs requis.';
-      return;
-    }
-    e.preventDefault();
-    const data = new FormData(f);
-    const body = `Nom: ${data.get('name')}%0A`+
-                 `Téléphone: ${data.get('phone')}%0A`+
-                 `Service: ${data.get('service')}%0A`+
-                 `Message: ${encodeURIComponent(data.get('message')||'')}`;
-    location.href = `mailto:masterengineeringdrc1@gmail.com?subject=Demande de devis MED&body=${body}`;
-    msg.textContent = 'Ouverture de votre application mail… Vous pouvez aussi cliquer sur "WhatsApp direct".';
-  });
-
-  // ---------- Helpers ----------
-  const val = id => +document.getElementById(id).value || 0;
-
-  // ---------- Onglets + explications dynamiques ----------
-  const tabs = document.querySelectorAll('.sim-tab');
-  const panels = document.querySelectorAll('.sim-panel');
-  const expTitle = document.getElementById('exp-title');
-  const expBody  = document.getElementById('exp-body');
-  const expEx    = document.getElementById('exp-example');
-  const fillBtn  = document.getElementById('fillExampleBtn');
-
-  const EXPLAINS = {
-    '#sim1': {
-      title: 'Conso & coût (1 appareil)',
-      body: "<strong>kWh</strong> = (W/1000) × heures/jour × jours. <strong>Coût</strong> = kWh × tarif (CDF/kWh).",
-      example: [
-        'Puissance 1200 W, 3 h/j, 30 jours, tarif 800 CDF/kWh.',
-        'Cliquez sur <em>Remplir l’exemple</em> puis <strong>Calculer</strong>.'
-      ],
-      fill: () => {
-        document.getElementById('s1_w').value = 1200;
-        document.getElementById('s1_h').value = 3;
-        document.getElementById('s1_d').value = 30;
-        document.getElementById('s1_t').value = 800;
-      }
-    },
-    '#sim2': {
-      title: 'Multi-appareils (somme des consommations)',
-      body: "Addition de kWh individuels : <code>kWh = (W/1000) × h/j × jours</code>, puis total × tarif.",
-      example: [
-        'Ligne 1 : Frigo 150 W • 24 h/j • 30 j',
-        'Ligne 2 : Éclairage 40 W • 5 h/j • 30 j',
-        'Tarif 800 CDF/kWh. Cliquez sur <strong>Calculer total</strong>.'
-      ],
-      fill: () => {
-        const rows = document.getElementById('s2_rows');
-        rows.innerHTML = '';
-        const addRow = (name,W,h,d) => {
-          const tr = document.createElement('tr');
-          tr.innerHTML = `
-            <td class="py-1"><input class="w-full border p-2 rounded bg-white dark:bg-slate-800 dark:border-slate-600" value="${name}"></td>
-            <td><input type="number" class="w-24 border p-2 rounded bg-white dark:bg-slate-800 dark:border-slate-600" value="${W}"></td>
-            <td><input type="number" class="w-20 border p-2 rounded bg-white dark:bg-slate-800 dark:border-slate-600" value="${h}"></td>
-            <td><input type="number" class="w-20 border p-2 rounded bg-white dark:bg-slate-800 dark:border-slate-600" value="${d}"></td>
-            <td><button class="text-red-600 px-2 py-1" onclick="this.closest('tr').remove()">✖</button></td>
-          `;
-          rows.appendChild(tr);
-        };
-        document.getElementById('s2_tarif').value = 800;
-        addRow('Frigo',150,24,30);
-        addRow('Éclairage',40,5,30);
-      }
-    },
-    '#sim3': {
-      title: 'Dimensionnement solaire (PV + batteries)',
-      body: "PV ≈ conso_jour / (PSH × rendement_système). Batteries ≈ (conso_jour × jours)/ (DoD × η onduleur).",
-      example: [
-        'Conso 15 kWh/j • PSH 5 h • Rendement 0,75',
-        'Autonomie 1,5 j • DoD 0,8 • η onduleur 0,92',
-        'Panneau 550 W • Batterie 48 V • Pointe 3500 W.'
-      ],
-      fill: () => {
-        document.getElementById('s3_kwhd').value = 15;
-        document.getElementById('s3_psh').value = 5;
-        document.getElementById('s3_sysEff').value = 0.75;
-        document.getElementById('s3_days').value = 1.5;
-        document.getElementById('s3_dod').value = 0.8;
-        document.getElementById('s3_invEff').value = 0.92;
-        document.getElementById('s3_pvw').value = 550;
-        document.getElementById('s3_vbat').value = 48;
-        document.getElementById('s3_peak').value = 3500;
-      }
-    },
-    '#sim4': {
-      title: 'Autonomie batterie',
-      body: "<strong>h</strong> = (kWh_batt × DoD × η onduleur) / (Charge_W/1000).",
-      example: [
-        'Batterie 10 kWh • DoD 0,8 • η 0,92',
-        'Charge continue 800 W.',
-        'Cliquer sur <strong>Calculer</strong>.'
-      ],
-      fill: () => {
-        document.getElementById('s4_kwh').value = 10;
-        document.getElementById('s4_dod').value = 0.8;
-        document.getElementById('s4_eff').value = 0.92;
-        document.getElementById('s4_w').value = 800;
-      }
-    },
-    '#sim5': {
-      title: 'Section de câble & chute de tension',
-      body: "ΔV(V) = (2 × L × I × ρ)/A ; %ΔV = ΔV/V × 100. Choix de la section la plus petite respectant %ΔV max.",
-      example: [
-        'L=30 m • I=16 A • V=230 V • Matériau=Cuivre',
-        'Chute max autorisée 3 %.',
-        'Cliquer sur <strong>Dimensionner</strong>.'
-      ],
-      fill: () => {
-        document.getElementById('s5_L').value = 30;
-        document.getElementById('s5_I').value = 16;
-        document.getElementById('s5_V').value = 230;
-        document.getElementById('s5_mat').value = 'cu';
-        document.getElementById('s5_max').value = 3;
-      }
-    },
-    '#sim6': {
-      title: 'Sélecteur de groupe électrogène',
-      body: "kVA ≈ (W_régime × k_surtension)/(1000 × PF) × marge. (PF≈0,8, marge≈1,25 par défaut).",
-      example: [
-        'W_régime 5000 W • k_surtension 1,2',
-        'PF 0,8 • marge 1,25.',
-        'Cliquer sur <strong>Calculer</strong>.'
-      ],
-      fill: () => {
-        document.getElementById('s6_w').value = 5000;
-        document.getElementById('s6_k').value = 1.2;
-        document.getElementById('s6_pf').value = 0.8;
-        document.getElementById('s6_m').value = 1.25;
-      }
-    },
-    '#sim7': {
-      title: 'Éclairage (lux & nb luminaires)',
-      body: "Flux requis (lm) ≈ (lux_cible × surface)/(UF × MF). Nb = ⌈ flux_requis / flux_luminaire ⌉.",
-      example: [
-        'Surface 50 m² • Lux 300',
-        'UF 0,6 • MF 0,8 • 3000 lm par luminaire (24 W).',
-        'Cliquer sur <strong>Calculer</strong>.'
-      ],
-      fill: () => {
-        document.getElementById('s7_area').value = 50;
-        document.getElementById('s7_lux').value = 300;
-        document.getElementById('s7_uf').value = 0.6;
-        document.getElementById('s7_mf').value = 0.8;
-        document.getElementById('s7_lm').value = 3000;
-        document.getElementById('s7_w').value = 24;
-      }
-    },
-    '#sim8': {
-      title: 'ROI solaire (économies & retour)',
-      body: "Économies année 1 = prod × tarif − maintenance. Payback ≈ coût / économies. NPV = somme des économies actualisées − coût.",
-      example: [
-        'Coût 8000 CDF • Prod 6000 kWh/an',
-        'Tarif 800 FC/kWh • Maintenance 120 FC/an',
-        'Horizon 20 ans • Index 3 % • Taux 8 %.'
-      ],
-      fill: () => {
-        document.getElementById('s8_cost').value  = 8000;
-        document.getElementById('s8_prod').value  = 6000;
-        document.getElementById('s8_tarif').value = 800;
-        document.getElementById('s8_maint').value = 120;
-        document.getElementById('s8_years').value = 20;
-        document.getElementById('s8_escal').value = 3;
-        document.getElementById('s8_disc').value  = 8;
-      }
-    },
-    '#sim9': {
-      title: 'Équilibrage des phases (tri)',
-      body: "Déséquilibre (%) = (max − min)/moyenne × 100. Objectif : rapprocher les trois phases.",
-      example: [
-        'L1 : 1200, 800, 500',
-        'L2 : 1000, 600',
-        'L3 : 900, 700',
-        'Cliquer sur <strong>Analyser</strong>.'
-      ],
-      fill: () => {
-        document.getElementById('s9_l1').value = '1200, 800, 500';
-        document.getElementById('s9_l2').value = '1000, 600';
-        document.getElementById('s9_l3').value = '900, 700';
-      }
-    }
-  };
-
-  function renderExplain(targetId){
-    const cfg = EXPLAINS[targetId];
-    if(!cfg) return;
-    expTitle.textContent = cfg.title;
-    expBody.innerHTML = cfg.body;
-    expEx.innerHTML = `
-      <h4 class="font-semibold text-blue-200 mb-1">Exemple</h4>
-      <ul class="list-disc pl-5 space-y-1">${cfg.example.map(li=>`<li>${li}</li>`).join('')}</ul>
-    `;
-    fillBtn.onclick = cfg.fill;
-  }
-
-  function activateTab(targetId) {
-    panels.forEach(p => p.classList.add('hidden'));
-    tabs.forEach(b => {
-      const active = b.dataset.target === targetId;
-      b.setAttribute('aria-selected', active ? 'true' : 'false');
-      if (active) {
-        b.classList.remove('bg-white/10','text-white','border-white/30');
-        b.classList.add('bg-white','text-brand','border','border-black','shadow-card','font-semibold');
-      } else {
-        b.classList.remove('bg-white','text-brand','border-black','shadow-card','font-semibold');
-        b.classList.add('bg-white/10','text-white','border','border-white/30');
-      }
-    });
-    document.querySelector(targetId)?.classList.remove('hidden');
-    renderExplain(targetId);
-  }
-
-  tabs.forEach(b => b.addEventListener('click', () => activateTab(b.dataset.target)));
-  activateTab('#sim1');
-
-  // ---------- Calculs ----------
-  // 1) Conso & coût
-  document.getElementById('s1_btn')?.addEventListener('click', ()=>{
-    const W=val('s1_w'), h=val('s1_h'), d=val('s1_d'), t=val('s1_t');
-    const kwh=(W/1000)*h*d, cost=kwh*t;
-    document.getElementById('s1_kwh').textContent = fmt(kwh)+' kWh';
-    document.getElementById('s1_cost').textContent = 'FC'+fmt(cost);
-  });
-
-  // 2) Multi
-  const s2_rows=document.getElementById('s2_rows');
-  document.getElementById('s2_add')?.addEventListener('click', ()=>{
-    const tr=document.createElement('tr');
-    tr.innerHTML=`
-      <td class="py-1"><input class="w-full border p-2 rounded bg-white dark:bg-slate-800 dark:border-slate-600" placeholder="Appareil"></td>
-      <td><input type="number" class="w-24 border p-2 rounded bg-white dark:bg-slate-800 dark:border-slate-600" placeholder="W"></td>
-      <td><input type="number" class="w-20 border p-2 rounded bg-white dark:bg-slate-800 dark:border-slate-600" placeholder="h/j"></td>
-      <td><input type="number" class="w-20 border p-2 rounded bg-white dark:bg-slate-800 dark:border-slate-600" placeholder="jours"></td>
-      <td><button class="text-red-600 px-2 py-1" onclick="this.closest('tr').remove()">✖</button></td>
-    `;
-    s2_rows.appendChild(tr);
-  });
-  document.getElementById('s2_calc')?.addEventListener('click', ()=>{
-    let kwh=0;
-    s2_rows.querySelectorAll('tr').forEach(tr=>{
-      const W=+tr.children[1].querySelector('input').value||0;
-      const h=+tr.children[2].querySelector('input').value||0;
-      const d=+tr.children[3].querySelector('input').value||0;
-      kwh += (W/1000)*h*d;
-    });
-    const t=+document.getElementById('s2_tarif').value||0;
-    document.getElementById('s2_out').textContent = `Total: ${fmt(kwh)} kWh • ${fmt(kwh*t)} CDF`;
-  });
-
-  // 3) Solaire (PV+batt.)
-  document.getElementById('s3_btn')?.addEventListener('click', ()=>{
-    const kwhd=val('s3_kwhd'), psh=val('s3_psh'), sysEff=val('s3_sysEff')||1;
-    const days=val('s3_days'), dod=val('s3_dod')||1, invEff=val('s3_invEff')||1;
-    const panelW=val('s3_pvw')||400, vbat=val('s3_vbat')||48, peakW=val('s3_peak')||0;
-    const pv_kw = kwhd/(psh*sysEff);
-    const panels = Math.ceil((pv_kw*1000)/panelW);
-    const bat_kwh = (kwhd*days)/(dod*invEff);
-    const bat_Ah = (bat_kwh*1000)/vbat;
-    const inv_kw = Math.max((peakW/1000)*1.25, pv_kw*0.6);
-    document.getElementById('s3_pv').textContent  = `PV ≈ ${fmt(pv_kw)} kW (${panels} panneaux de ${panelW} W)`;
-    document.getElementById('s3_bat').textContent = `Batteries ≈ ${fmt(bat_kwh)} kWh (≈ ${fmt(bat_Ah)} Ah @ ${vbat} V)`;
-    document.getElementById('s3_inv').textContent = `Onduleur recommandé : ${fmt(inv_kw)} kW min`;
-  });
-
-  // 4) Autonomie batterie
-  document.getElementById('s4_btn')?.addEventListener('click', ()=>{
-    const kwh=val('s4_kwh'), dod=val('s4_dod')||1, eff=val('s4_eff')||1, W=val('s4_w')||1;
-    const hours=(kwh*dod*eff)/(W/1000);
-    const h=Math.floor(hours), m=Math.round((hours-h)*60);
-    document.getElementById('s4_out').textContent = `${fmt(hours)} h (${h} h ${m} min)`;
-  });
-
-  // 5) Câble & ΔV
-  document.getElementById('s5_btn')?.addEventListener('click', ()=>{
-    const L=val('s5_L'), I=val('s5_I'), V=val('s5_V'), mat=document.getElementById('s5_mat').value;
-    const maxPct=val('s5_max');
-    const rho = (mat==='al') ? 2.826e-8 : 1.724e-8;
-    const sections=[1.5,2.5,4,6,10,16,25,35,50,70,95,120,150,185,240];
-    const dropPctFor = (mm2)=>{ const A=mm2*1e-6; const dV=(2*L*I*rho)/A; return (dV/V)*100; };
-    let rec=sections[sections.length-1], pct=dropPctFor(rec);
-    for(const s of sections){ const p=dropPctFor(s); if(p<=maxPct){ rec=s; pct=p; break; } }
-    document.getElementById('s5_rec').textContent = `Section recommandée : ${rec} mm² (${mat.toUpperCase()})`;
-    document.getElementById('s5_drop').textContent = `Chute réelle ≈ ${fmt(pct)} %`;
-  });
-
-  // 6) Groupe électrogène
-  document.getElementById('s6_btn')?.addEventListener('click', ()=>{
-    const W=val('s6_w'), k=val('s6_k')||1, pf=val('s6_pf')||0.8, m=val('s6_m')||1.25;
-    const kVA=(W*k)/(1000*pf)*m, kW=kVA*pf;
-    document.getElementById('s6_out').textContent = `${fmt(kVA)} kVA (≈ ${fmt(kW)} kW)`;
-  });
-
-  // 7) Éclairage
-  document.getElementById('s7_btn')?.addEventListener('click', ()=>{
-    const A=val('s7_area'), lux=val('s7_lux'), UF=val('s7_uf')||1, MF=val('s7_mf')||1, lm=val('s7_lm')||1, W=val('s7_w')||0;
-    const fluxReq=(lux*A)/(UF*MF); const count=Math.max(1, Math.ceil(fluxReq/lm)); const power=count*W;
-    document.getElementById('s7_count').textContent = `${count} luminaires`;
-    document.getElementById('s7_power').textContent = `Puissance totale ≈ ${fmt(power)} W`;
-  });
-
-  // 8) ROI solaire
-  document.getElementById('s8_btn')?.addEventListener('click', ()=>{
-    const cost=val('s8_cost'), prod=val('s8_prod'), tarif=val('s8_tarif'), maint=val('s8_maint');
-    const years=Math.max(1, val('s8_years')||20), escal=(val('s8_escal')||0)/100, disc=(val('s8_disc')||0)/100;
-    const year1=prod*tarif-maint; let cum=0, payback=null, npv=-cost;
-    for(let y=1;y<=years;y++){ const saving=prod*(tarif*Math.pow(1+escal,y-1))-maint; cum+=saving; if(payback===null&&cum>=cost) payback=y; npv+=saving/Math.pow(1+disc,y); }
-    document.getElementById('s8_sav').textContent = `Économies année 1 : ${fmt(year1)} CDF`;
-    document.getElementById('s8_pb').textContent  = `Payback simple : ${payback ? payback+' ans' : 'n/a'}`;
-    document.getElementById('s8_npv').textContent = `NPV (${years} ans) : ${fmt(npv)} CDF`;
-  });
-
-  // 9) Équilibrage phases
-  const parseLoads = v => (v||'').split(',').map(x=>+x.trim()).filter(n=>!isNaN(n)&&n>0);
-  document.getElementById('s9_btn')?.addEventListener('click', ()=>{
-    const L1=parseLoads(document.getElementById('s9_l1').value);
-    const L2=parseLoads(document.getElementById('s9_l2').value);
-    const L3=parseLoads(document.getElementById('s9_l3').value);
-    const S=[L1.reduce((a,b)=>a+b,0), L2.reduce((a,b)=>a+b,0), L3.reduce((a,b)=>a+b,0)];
-    const avg=(S[0]+S[1]+S[2])/3||1, maxI=S.indexOf(Math.max(...S)), minI=S.indexOf(Math.min(...S));
-    const imb=((S[maxI]-S[minI])/avg)*100;
-    const phases=[L1,L2,L3]; const largest=Math.max(...(phases[maxI].length?phases[maxI]:[0]));
-    let sug='Ajoutez/retirez des charges pour équilibrer.';
-    if(largest>0) sug=`Déplacer ≈ ${fmt(largest)} W de L${maxI+1} → L${minI+1} (déséquilibre actuel ≈ ${fmt(imb)} %).`;
-    document.getElementById('s9_tot').textContent = `L1: ${fmt(S[0])} W | L2: ${fmt(S[1])} W | L3: ${fmt(S[2])} W`;
-    document.getElementById('s9_imb').textContent = `Déséquilibre ≈ ${fmt(imb)} %`;
-    document.getElementById('s9_sug').textContent = sug;
-  });
-
-  // ----- Avis clients : ouverture/fermeture du modal -----
-  const openReview = document.getElementById('openReview');
-  const reviewDlg  = document.getElementById('reviewDlg');
-  const reviewCancel = document.getElementById('reviewCancel');
-
-  openReview?.addEventListener('click', () => {
-    reviewDlg.showModal();
-    // Réinitialise le formulaire
-    document.getElementById('reviewForm').reset();
-    // Par défaut: aucune note sélectionnée (oblige l’utilisateur à choisir)
-    setRating(0);
-  });
-  reviewCancel?.addEventListener('click', () => reviewDlg.close());
-  reviewDlg?.addEventListener('click', (e) => { if (e.target === reviewDlg) reviewDlg.close(); });
-
-  // ----- Étoiles cliquables -----
-  const starsEl = document.getElementById('stars');
-  const ratingInput = document.getElementById('rating');
-
-  // Injecte un peu de CSS pour l'effet "moitié remplie"
-(() => {
-  const style = document.createElement('style');
-  style.textContent = `
-    #stars{display:flex;gap:.25rem}
-    #stars .star{position:relative;font-size:1.75rem;line-height:1;cursor:pointer;color:#d1d5db;user-select:none}
-    #stars .star::before{content:"★";position:absolute;inset:0;width:var(--fill,0%);overflow:hidden;color:#fbbf24}
-    #stars .star:focus{outline:2px solid #fbbf24;outline-offset:2px;border-radius:.25rem}
-  `;
-  document.head.appendChild(style);
-})();
-
-  function renderStars(r){
-    starsEl.innerHTML = '';
-    for(let i=1;i<=5;i++){
-      const s = document.createElement('span');
-      s.className = 'star';
-      s.textContent = '★';            // étoile de base grise
-      s.dataset.i = i;                // index 1..5
-      s.tabIndex = 0;
-      s.setAttribute('role','radio');
-      
-       // pour l'accessibilité, on marque “sélectionné” si on est sur l'étoile qui couvre la note
-      const checked = Math.ceil(r) === i;
-      s.setAttribute('aria-checked', String(checked));
-
-      // pourcentage de remplissage de CETTE étoile
-      const fillUnit = Math.max(0, Math.min(1, r - (i-1))); // 0..1
-      s.style.setProperty('--fill', (fillUnit*100)+'%');
-
-      // Clic: demi (gauche) / entier (droite)
-      s.addEventListener('click', (e)=>{
-        const rect = s.getBoundingClientRect();
-        const half = ((e.clientX - rect.left) / rect.width) <= 0.5 ? 0.5 : 1.0;
-        setRating((i-1) + half);
-      });
-
-      // Clavier: ←/→ par 0.5, Home=0, End=5, Entrée/Espace = 1.0 sur l’étoile focus
-      s.addEventListener('keydown',(e)=>{
-        let rNow = parseFloat(ratingInput.value||'0') || 0;
-        if(e.key==='ArrowRight'){ e.preventDefault(); setRating(Math.min(5, rNow+0.5)); }
-        else if(e.key==='ArrowLeft'){ e.preventDefault(); setRating(Math.max(0, rNow-0.5)); }
-        else if(e.key==='Home'){ e.preventDefault(); setRating(0); }
-        else if(e.key==='End'){ e.preventDefault(); setRating(5); }
-        else if(e.key==='Enter' || e.key===' '){ e.preventDefault(); setRating(i); }
-      });
-
-      starsEl.appendChild(s);
-    }
-
-    ratingInput.value = r;
-    // Custom validity si pas de note
-    if (r < 0.5) {
-      ratingInput.setCustomValidity('Veuillez sélectionner une note (0.5 à 5).');
-    } else {
-      ratingInput.setCustomValidity('');
-    }
-  }
-
-  function setRating(r){
-    const val = Math.max(0, Math.min(5, Math.round((Number(r)||0)*2)/2)); // arrondi aux 0.5
-    renderStars(val);
-  }
-
-  if (starsEl) {
-  // Par défaut: aucune note sélectionnée (oblige l’utilisateur à choisir)
-  setRating(0);
-
-  starsEl.addEventListener('click', (e) => {
-    const v = +e.target?.dataset?.v;
-    if (v) setRating(v);
-  });
-
-  // Support clavier (Entrée/Espace pour valider une étoile)
-  starsEl.addEventListener('keydown', (e) => {
-    const v = +e.target?.dataset?.v;
-    if (v && (e.key === 'Enter' || e.key === ' ')) {
-      e.preventDefault();
-      setRating(v);
-    }
-  });
-}
-
-// ===== Avis : charger depuis Google Sheets (Apps Script) =====
-(async function loadAndRenderReviews(){
-  const list = document.getElementById('reviewsList');
-  if (!list) return;
-
-  const ENDPOINT = 'https://script.google.com/macros/s/AKfycbxvcaHqc3h2nl-3aNkPUE7uhyyVSmEhGAXKEpY-8FX2H2Tev1q1w6ryP3nzFtGZKtCSaw/exec'; // <-- remplace par ton URL /exec
-
-  // Petite étoile "moitié remplie" (lecture seule) — demi-notes OK
-  function starsHTML(r){
-    const safe = Math.max(0, Math.min(5, Number(r)||0));
-    let html = '<div class="flex items-center gap-0.5" aria-label="'+safe+' sur 5">';
-    for (let i=1;i<=5;i++){
-      const fill = Math.max(0, Math.min(1, safe - (i-1))); // 0..1
-      const pct = Math.round(fill*100);
-      html += `
-        <span class="relative inline-block align-middle" style="width:1.1em;line-height:1;">
-          <span style="color:#e5e7eb">★</span>
-          <span style="color:#FFD700;position:absolute;inset:0;width:${pct}%;overflow:hidden">★</span>
-        </span>`;
-    }
-    html += '</div>';
-    return html;
-  }
-
-  function appendReviewToList({name, rating, message, date}){
-    
-    if (!list) return;
-    const wrap = document.createElement('article');
-    wrap.className = "snap-start min-w-[280px] sm:min-w-[320px] bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-xl p-5 shadow-card dark:text-white";
-    
-    const stars = document.createElement('div'); 
-    stars.innerHTML = starsHTML(rating);
-    
-    const p = document.createElement('p'); 
-    p.textContent = String(message || '');
-    
-    const small = document.createElement('small'); 
-    small.className="text-muted dark:text-gray-300";
-    
-    const dateStr = date ? new Date(date).toLocaleDateString(undefined,{year:'numeric',month:'2-digit',day:'2-digit'}) : '';
-    small.textContent = `— ${name || 'Client'}${dateStr ? ' • '+dateStr : ''}`;
-    
-    wrap.appendChild(stars); 
-    wrap.appendChild(p); 
-    wrap.appendChild(small);
-    
-    list.prepend(wrap); // tout en haut
-  }
-
-  // --- Publication depuis le modal ---
-  const reviewPublish = document.getElementById('reviewPublish');
-
-  reviewPublish?.addEventListener('click', async () => {
-    if (!validateReview()) return; // ta fonction existante (avec demi-étoiles)
-    const btn = reviewPublish;
-    const hp  = document.getElementById('hp_website')?.value || '';
-    const data = new FormData(reviewForm);
-    const name = (data.get('name')||'').toString().trim();
-    const rating = parseFloat((data.get('rating')||'0'));
-    const message = (data.get('message')||'').toString().trim();
-
-    // anti double-clic
-    btn.disabled = true;
-    const oldTxt = btn.textContent;
-    btn.textContent = 'Publication…';
-
-    try {
-      // Pas d'en-têtes custom !
-      // Le navigateur enverra application/x-www-form-urlencoded automatiquement.
-      const body = new URLSearchParams({
-        name, rating: String(rating), message, hp // hp = honeypot (vide)
-      });
-      const res = await fetch(ENDPOINT, { method:'POST', body });
-
-
-      let ok = res.ok;
-      let json = null;
-      try { json = await res.json(); if ('ok' in (json||{})) ok = !!json.ok; } catch {}
-
-      if (!ok) throw new Error((json && json.error) || ('HTTP '+res.status));
-
-      // Succès : ferme le modal, réinitialise, et ajoute visuellement l’avis
-      reviewDlg.close();
-      reviewForm.reset();
-      if (typeof setRating === 'function') setRating(0); // remet la note à 0 si tu utilises cette fonction
-      appendReviewToList({
-        name, rating, message,
-        date: (json && json.stored && json.stored.date) ? json.stored.date : new Date().toISOString()
-      });
-      alert('Merci ! Votre avis a été publié.');
-    } catch (err) {
-      alert("Échec de la publication de l'avis. Réessayez plus tard.");
-      console.error(err);
-    } finally {
-      btn.disabled = false;
-      btn.textContent = oldTxt;
-    }
-  });
-
-
-  function fmtDate(d){
-    const dt = new Date(d);
-    return isNaN(dt) ? (d||'') :
-      dt.toLocaleDateString(undefined, {year:'numeric', month:'2-digit', day:'2-digit'});
-  }
-
-  // Carte d'avis (sécurisée : texte injecté via textContent)
-  function card({name, rating, message, date}){
-    const wrap = document.createElement('article');
-    wrap.className = "snap-start min-w-[280px] sm:min-w-[320px] bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-xl p-5 shadow-card dark:text-white";
-    const stars = document.createElement('div');
-    stars.innerHTML = starsHTML(rating);
-    const p = document.createElement('p'); p.textContent = message || '';
-    const small = document.createElement('small'); small.className="text-muted dark:text-gray-300";
-    small.textContent = `— ${name || 'Client'}${date ? ' • '+fmtDate(date) : ''}`;
-    wrap.appendChild(stars); wrap.appendChild(p); wrap.appendChild(small);
-    return wrap;
-  }
-
-  // Loader
-  list.innerHTML = `
-    <article class="snap-start min-w-[280px] sm:min-w-[320px] bg-white/60 dark:bg-[#111827]/60 border border-dashed border-gray-300 rounded-xl p-5">
-      <small class="text-muted">Chargement des avis…</small>
-    </article>`;
-
-  try {
-    const res = await fetch(ENDPOINT, {cache:'no-store'});
-    if (!res.ok) throw new Error('HTTP '+res.status);
-    const rows = await res.json();
-
-    // Normalisation des clés (accepte: date/Date, name/Nom, rating/note, message/Message)
-    const items = (rows || []).map(x => ({
-      date:   x.date   ?? x.Date   ?? '',
-      name:   x.name   ?? x.Nom    ?? 'Client',
-      rating: parseFloat(x.rating ?? x.note ?? x.Rating ?? x.Note) || 0,
-      message:x.message?? x.Message?? ''
-    }));
-
-    // Tri par date desc si possible
-    items.sort((a,b)=>{
-      const A = new Date(a.date), B = new Date(b.date);
-      return (isNaN(B)-isNaN(A)) || (B - A);
-    });
-
-    list.innerHTML = '';
-    if (!items.length) {
-      list.innerHTML = '<p class="text-muted">Aucun avis pour le moment.</p>';
-      return;
-    }
-    items.forEach(r => list.appendChild(card(r)));
-  } catch (e) {
-    list.innerHTML = '<p class="text-muted">Impossible de charger les avis pour l’instant.</p>';
-    // console.warn(e);
-  }
-})();
-
-
-  // ----- Envoi WhatsApp ou e-mail (avec validation) -----
-  const reviewForm = document.getElementById('reviewForm');
-  const reviewWA   = document.getElementById('reviewWA');
-  const reviewMail = document.getElementById('reviewMail');
-
-  function getReviewPayload(){
-    const data = new FormData(reviewForm);
-    const name = (data.get('name')||'').toString().trim();
-    const rating = (data.get('rating')||'5').toString();
-    const msgTxt = (data.get('message')||'').toString().trim();
-    return { name, rating, msgTxt };
-  }
-
-  function validateReview(){
-    if (!reviewForm.checkValidity()) {
-      reviewForm.reportValidity();
-      return false;
-    }
-    const r = +(ratingInput?.value || 0);
-    if (!(r >= 0.5 && r <= 5 && r % 0.5 === 0)) {
-      // Déclenche la bulle native via le champ hidden
-      ratingInput.reportValidity();
-      return false;
-    }
-    return true;
-  }
-
-  reviewWA?.addEventListener('click', (e) => {
-    if (!validateReview()) { e.preventDefault(); return; }
-    const { name, rating, msgTxt } = getReviewPayload();
-    const text = `Nouvel avis%0A%0ANom: ${encodeURIComponent(name)}%0ANote: ${rating}/5%0AMessage:%0A${encodeURIComponent(msgTxt)}`;
-    const wa = `https://wa.me/${waNumber}?text=${text}`;
-    window.open(wa, '_blank');
-    reviewDlg.close();
-  });
-
-  reviewMail?.addEventListener('click', (e) => {
-    if (!validateReview()) { e.preventDefault(); return; }
-    const { name, rating, msgTxt } = getReviewPayload();
-    const body = `Nom: ${encodeURIComponent(name)}%0ANote: ${encodeURIComponent(rating)}/5%0A%0A${encodeURIComponent(msgTxt)}`;
-    location.href = `mailto:masterengineeringdrc1@gmail.com?subject=Avis client MED&body=${body}`;
-    reviewDlg.close();
-  });
-
-  // Initialiser l'état du bouton WhatsApp "devis"
-  refreshWAQuick();
-</script>
-
+  <dialog class="lightbox" id="reviewDlg">
+    <form id="reviewForm" class="p-5 sm:p-6 bg-white rounded-xl text-ink grid gap-3 min-w-[min(92vw,520px)]">
+      <h3 class="text-lg font-bold">Laisser un avis</h3>
+
+      <input name="name" required placeholder="Votre nom" class="p-3 rounded-lg border border-gray-300" />
+
+      <div class="flex items-center gap-2">
+        <span class="font-semibold">Note :</span>
+        <div id="stars" class="flex gap-1 text-2xl select-none" role="radiogroup" aria-label="Note (0.5 à 5)"></div>
+        <input type="hidden" name="rating" id="rating" value="0" required/>
+      </div>
+
+      <textarea name="message" rows="4" required placeholder="Votre message…" class="p-3 rounded-lg border border-gray-300"></textarea>
+
+      <!-- Honeypot -->
+      <div class="sr-only" aria-hidden="true">
+        <label>Site web <input type="text" name="website" id="hp_website" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <div class="grid gap-2 sm:flex sm:justify-end">
+        <button type="button" id="reviewMail" class="px-3 py-2 rounded-lg border border-black text-brand font-semibold">Envoyer par e-mail</button>
+        <button type="button" id="reviewWA" class="px-3 py-2 rounded-lg border border-yellowBrand text-yellowBrand font-semibold">Envoyer par WhatsApp</button>
+        <button type="button" id="reviewPublish" class="px-3 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold">Publier sur le site</button>
+        <button type="button" id="reviewCancel" class="px-3 py-2 rounded-lg border border-gray-300">Annuler</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- JS (découpé) -->
+  <script src="js/main.js" defer></script>
+  <script src="js/simulateurs.js" defer></script>
+  <script src="js/avis.js" defer></script>
 </body>
 </html>
