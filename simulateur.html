@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MED • Électricité & Solaire | Lubumbashi & Kolwezi</title>
+  <meta name="description" content="Master Engineering DRC (MED) — installations électriques, maintenance, mise aux normes, éclairage, énergies renouvelables, tableaux électriques. Interventions rapides et garanties."/>
+
+  <!-- Open Graph / SEO -->
+  <link rel="canonical" href="https://master-engineering-drc.github.io/web/">
+  <meta property="og:title" content="MED • Électricité & Solaire" />
+  <meta property="og:description" content="Installations électriques fiables, solaires hybrides, maintenance et mise aux normes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="image/og-cover.jpg" />
+  <meta property="og:site_name" content="MED • Master Engineering DRC" />
+  <meta name="robots" content="index,follow" />
+  <meta name="theme-color" content="#004080" />
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+  tailwind.config = {
+    darkMode: 'media',
+    theme: {
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: '1rem', // mobile/tablette
+          md: '1rem',
+          lg: '0.75rem',   // desktop + serré
+          xl: '0.75rem',   // grand écran
+          '2xl': '0.75rem' // très grand écran
+        },
+      },
+      extend: {
+        colors: { brand:'#004080', yellowBrand:'#FFD700', ink:'#000000', muted:'#555555' },
+        boxShadow: { card: '0 10px 30px rgba(0,0,0,0.08)' },
+        borderRadius: { xl: '18px' }
+      }
+    }
+  }
+</script>
+
+
+
+  <!-- Mini CSS util pour le <dialog> + scroll doux -->
+  <style>
+    html{scroll-behavior:smooth}
+    dialog.lightbox { border: none; border-radius: 16px; padding: 0; max-width: min(92vw, 1000px); box-shadow: 0 10px 30px rgba(0,0,0,.18) }
+    dialog::backdrop { background: rgba(0,0,0,.6) }
+  </style>
+</head>
+<body class="bg-white text-ink antialiased">
+  <div id="top"></div>
+
+  <!-- ===== Header ===== -->
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
+    <div class="container max-w-[1400px] flex items-center justify-between py-3">
+      <!-- Brand -->
+      <a href="#top" class="flex items-center gap-3 font-extrabold" aria-label="Revenir en haut de page">
+        <span class="w-10 h-10 rounded-lg overflow-hidden grid place-items-center bg-gradient-to-br from-yellowBrand to-brand shadow-card">
+          <img src="image/MED_img.png" alt="Logo MED" class="w-full h-full object-cover" loading="lazy">
+        </span>
+        <span class="text-sm sm:text-base">MED • Master Engineering DRC</span>
+      </a>
+
+      <!-- Desktop nav -->
+      <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
+        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="index.html">Accueil</a>
+        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="simulateur.html">Simulateur</a>
+        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="service.html">Services</a>
+        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="realisation.html">Réalisations</a>
+        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="support.html">Contact</a>
+      </nav>
+
+      <!-- Actions -->
+      <div class="hidden md:flex items-center gap-2">
+        <a href="tel:+243844894508" class="inline-flex items-center px-3 sm:px-4 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card text-sm sm:text-base">📞 +243 844 894 508</a>
+        <a href="support.html#contact" class="inline-flex items-center px-3 sm:px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card text-sm sm:text-base">Demander un devis</a>
+      </div>
+
+      <!-- Mobile toggler -->
+      <button id="navToggle" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-gray-300 bg-white text-brand"
+        aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="lg:hidden hidden border-t border-gray-200 bg-white">
+      <div class="container max-w-[1400px] py-3">
+        <nav class="grid gap-1">
+          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="index.html">Accueil</a>
+          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="simulateur.html">Simulateur</a>
+          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="service.html">Services</a>
+          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="realisation.html">Réalisations</a>
+          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="support.html">Contact</a>
+        </nav>
+        <div class="mt-3 grid gap-2 sm:flex sm:items-center sm:gap-2">
+          <a href="tel:+243844894508" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card">📞 +243 844 894 508</a>
+          <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card">Demander un devis</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+
+     
+
+
+  <!-- ===== Simulateurs ===== -->
+  <section id="simulateur" class="py-14 sm:py-16 bg-[#0b1220] text-gray-200">
+    <div class="container max-w-[1400px]">
+      <div class="flex items-center justify-between gap-4 flex-wrap mb-4">
+        <h2 class="text-2xl sm:text-3xl font-bold text-blue-300">Simulateurs techniques</h2>
+        <span class="bg-yellow-100 text-black border border-yellowBrand px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
+          Outils indicatifs (réglables)
+        </span>
+      </div>
+
+      <!-- Onglets -->
+      <div class="flex flex-wrap gap-2 mb-5" role="tablist" aria-label="Simulateurs">
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white text-brand border border-black font-semibold shadow-card"
+                data-target="#sim1" role="tab" aria-controls="sim1" aria-selected="true">Conso & coût</button>
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
+                data-target="#sim2" role="tab" aria-controls="sim2" aria-selected="false">Multi-appareils</button>
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
+                data-target="#sim3" role="tab" aria-controls="sim3" aria-selected="false">Solaire (PV+batt.)</button>
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
+                data-target="#sim4" role="tab" aria-controls="sim4" aria-selected="false">Autonomie batt.</button>
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
+                data-target="#sim5" role="tab" aria-controls="sim5" aria-selected="false">Câble & ΔV</button>
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
+                data-target="#sim6" role="tab" aria-controls="sim6" aria-selected="false">Groupe électrogène</button>
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
+                data-target="#sim7" role="tab" aria-controls="sim7" aria-selected="false">Éclairage (lux)</button>
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
+                data-target="#sim8" role="tab" aria-controls="sim8" aria-selected="false">ROI solaire</button>
+        <button class="sim-tab px-3 py-2 rounded-lg bg-white/10 border border-white/30 text-white"
+                data-target="#sim9" role="tab" aria-controls="sim9" aria-selected="false">Équilibrage phases</button>
+      </div>
+
+      <!-- Bloc d'explication dynamique -->
+      <div id="sim-explain" class="rounded-xl border border-gray-200/30 bg-white/10 p-4 sm:p-5 shadow-card mb-6" aria-live="polite">
+        <h3 id="exp-title" class="text-lg sm:text-xl font-bold text-yellowBrand mb-2">Conso & coût (1 appareil)</h3>
+        <p id="exp-body" class="text-sm sm:text-base text-blue-100">
+          <strong>kWh</strong> = (W/1000) × heures/jour × jours. <strong>Coût</strong> = kWh × tarif (CDF/kWh).
+        </p>
+        <div id="exp-example" class="mt-3 text-sm sm:text-base text-blue-100">
+          <h4 class="font-semibold text-blue-200 mb-1">Exemple</h4>
+          <ul class="list-disc pl-5 space-y-1">
+            <li>Puissance 1200 W, 3 h/j, 30 jours, tarif 800 CDF/kWh.</li>
+            <li>Cliquer sur <em>Remplir l’exemple</em> puis <strong>Calculer</strong>.</li>
+          </ul>
+        </div>
+        <button id="fillExampleBtn" class="mt-3 px-3 py-2 rounded-lg bg-white text-brand border border-black font-semibold shadow-card">
+          Remplir l’exemple
+        </button>
+      </div>
+
+      <!-- PANELS -->
+      <div class="grid gap-5">
+        <!-- 1) Conso & coût -->
+        <div id="sim1" class="sim-panel grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim1">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card">
+            <div class="grid gap-3">
+              <label class="font-semibold">Puissance (W)</label>
+              <input id="s1_w" type="number" value="1200" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              <label class="font-semibold">Heures par jour</label>
+              <input id="s1_h" type="number" value="3" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              <label class="font-semibold">Nombre de jours</label>
+              <input id="s1_d" type="number" value="30" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              <label class="font-semibold">Tarif (CDF/kWh)</label>
+              <input id="s1_t" type="number" step="0.001" value="800" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              <button id="s1_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer</button>
+              <div class="mt-2 text-brand dark:text-blue-300 font-extrabold">
+                <div id="s1_kwh">0.00 kWh</div>
+                <div id="s1_cost">FC0.00</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2) Multi-appareils -->
+        <div id="sim2" class="sim-panel hidden" role="tabpanel" aria-labelledby="tab-sim2">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card">
+            <div class="flex flex-wrap gap-2 mb-3">
+              <label class="font-semibold">Tarif (CDF/kWh)</label>
+              <input id="s2_tarif" type="number" step="0.001" value="800" class="p-2 rounded border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              <button id="s2_add" class="px-3 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card">➕ Ajouter une ligne</button>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="min-w-[680px] w-full text-sm">
+                <thead>
+                  <tr class="text-left text-gray-600 dark:text-gray-300">
+                    <th class="py-2">Appareil</th><th>W</th><th>h/j</th><th>jours</th><th></th>
+                  </tr>
+                </thead>
+                <tbody id="s2_rows"></tbody>
+              </table>
+            </div>
+            <div class="mt-3 flex flex-wrap gap-2 items-center">
+              <button id="s2_calc" class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer total</button>
+              <div id="s2_out" class="text-brand dark:text-blue-300 font-extrabold"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3) Solaire (PV + batteries) -->
+        <div id="sim3" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim3">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
+            <label class="font-semibold">Conso journalière (kWh/j)</label>
+            <input id="s3_kwhd" type="number" step="0.01" value="15" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Heures de soleil (PSH)</label>
+            <input id="s3_psh" type="number" step="0.1" value="5" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Rendement système (0-1)</label>
+            <input id="s3_sysEff" type="number" step="0.01" value="0.75" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Jours d’autonomie</label>
+            <input id="s3_days" type="number" step="0.1" value="1.5" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">DoD (0-1)</label>
+            <input id="s3_dod" type="number" step="0.01" value="0.8" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Rendement onduleur (0-1)</label>
+            <input id="s3_invEff" type="number" step="0.01" value="0.92" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="font-semibold">Puissance panneau (W)</label>
+                <input id="s3_pvw" type="number" value="550" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">Tension batterie (V)</label>
+                <input id="s3_vbat" type="number" value="48" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+            </div>
+            <label class="font-semibold">Charge de pointe (W) (optionnel)</label>
+            <input id="s3_peak" type="number" value="3500" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <button id="s3_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Dimensionner</button>
+            <div class="mt-2 text-brand dark:text-blue-300 font-extrabold space-y-1">
+              <div id="s3_pv">PV ≈ – kW (– panneaux)</div>
+              <div id="s3_bat">Batteries ≈ – kWh (≈ – Ah @ – V)</div>
+              <div id="s3_inv">Onduleur recommandé : – kW</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4) Autonomie batterie -->
+        <div id="sim4" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim4">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
+            <label class="font-semibold">Capacité batterie (kWh)</label>
+            <input id="s4_kwh" type="number" step="0.1" value="10" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">DoD (0-1)</label>
+            <input id="s4_dod" type="number" step="0.01" value="0.8" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Rendement onduleur (0-1)</label>
+            <input id="s4_eff" type="number" step="0.01" value="0.92" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Charge (W)</label>
+            <input id="s4_w" type="number" value="800" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <button id="s4_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer</button>
+            <div class="mt-2 text-brand dark:text-blue-300 font-extrabold" id="s4_out">– h (– h – min)</div>
+          </div>
+        </div>
+
+        <!-- 5) Câble & ΔV -->
+        <div id="sim5" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim5">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="font-semibold">Longueur aller (m)</label>
+                <input id="s5_L" type="number" value="30" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">Courant (A)</label>
+                <input id="s5_I" type="number" value="16" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="font-semibold">Tension (V)</label>
+                <input id="s5_V" type="number" value="230" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">Matériau</label>
+                <select id="s5_mat" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+                  <option value="cu">Cuivre</option>
+                  <option value="al">Aluminium</option>
+                </select>
+              </div>
+            </div>
+            <label class="font-semibold">Chute max autorisée (%)</label>
+            <input id="s5_max" type="number" step="0.1" value="3" class="p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+            <button id="s5_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Dimensionner</button>
+            <div class="mt-2 text-brand dark:text-blue-300 font-extrabold space-y-1">
+              <div id="s5_rec">Section recommandée : – mm²</div>
+              <div id="s5_drop">Chute réelle ≈ – %</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6) Groupe électrogène -->
+        <div id="sim6" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim6">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
+            <label class="font-semibold">Puissance totale en régime (W)</label>
+            <input id="s6_w" type="number" value="5000" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Facteur de surtension</label>
+            <input id="s6_k" type="number" step="0.1" value="1.2" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="font-semibold">PF (0-1)</label>
+                <input id="s6_pf" type="number" step="0.01" value="0.8" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">Marge</label>
+                <input id="s6_m" type="number" step="0.05" value="1.25" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+            </div>
+            <button id="s6_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer</button>
+            <div class="mt-2 text-brand dark:text-blue-300 font-extrabold" id="s6_out">– kVA (≈ – kW)</div>
+          </div>
+        </div>
+
+        <!-- 7) Éclairage (lux) -->
+        <div id="sim7" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim7">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="font-semibold">Surface (m²)</label>
+                <input id="s7_area" type="number" value="50" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">Lux cible</label>
+                <input id="s7_lux" type="number" value="300" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="font-semibold">UF (0-1)</label>
+                <input id="s7_uf" type="number" step="0.05" value="0.6" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">MF (0-1)</label>
+                <input id="s7_mf" type="number" step="0.05" value="0.8" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-3">
+              <div>
+                <label class="font-semibold">Flux luminaire (lm)</label>
+                <input id="s7_lm" type="number" value="3000" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">Puissance luminaire (W)</label>
+                <input id="s7_w" type="number" value="24" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+            </div>
+            <button id="s7_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer</button>
+            <div class="mt-2 text-brand dark:text-blue-300 font-extrabold space-y-1">
+              <div id="s7_count">– luminaires</div>
+              <div id="s7_power">Puissance totale ≈ – W</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 8) ROI solaire -->
+        <div id="sim8" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim8">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
+            <label class="font-semibold">Coût système (CDF)</label>
+            <input id="s8_cost" type="number" value="8000" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Production annuelle (kWh)</label>
+            <input id="s8_prod" type="number" value="6000" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Tarif réseau (CDF/kWh)</label>
+            <input id="s8_tarif" type="number" step="0.001" value="800" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">Maintenance annuelle (CDF)</label>
+            <input id="s8_maint" type="number" value="120" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <div class="grid sm:grid-cols-3 gap-3">
+              <div>
+                <label class="font-semibold">Années</label>
+                <input id="s8_years" type="number" value="20" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">Index tarif (%)</label>
+                <input id="s8_escal" type="number" step="0.1" value="3" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+              <div>
+                <label class="font-semibold">Taux d’actualisation (%)</label>
+                <input id="s8_disc" type="number" step="0.1" value="8" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+              </div>
+            </div>
+            <button id="s8_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Calculer ROI</button>
+            <div class="mt-2 text-brand dark:text-blue-300 font-extrabold space-y-1">
+              <div id="s8_sav">Économies année 1 : – CDF</div>
+              <div id="s8_pb">Payback simple : – ans</div>
+              <div id="s8_npv">NPV (– ans) : – CDF</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 9) Équilibrage des phases -->
+        <div id="sim9" class="sim-panel hidden grid gap-5 md:grid-cols-2" role="tabpanel" aria-labelledby="tab-sim9">
+          <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-3">
+            <p class="text-sm text-muted dark:text-gray-300">Entrez des charges (W) séparées par des virgules pour chaque phase.</p>
+            <label class="font-semibold">L1 (W)</label>
+            <input id="s9_l1" placeholder="ex: 1200, 800, 500" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">L2 (W)</label>
+            <input id="s9_l2" placeholder="ex: 1000, 600" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <label class="font-semibold">L3 (W)</label>
+            <input id="s9_l3" placeholder="ex: 900, 700" class="p-3 rounded-lg border dark:border-slate-600 bg-white dark:bg-slate-800">
+            <button id="s9_btn" class="mt-2 px-4 py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">Analyser</button>
+            <div class="mt-2 text-brand dark:text-blue-300 font-extrabold space-y-1">
+              <div id="s9_tot">L1: – W | L2: – W | L3: – W</div>
+              <div id="s9_imb">Déséquilibre ≈ – %</div>
+              <div id="s9_sug" class="text-sm font-bold"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Équipe ===== -->
+<section id="equipe" class="py-14 sm:py-16 bg-[#f9fbff] border-y border-gray-200">
+  <div class="container max-w-[1400px]">
+    <h2 class="text-2xl sm:text-3xl font-bold text-brand mb-2">Notre équipe</h2>
+    <p class="text-muted mb-8">Une équipe pluridisciplinaire composée d’ingénieurs, de techniciens et d’associés, experts en électricité, informatique, sécurité et plomberie.</p>
+
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+      <!-- Ingénieurs -->
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
+        <img src="image/team/frederic.jpg" alt="Frederic B.K." class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Frederic B.K.</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Ingénieur électricité & réseaux</p>
+        <p class="text-muted mt-2 text-sm">Diplômé en électricité et licencié en informatique réseau. Chef de projet et coordinateur technique.</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
+        <img src="image/team/roger.jpg" alt="Roger P." class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Roger P.</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Ingénieur électricité</p>
+        <p class="text-muted mt-2 text-sm">Diplômé et licencié en électricité. Spécialiste en installations industrielles et maintenance.</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
+        <img src="image/team/elie.jpg" alt="Elie" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Elie</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Ingénieur électricité</p>
+        <p class="text-muted mt-2 text-sm">Diplômé et licencié en électricité. Expert en mise aux normes et tableaux électriques.</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
+        <img src="image/team/paul.jpg" alt="Paul M." class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Paul M.</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Ingénieur réseaux & télécoms</p>
+        <p class="text-muted mt-2 text-sm">Diplômé en électricité et licencié en informatique réseau et télécommunication.</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
+        <img src="image/team/team.jpg" alt="Nephtalie" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Nephtalie</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Ingénieure electronique & réseaux</p>
+        <p class="text-muted mt-2 text-sm">Diplômée en electronique et licenciée en informatique réseau.</p>
+      </div>
+
+      <!-- Technicien -->
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
+        <img src="image/team/team.jpg" alt="Joseph B." class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Joseph B.</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Technicien électricité</p>
+        <p class="text-muted mt-2 text-sm">Diplômé en électricité. Support aux installations et maintenance.</p>
+      </div>
+
+      <!-- Associés -->
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
+        <img src="image/team/team.jpg" alt="Martial" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Martial</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Associé & Expert sécurité</p>
+        <p class="text-muted mt-2 text-sm">Licence en informatique réseau. Spécialiste en cybersécurité et systèmes de protection.</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
+        <img src="image/team/arielle.jpg" alt="Arielle M." class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Arielle M.</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Développeuse web</p>
+        <p class="text-muted mt-2 text-sm">Spécialiste en développement web et conception d’applications connectées aux projets MED.</p>
+      </div>
+
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
+        <img src="image/team/team.jpg" alt="Isaac" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Isaac</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Associé – Ingénieur plomberie & froid</p>
+        <p class="text-muted mt-2 text-sm">Expert en plomberie et systèmes de réfrigération industrielle.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- ===== Footer ===== -->
+  <footer class="bg-[#001a33] text-white">
+    <div class="container max-w-[1400px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 py-10">
+      <div>
+        <strong>MED • Master Engineering DRC</strong>
+        <small class="block text-yellowBrand">RCCM/25-B-00693</small>
+        <small class="block">Lubumbashi — Interventions Kolwezi & région</small>
+      </div>
+      <div>
+        <strong>Contact</strong>
+        <small class="block text-yellowBrand">📞 +243 844 894 508</small>
+        <small class="block text-yellowBrand">📞 +243 900 174 502</small>
+        <small class="block">✉️ masterengineeringdrc1@gmail.com</small>
+      </div>
+      <div>
+        <strong>Horaires</strong>
+        <small class="block">Lun–Sam : 8h–17h</small>
+        <small class="block">Urgences sous contrat</small>
+      </div>
+      <div>
+        <strong>Légal</strong>
+        <small class="block">© 2025 — Tous droits réservés</small>
+        <small class="block">Conformité & sécurité électrique</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Floating actions ===== -->
+  <div class="fixed right-4 bottom-4 z-50 grid gap-2">
+    <a class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl grid place-items-center bg-yellowBrand text-black font-extrabold shadow-card"
+       title="Écrire sur WhatsApp" aria-label="WhatsApp"
+       href="https://wa.me/243844894508" target="_blank" rel="noopener noreferrer">WA</a>
+    <a class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl grid place-items-center bg-brand text-white font-extrabold shadow-card"
+       title="Haut de page" aria-label="Haut" href="#top">↑</a>
+  </div>
+
+  <!-- ===== Lightboxes / Modals ===== -->
+  <dialog class="lightbox" id="lightbox"><img id="lightImg" alt="Photo chantier"/></dialog>
+
+  <dialog class="lightbox" id="reviewDlg">
+    <form id="reviewForm" class="p-5 sm:p-6 bg-white rounded-xl text-ink grid gap-3 min-w-[min(92vw,520px)]">
+      <h3 class="text-lg font-bold">Laisser un avis</h3>
+
+      <input name="name" required placeholder="Votre nom" class="p-3 rounded-lg border border-gray-300" />
+
+      <div class="flex items-center gap-2">
+        <span class="font-semibold">Note :</span>
+        <div id="stars" class="flex gap-1 text-2xl select-none" role="radiogroup" aria-label="Note (0.5 à 5)"></div>
+        <input type="hidden" name="rating" id="rating" value="0" required/>
+      </div>
+
+      <textarea name="message" rows="4" required placeholder="Votre message…" class="p-3 rounded-lg border border-gray-300"></textarea>
+
+      <!-- Honeypot -->
+      <div class="sr-only" aria-hidden="true">
+        <label>Site web <input type="text" name="website" id="hp_website" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <div class="grid gap-2 sm:flex sm:justify-end">
+        <button type="button" id="reviewMail" class="px-3 py-2 rounded-lg border border-black text-brand font-semibold">Envoyer par e-mail</button>
+        <button type="button" id="reviewWA" class="px-3 py-2 rounded-lg border border-yellowBrand text-yellowBrand font-semibold">Envoyer par WhatsApp</button>
+        <button type="button" id="reviewPublish" class="px-3 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold">Publier sur le site</button>
+        <button type="button" id="reviewCancel" class="px-3 py-2 rounded-lg border border-gray-300">Annuler</button>
+      </div>
+    </form>
+  </dialog>
+
+  <!-- JS (découpé) -->
+  <script src="js/main.js" defer></script>
+  <script src="js/simulateurs.js" defer></script>
+  <script src="js/avis.js" defer></script>
+</body>
+</html>

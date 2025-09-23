@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
@@ -100,7 +100,7 @@
           <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="support.html">Contact</a>
         </nav>
 
-        <div class="mt-3 grid gap-1 sm:flex sm:items-center sm:gap-2">
+        <div class="mt-3 grid gap-2 sm:flex sm:items-center sm:gap-2">
           <a href="tel:+243844894508" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card">📞 +243 844 894 508</a>
           <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card">Demander un devis</a>
         </div>
@@ -108,59 +108,75 @@
     </div>
   </header>
 
-  <!-- ===== Hero ===== -->
-  <section class="relative min-h-[64vh] sm:min-h-[70vh] md:min-h-[72vh] grid items-center text-white">
-    <div class="absolute inset-0 bg-[url('image/MED.png')] bg-cover bg-center -z-10" aria-hidden="true"></div>
-    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/40 to-transparent" aria-hidden="true"></div>
+  
 
-    <div class="container max-w-[1400px] grid gap-5 py-16 sm:py-20 md:py-24">
-      <span class="inline-flex items-center gap-2 bg-yellow-100 text-black border border-yellowBrand px-3 py-1 rounded-full text-xs sm:text-sm font-semibold w-fit">
-        Lubumbashi Likasi & Kolwezi
-      </span>
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-        Installations électriques <em class="not-italic text-yellowBrand">fiables</em> & solutions solaires <em class="not-italic text-yellowBrand">performantes</em>.
-      </h1>
-      <p class="text-base sm:text-lg text-gray-200 max-w-3xl">
-        Conception, installation, maintenance et mise aux normes pour particuliers, sociétés et sites industriels. Interventions rapides, garanties, conformité assurée.
-      </p>
-      <div class="flex flex-wrap gap-2 sm:gap-3">
-        <a class="px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card" href="support.html">Parler à un expert</a>
-        <a class="px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg bg-white text-brand border border-black font-bold shadow-card" href="simulateur.html#simulateur">📊 Estimer ma consommation</a>
-      </div>
+ <!-- ===== FAQ ===== -->
+  <section class="py-14 sm:py-16 bg-[#eef2f5] dark:bg-[#111827]">
+    <div class="container max-w-[1400px]">
+      <h2 class="text-2xl sm:text-3xl font-bold text-brand mb-4">Questions fréquentes</h2>
+      <details class="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-lg p-4 mb-3 dark:text-white">
+        <summary class="font-bold cursor-pointer">Proposez-vous des contrats de maintenance ?</summary>
+        <p class="text-muted dark:text-gray-300 mt-2">Oui. Préventif (visites planifiées) et curatif (interventions rapides). Remises pour sites multi-points.</p>
+      </details>
+      <details class="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-lg p-4 mb-3 dark:text-white">
+        <summary class="font-bold cursor-pointer">Faites-vous des installations solaires hybrides ?</summary>
+        <p class="text-muted dark:text-gray-300 mt-2">Oui : onduleurs hybrides, batteries Li-ion, priorités réseau/groupe/solaire selon votre profil de charge.</p>
+      </details>
+      <details class="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-lg p-4 dark:text-white">
+        <summary class="font-bold cursor-pointer">Quelles garanties ?</summary>
+        <p class="text-muted dark:text-gray-300 mt-2">Garantie 6 mois sur nos travaux (dommages mineurs) + garanties constructeur sur le matériel.</p>
+      </details>
+      <details class="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-lg p-4 mb-3 dark:text-white">
+        <summary class="font-bold cursor-pointer">Puis-je voir mes caméras sur téléphone ?</summary>
+        <p class="text-muted dark:text-gray-300 mt-2">Oui. Nous configurons l’accès sécurisé (app mobile/PC), alertes mouvement, partage d’accès et sauvegarde distante.</p>
+      </details>
     </div>
   </section>
 
-  <!-- ===== Sécurité ===== -->
-  <section id="securite" class="py-16 bg-gray-50">
-    <div class="container max-w-[1200px] grid gap-10 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold">Pourquoi nous choisir ?</h2>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="p-6 bg-white rounded-xl shadow-card">
-          <h3 class="font-semibold text-brand">✅ Normes & Conformité</h3>
-          <p class="text-sm text-muted">Installations 100% conformes aux normes électriques.</p>
-        </div>
-        <div class="p-6 bg-white rounded-xl shadow-card">
-          <h3 class="font-semibold text-brand">⚡ Interventions rapides</h3>
-          <p class="text-sm text-muted">Disponibilité pour urgences et dépannages.</p>
-        </div>
-        <div class="p-6 bg-white rounded-xl shadow-card">
-          <h3 class="font-semibold text-brand">🔒 Sécurité garantie</h3>
-          <p class="text-sm text-muted">Protection des personnes et des biens assurée.</p>
-        </div>
-        <div class="p-6 bg-white rounded-xl shadow-card">
-          <h3 class="font-semibold text-brand">🌍 Énergies renouvelables</h3>
-          <p class="text-sm text-muted">Solutions solaires hybrides performantes.</p>
-        </div>
+  <!-- ===== Contact ===== -->
+  <section id="contact" class="py-14 sm:py-16 text-[#e5f4ff]" style="background:linear-gradient(135deg,#012b52,#004080)">
+    <div class="container max-w-[1400px]">
+      <h2 class="text-2xl sm:text-3xl font-bold text-yellowBrand mb-2">Contact direct</h2>
+      <p class="text-blue-100 mb-6">Cliquez sur un numéro ou un lien pour nous joindre immédiatement.</p>
+
+      <div class="mb-6 text-[1.02rem] sm:text-[1.05rem] leading-8">
+        <p><strong>📞 Téléphone :</strong> <a class="text-yellowBrand underline-offset-2 hover:underline" href="tel:+243990880720">+243 990 880 720</a> | <a class="text-yellowBrand underline-offset-2 hover:underline" href="tel:+243977078717">+243 977 078 717</a></p>
+        <p><strong>💬 WhatsApp :</strong> <a class="text-yellowBrand underline-offset-2 hover:underline" target="_blank" href="https://wa.me/243844894508" rel="noopener noreferrer">+243 844 894 508</a></p>
+        <p><strong>🌐 Site web :</strong> <a class="text-yellowBrand underline-offset-2 hover:underline" target="_blank" href="https://master-engineering-drc.github.io/web/" rel="noopener noreferrer">med-electricite.com</a></p>
+        <p><strong>🔗 Facebook :</strong> <a class="text-yellowBrand underline-offset-2 hover:underline" target="_blank" href="https://facebook.com/MEDLubumbashi" rel="noopener noreferrer">facebook.com/MEDLubumbashi</a></p>
       </div>
+
+      <!-- Form -->
+      <form id="devisForm" class="grid gap-3 md:grid-cols-2">
+        <input name="name" required placeholder="Votre nom"
+               class="p-3 rounded-lg border border-white/40 bg-white/10 placeholder-blue-100/70 text-white md:col-span-1" />
+        <input name="phone" required placeholder="Téléphone / WhatsApp"
+               class="p-3 rounded-lg border border-white/40 bg-white/10 placeholder-blue-100/70 text-white md:col-span-1" />
+        <select name="service" required
+                class="p-3 rounded-lg border border-white/40 bg-white/10 text-white md:col-span-2">
+          <option value="">Choisir un service…</option>
+          <option>Installation électrique</option>
+          <option>Maintenance / Dépannage</option>
+          <option>Mise aux normes</option>
+          <option>Éclairage LED</option>
+          <option>Solaire / Hybride</option>
+          <option>Tableaux & Comptage</option>
+          <option>Caméras CCTV / Alarme</option>
+          <option>Plomberie</option>
+          <option>Applications web & mobile</option>
+        </select>
+        <textarea name="message" rows="4" placeholder="Décrivez le site, la puissance approximative, les délais…"
+                  class="p-3 rounded-lg border border-white/40 bg-white/10 placeholder-blue-100/70 text-white md:col-span-2"></textarea>
+
+        <div class="flex flex-wrap gap-2 md:col-span-2">
+          <button type="reset" class="px-4 py-2 rounded-lg bg-transparent border border-yellowBrand text-yellowBrand font-semibold">Effacer</button>
+          <button type="submit" class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card">Envoyer la demande</button>
+          <a id="waQuick" href="#" class="px-4 py-2 rounded-lg bg-transparent border border-yellowBrand text-yellowBrand font-semibold">WhatsApp direct</a>
+        </div>
+        <small id="formMsg" class="text-blue-100 md:col-span-2"></small>
+      </form>
     </div>
   </section>
-
-
-  
-
- 
-
-  
 
   <!-- ===== Footer ===== -->
   <footer class="bg-[#001a33] text-white">
@@ -198,9 +214,40 @@
        title="Haut de page" aria-label="Haut" href="#top">↑</a>
   </div>
 
- 
+  <!-- ===== Lightboxes / Modals ===== -->
+  <dialog class="lightbox" id="lightbox"><img id="lightImg" alt="Photo chantier"/></dialog>
+
+  <dialog class="lightbox" id="reviewDlg">
+    <form id="reviewForm" class="p-5 sm:p-6 bg-white rounded-xl text-ink grid gap-3 min-w-[min(92vw,520px)]">
+      <h3 class="text-lg font-bold">Laisser un avis</h3>
+
+      <input name="name" required placeholder="Votre nom" class="p-3 rounded-lg border border-gray-300" />
+
+      <div class="flex items-center gap-2">
+        <span class="font-semibold">Note :</span>
+        <div id="stars" class="flex gap-1 text-2xl select-none" role="radiogroup" aria-label="Note (0.5 à 5)"></div>
+        <input type="hidden" name="rating" id="rating" value="0" required/>
+      </div>
+
+      <textarea name="message" rows="4" required placeholder="Votre message…" class="p-3 rounded-lg border border-gray-300"></textarea>
+
+      <!-- Honeypot -->
+      <div class="sr-only" aria-hidden="true">
+        <label>Site web <input type="text" name="website" id="hp_website" tabindex="-1" autocomplete="off"></label>
+      </div>
+
+      <div class="grid gap-2 sm:flex sm:justify-end">
+        <button type="button" id="reviewMail" class="px-3 py-2 rounded-lg border border-black text-brand font-semibold">Envoyer par e-mail</button>
+        <button type="button" id="reviewWA" class="px-3 py-2 rounded-lg border border-yellowBrand text-yellowBrand font-semibold">Envoyer par WhatsApp</button>
+        <button type="button" id="reviewPublish" class="px-3 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold">Publier sur le site</button>
+        <button type="button" id="reviewCancel" class="px-3 py-2 rounded-lg border border-gray-300">Annuler</button>
+      </div>
+    </form>
+  </dialog>
 
   <!-- JS (découpé) -->
   <script src="js/main.js" defer></script>
+  <script src="js/simulateurs.js" defer></script>
+  <script src="js/avis.js" defer></script>
 </body>
 </html>
