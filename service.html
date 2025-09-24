@@ -1,20 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-full scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MED • Électricité & Solaire | Lubumbashi & Kolwezi</title>
-  <meta name="description" content="Master Engineering DRC (MED) — installations électriques, maintenance, mise aux normes, éclairage, énergies renouvelables, tableaux électriques. Interventions rapides et garanties."/>
-
-  <!-- Open Graph / SEO -->
-  <link rel="canonical" href="https://master-engineering-drc.github.io/web/">
-  <meta property="og:title" content="MED • Électricité & Solaire" />
-  <meta property="og:description" content="Installations électriques fiables, solaires hybrides, maintenance et mise aux normes." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="image/og-cover.jpg" />
-  <meta property="og:site_name" content="MED • Master Engineering DRC" />
-  <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#004080" />
+  <title>Services (Grand Rayon) • MED</title>
+  <meta name="description" content="Le grand rayon MED : électricité, solaire, tableaux, sécurité & réseaux, maintenance, mise aux normes, packs clé-en-main.">
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,278 +12,562 @@
     tailwind.config = {
       darkMode: 'media',
       theme: {
-        container: {
-          center: true,
-          padding: {
-            DEFAULT: '1rem',   // mobile/tablette
-            md: '1rem',
-            lg: '0.75rem',     // desktop + serré
-            xl: '0.75rem',     // grand écran
-            '2xl': '0.75rem'   // très grand écran
-          },
-        },
         extend: {
-          colors: { brand:'#004080', yellowBrand:'#FFD700', ink:'#000000', muted:'#555555' },
-          boxShadow: { card: '0 10px 30px rgba(0,0,0,0.08)' },
+          colors: {
+            brand: '#012b52',
+            yellowBrand: '#DCC69C',
+            ink: '#000000',
+            muted: '#555555'
+          },
+          boxShadow: { card: '0 8px 30px rgba(0,0,0,.12)' },
           borderRadius: { xl: '18px' }
         }
       }
     }
   </script>
-
-  <!-- Mini CSS util -->
-  <style>
-    html{scroll-behavior:smooth}
-    dialog.lightbox { border:none; border-radius:16px; padding:0; max-width:min(92vw,1000px); box-shadow:0 10px 30px rgba(0,0,0,.18) }
-    dialog::backdrop { background:rgba(0,0,0,.6) }
-  </style>
 </head>
-<body class="bg-white text-ink antialiased">
-  <div id="top"></div>
+<body class="h-full bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+  <!-- Header injecté -->
+  <div data-include="partials/header.html"></div>
 
-  <!-- ===== Header ===== -->
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
-    <div class="container max-w-[1400px] flex items-center justify-between py-3">
-      <!-- Brand -->
-      <a href="#top" class="flex items-center gap-3 font-extrabold focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50 rounded-lg" aria-label="Revenir en haut de page">
-        <span class="w-10 h-10 rounded-lg overflow-hidden grid place-items-center bg-gradient-to-br from-yellowBrand to-brand shadow-card">
-          <img src="image/MED_img.png" alt="Logo MED" class="w-full h-full object-cover" loading="lazy">
-        </span>
-        <span class="text-sm sm:text-base">MED • Master Engineering DRC</span>
-      </a>
+  <main>
+    <!-- HERO / Barre d’outils -->
+    <section class="py-8 sm:py-10 bg-brand text-slate-100">
+      <div class="max-w-[1200px] mx-auto px-4">
+        <div class="flex items-end justify-between gap-4 flex-wrap">
+          <div>
+            <h1 class="text-2xl sm:text-3xl font-bold">Le Grand Rayon MED</h1>
+            <p class="mt-1 text-slate-100/90">Comme dans un supermarché : tout au même endroit, bien rangé, avec recherche et filtres.</p>
+          </div>
+          <div class="flex gap-2">
+            <a href="simulateur.html"
+               class="inline-flex items-center justify-center rounded-xl font-semibold transition shadow-card
+                      bg-white text-brand border border-black hover:bg-gray-50 px-4 py-2">
+              📊 Simulateur
+            </a>
+            <a href="support.html#contact"
+               class="inline-flex items-center justify-center rounded-xl font-semibold transition shadow-card
+                      bg-white/10 text-white border border-white/30 hover:bg-white/20 px-4 py-2">
+              Demander un devis
+            </a>
+          </div>
+        </div>
 
-      <!-- Desktop nav -->
-      <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="index.html">Accueil</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="simulateur.html">Simulateur</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="service.html">Services</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="realisation.html">Réalisations</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="support.html">Contact</a>
-      </nav>
-
-      <!-- Actions -->
-      <div class="hidden md:flex items-center gap-2">
-        <a href="tel:+243844894508" class="inline-flex items-center px-3 sm:px-4 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40">📞 +243 844 894 508</a>
-        <a href="support.html#contact" class="inline-flex items-center px-3 sm:px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card text-sm sm:text-base focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40">Demander un devis</a>
-      </div>
-
-      <!-- Mobile toggler -->
-      <button id="navToggle" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-gray-300 bg-white text-brand focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40"
-        aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Mobile menu -->
-    <div id="mobileMenu" class="lg:hidden hidden border-t border-gray-200 bg-white">
-      <div class="container max-w-[1400px] py-3">
-        <nav class="grid gap-1">
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="index.html">Accueil</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="simulateur.html">Simulateur</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="service.html">Services</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="realisation.html">Réalisations</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="support.html">Contact</a>
-        </nav>
-        <div class="mt-3 grid gap-2 sm:flex sm:items-center sm:gap-2">
-          <a href="tel:+243844894508" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40">📞 +243 844 894 508</a>
-          <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40">Demander un devis</a>
+        <!-- barre outils: recherche + tri -->
+        <div class="mt-5 grid gap-3 sm:grid-cols-3">
+          <div class="sm:col-span-2">
+            <label class="sr-only" for="q">Recherche</label>
+            <input id="q" type="search" placeholder="Rechercher un service (ex: tableau, caméra, onduleur)…"
+                   class="w-full px-4 py-3 rounded-xl border border-white/30 bg-white text-ink shadow-card" />
+          </div>
+          <div>
+            <label class="sr-only" for="sort">Tri</label>
+            <select id="sort" class="w-full px-4 py-3 rounded-xl border border-white/30 bg-white text-ink shadow-card">
+              <option value="default">Trier : recommandé</option>
+              <option value="alpha">A → Z</option>
+              <option value="cat">Par catégorie</option>
+            </select>
+          </div>
         </div>
       </div>
-    </div>
-  </header>
+    </section>
 
-  <!-- ===== Services (avec onglets) ===== -->
-  <main class="py-10">
-    <div class="container max-w-[1400px]">
-      <h2 class="text-2xl sm:text-3xl font-bold text-brand mb-2">Nos services</h2>
-      <p class="text-muted mb-6">Filtrez par catégorie pour trouver rapidement ce qui vous intéresse.</p>
+    <!-- Corps en 2 colonnes -->
+    <section class="py-10">
+      <div class="max-w-[1200px] mx-auto px-4 grid lg:grid-cols-[260px,1fr] gap-8">
+        <!-- SIDEBAR (rayons) -->
+        <aside class="lg:sticky lg:top-4 lg:self-start">
+          <nav class="rounded-xl border dark:border-slate-800 p-4 shadow-card">
+            <h2 class="font-semibold mb-3">Rayons</h2>
+            <ul class="space-y-1 text-sm">
+              <li><a class="block px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-900/50" href="#r-electricite">⚡ Électricité</a></li>
+              <li><a class="block px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-900/50" href="#r-solaire">☀️ Solaire</a></li>
+              <li><a class="block px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-900/50" href="#r-tableaux">🧰 Tableaux & TGBT</a></li>
+              <li><a class="block px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-900/50" href="#r-securite">🛡️ Sécurité & Réseaux</a></li>
+              <li><a class="block px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-900/50" href="#r-maintenance">🧯 Maintenance</a></li>
+              <li><a class="block px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-900/50" href="#r-normes">📋 Mise aux normes</a></li>
+              <li><a class="block px-3 py-2 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-900/50" href="#r-packs">🎁 Packs & Options</a></li>
+            </ul>
 
-      <!-- Onglets / Filtres -->
-      <div class="mb-8 flex flex-wrap gap-2" role="tablist" aria-label="Filtre des services">
-        <!-- style uniforme + focus -->
-        <button type="button" class="tab-btn px-3 py-2 rounded-lg border border-gray-300 text-sm font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 data-[active=true]:bg-brand data-[active=true]:text-white data-[active=true]:border-brand" data-target="all" role="tab" aria-selected="true" data-active="true">Tous</button>
-        <button type="button" class="tab-btn px-3 py-2 rounded-lg border border-gray-300 text-sm font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 data-[active=true]:bg-brand data-[active=true]:text-white data-[active=true]:border-brand" data-target="elec" role="tab" aria-selected="false">Électricité & Énergie</button>
-        <button type="button" class="tab-btn px-3 py-2 rounded-lg border border-gray-300 text-sm font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 data-[active=true]:bg-brand data-[active=true]:text-white data-[active=true]:border-brand" data-target="maintenance" role="tab" aria-selected="false">Maintenance</button>
-        <button type="button" class="tab-btn px-3 py-2 rounded-lg border border-gray-300 text-sm font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 data-[active=true]:bg-brand data-[active=true]:text-white data-[active=true]:border-brand" data-target="securite" role="tab" aria-selected="false">Sécurité</button>
-        <button type="button" class="tab-btn px-3 py-2 rounded-lg border border-gray-300 text-sm font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40 data-[active=true]:bg-brand data-[active=true]:text-white data-[active=true]:border-brand" data-target="complements" role="tab" aria-selected="false">Compléments</button>
+            <!-- Filtres par tags -->
+            <div class="mt-5">
+              <h3 class="font-semibold mb-2">Filtres rapides</h3>
+              <div id="filters" class="flex flex-wrap gap-2 text-sm">
+                <button data-tag="residentiel" class="px-3 py-1 rounded-full border dark:border-slate-700">Résidentiel</button>
+                <button data-tag="pro" class="px-3 py-1 rounded-full border dark:border-slate-700">Professionnel</button>
+                <button data-tag="industriel" class="px-3 py-1 rounded-full border dark:border-slate-700">Industriel</button>
+                <button data-tag="audit" class="px-3 py-1 rounded-full border dark:border-slate-700">Audit</button>
+                <button data-tag="installation" class="px-3 py-1 rounded-full border dark:border-slate-700">Installation</button>
+                <button data-tag="sav" class="px-3 py-1 rounded-full border dark:border-slate-700">SAV</button>
+              </div>
+              <button id="clearFilters" class="mt-3 text-sm underline">Effacer les filtres</button>
+            </div>
+          </nav>
+        </aside>
+
+        <!-- CONTENU (cartes “produits”) -->
+        <div id="grid" class="grid gap-12">
+          <!-- RAYON ÉLECTRICITÉ -->
+          <section id="r-electricite">
+            <header class="flex items-end justify-between gap-3 mb-4">
+              <h2 class="text-xl font-bold">⚡ Électricité</h2>
+              <a href="support.html#contact"
+                 class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card
+                        bg-brand text-white hover:opacity-90"  data-prefill="devis">Demander un devis</a>
+            </header>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <!-- carte -->
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="installation residentiel pro">
+                <h3 class="font-semibold">Installations complètes</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                  Circuits BT, protections, éclairage, prises, cheminements, sélectivité.
+                </p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">Résidentiel</span>
+                  <span class="px-2 py-1 rounded-full border">Professionnel</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="simulateur.html"
+                     class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card
+                            bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                  <a href="support.html#contact"
+                     class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card
+                            bg-white/10 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700" data-prefill="info">Infos</a>
+                </div>
+              </article>
+
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="installation industriel pro">
+                <h3 class="font-semibold">Tableaux divisionnaires</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                  Départs moteurs, coffrets, repérage clair, essais & mise en service.
+                </p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">Industriel</span>
+                  <span class="px-2 py-1 rounded-full border">Professionnel</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white/10 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700" data-prefill="info">Infos</a>
+                </div>
+              </article>
+
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="audit sav pro residentiel">
+                <h3 class="font-semibold">Dépannage & équilibrage</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                  Recherche de défauts, surcharge, chute de tension, équilibrage des phases.
+                </p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">SAV</span>
+                  <span class="px-2 py-1 rounded-full border">Audit</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-brand text-white hover:opacity-90"  data-prefill="planifier">Intervenir</a>
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- RAYON SOLAIRE -->
+          <section id="r-solaire">
+            <header class="flex items-end justify-between gap-3 mb-4">
+              <h2 class="text-xl font-bold">☀️ Solaire</h2>
+              <a href="simulateur.html"
+                 class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card
+                        bg-white text-brand border border-black hover:bg-gray-50">📊 Simuler</a>
+            </header>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="installation residentiel pro">
+                <h3 class="font-semibold">Backups hybrides</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                  PV + batteries + onduleur hybride. Continuité en cas de coupures.
+                </p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">Installation</span>
+                  <span class="px-2 py-1 rounded-full border">Résidentiel</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-brand text-white hover:opacity-90"  data-prefill="devis">Devis</a>
+                </div>
+              </article>
+
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="audit pro industriel">
+                <h3 class="font-semibold">Audit & dimensionnement</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                  Étude de charge, production locale, choix batteries (LiFePO₄, etc.).
+                </p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">Audit</span>
+                  <span class="px-2 py-1 rounded-full border">Industriel</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white/10 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700" data-prefill="info">Infos</a>
+                </div>
+              </article>
+
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="sav pro residentiel">
+                <h3 class="font-semibold">Maintenance PV</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">
+                  Nettoyage, vérifications, remplacement onduleur/batterie, MCO.
+                </p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">SAV</span>
+                  <span class="px-2 py-1 rounded-full border">Professionnel</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-brand text-white hover:opacity-90"  data-prefill="planifier">Planifier</a>
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- RAYON TABLEAUX -->
+          <section id="r-tableaux">
+            <header class="flex items-end justify-between gap-3 mb-4">
+              <h2 class="text-xl font-bold">🧰 Tableaux & TGBT</h2>
+              <a href="support.html#contact"
+                 class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card
+                        bg-brand text-white hover:opacity-90"  data-prefill="devis">Devis</a>
+            </header>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="installation industriel pro">
+                <h3 class="font-semibold">Coffrets & armoires</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Câblage propre, repérage, FAT et PV de tests.</p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">Industriel</span>
+                  <span class="px-2 py-1 rounded-full border">Installation</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white/10 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700" data-prefill="info">Infos</a>
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                </div>
+              </article>
+
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="audit pro">
+                <h3 class="font-semibold">Sélectivité & protection</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Études de coordination, courbes, réglages.</p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">Audit</span>
+                  <span class="px-2 py-1 rounded-full border">Professionnel</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-brand text-white hover:opacity-90"  data-prefill="devis">Devis</a>
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                </div>
+              </article>
+
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="sav pro">
+                <h3 class="font-semibold">Rétrofit & extension</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Remise à niveau, ajout de départs, documentation.</p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">SAV</span>
+                  <span class="px-2 py-1 rounded-full border">Professionnel</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white/10 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700" data-prefill="info">Infos</a>
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- RAYON SÉCURITÉ & RÉSEAUX -->
+          <section id="r-securite">
+            <header class="flex items-end justify-between gap-3 mb-4">
+              <h2 class="text-xl font-bold">🛡️ Sécurité & Réseaux</h2>
+              <a href="support.html#contact"
+                 class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card
+                        bg-white text-brand border border-black hover:bg-gray-50" data-prefill="contact">Contact</a>
+            </header>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="installation pro residentiel">
+                <h3 class="font-semibold">CCTV & contrôle d’accès</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Caméras IP, NVR, badges, interphonie, anti-effraction.</p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">Installation</span>
+                  <span class="px-2 py-1 rounded-full border">Résidentiel</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-brand text-white hover:opacity-90"  data-prefill="devis">Devis</a>
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                </div>
+              </article>
+
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="installation pro">
+                <h3 class="font-semibold">Câblage structuré & baie</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">RJ45, fibre, baies 19”, brassage propre, tests.</p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">Installation</span>
+                  <span class="px-2 py-1 rounded-full border">Professionnel</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white/10 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700" data-prefill="info">Infos</a>
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                </div>
+              </article>
+
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="sav pro">
+                <h3 class="font-semibold">Infogérance légère</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Surveillance basique, sauvegardes, petites interventions.</p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">SAV</span>
+                  <span class="px-2 py-1 rounded-full border">Professionnel</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-brand text-white hover:opacity-90"  data-prefill="devis">Devis</a>
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- RAYON MAINTENANCE -->
+          <section id="r-maintenance">
+            <header class="flex items-end justify-between gap-3 mb-4">
+              <h2 class="text-xl font-bold">🧯 Maintenance</h2>
+              <a href="support.html#contact"
+                 class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card
+                        bg-brand text-white hover:opacity-90"  data-prefill="planifier">Planifier</a>
+            </header>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="sav residentiel pro">
+                <h3 class="font-semibold">Préventive programmée</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Visites, tests, rapports, remises à niveau ciblées.</p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">SAV</span>
+                  <span class="px-2 py-1 rounded-full border">Résidentiel</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white/10 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700" data-prefill="info">Infos</a>
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                </div>
+              </article>
+
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="sav pro industriel">
+                <h3 class="font-semibold">Corrective & astreintes</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Interventions urgentes, rétablissement service.</p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">SAV</span>
+                  <span class="px-2 py-1 rounded-full border">Industriel</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-brand text-white hover:opacity-90"  data-prefill="contact">Contacter</a>
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- RAYON MISE AUX NORMES -->
+          <section id="r-normes">
+            <header class="flex items-end justify-between gap-3 mb-4">
+              <h2 class="text-xl font-bold">📋 Mise aux normes</h2>
+              <a href="support.html#contact"
+                 class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card
+                        bg-white text-brand border border-black hover:bg-gray-50"  data-prefill="audit">Demander un audit</a>
+            </header>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="audit pro residentiel">
+                <h3 class="font-semibold">Conformité CENELEC/IEC</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Contrôles, rapports, préconisations priorisées.</p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">Audit</span>
+                  <span class="px-2 py-1 rounded-full border">Professionnel</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-brand text-white hover:opacity-90"  data-prefill="devis">Devis</a>
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                </div>
+              </article>
+
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="audit pro">
+                <h3 class="font-semibold">Thermographie & mesures</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Caméra thermique, multimètre, pince, rapport photo.</p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">Audit</span>
+                  <span class="px-2 py-1 rounded-full border">Professionnel</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white/10 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700" data-prefill="info">Infos</a>
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                </div>
+              </article>
+            </div>
+          </section>
+
+          <!-- RAYON PACKS & OPTIONS -->
+          <section id="r-packs">
+            <header class="flex items-end justify-between gap-3 mb-4">
+              <h2 class="text-xl font-bold">🎁 Packs & Options</h2>
+              <a href="support.html#contact"
+                 class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card
+                        bg-brand text-white hover:opacity-90"  data-prefill="option">Parler à un conseiller</a>
+            </header>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="installation residentiel">
+                <h3 class="font-semibold">Pack Maison Essentiel</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Tableau propre, éclairage LED, prises sécurisées.</p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">Résidentiel</span>
+                  <span class="px-2 py-1 rounded-full border">Installation</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-brand text-white hover:opacity-90"  data-prefill="devis">Devis</a>
+                </div>
+              </article>
+
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="installation pro">
+                <h3 class="font-semibold">Pack Boutique Sécurité+</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">CCTV, éclairage extérieur, onduleur POS.</p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">Professionnel</span>
+                  <span class="px-2 py-1 rounded-full border">Installation</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white/10 text-slate-800 dark:text-slate-100 border border-slate-200 dark:border-slate-700" data-prefill="info">Infos</a>
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                </div>
+              </article>
+
+              <article class="service-card p-5 rounded-xl border dark:border-slate-800 shadow-card"
+                       data-tags="sav pro residentiel">
+                <h3 class="font-semibold">Contrat MCO (SAV)</h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Maintenance en conditions opérationnelles.</p>
+                <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                  <span class="px-2 py-1 rounded-full border">SAV</span>
+                  <span class="px-2 py-1 rounded-full border">Pro / Résidentiel</span>
+                </div>
+                <div class="mt-4 flex gap-2">
+                  <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-brand text-white hover:opacity-90"  data-prefill="discuter">Parler</a>
+                  <a href="simulateur.html" class="inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50">📊 Estimer</a>
+                </div>
+              </article>
+            </div>
+          </section>
+        </div>
       </div>
+    </section>
 
-      <!-- Groupes filtrables -->
-      <div class="space-y-10" id="servicesGroups">
-        <!-- Bloc 1 : Électricité & Énergie -->
-        <section aria-labelledby="srv-elec-energie" data-cat="elec">
-          <h3 id="srv-elec-energie" class="text-2xl font-bold mb-4">Électricité & Énergie</h3>
-          <div class="grid grid-cols-12 gap-4">
-            <!-- Card utilitaire -->
-            <article class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl border border-gray-200 p-6 shadow-card">
-              <h4 class="text-lg sm:text-xl font-bold mb-1">Mise aux normes</h4>
-              <p class="text-muted">Mise à niveau des installations existantes : mise à la terre, DDR, équilibrage des phases.</p>
-              <span class="inline-block mt-3 px-2.5 py-1 rounded-full bg-blue-100 text-brand text-xs font-extrabold">Audit complet</span>
-            </article>
-
-            <article class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl border border-gray-200 p-6 shadow-card">
-              <h4 class="text-lg sm:text-xl font-bold mb-1">Installation électrique</h4>
-              <p class="text-muted">Habitation, commerce, industrie — étude de charge, câblage, prises, éclairage, protections.</p>
-              <span class="inline-block mt-3 px-2.5 py-1 rounded-full bg-blue-100 text-brand text-xs font-extrabold">Normes & conformité</span>
-            </article>
-
-            <article class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl border border-gray-200 p-6 shadow-card">
-              <h4 class="text-lg sm:text-xl font-bold mb-1">Tableaux & comptage</h4>
-              <p class="text-muted">Conception TGBT/TD, sélectivité, ATS, comptage sous-billing, étiquetage.</p>
-              <span class="inline-block mt-3 px-2.5 py-1 rounded-full bg-blue-100 text-brand text-xs font-extrabold">Schémas livrés</span>
-            </article>
-
-            <article class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl border border-gray-200 p-6 shadow-card">
-              <h4 class="text-lg sm:text-xl font-bold mb-1">Éclairages</h4>
-              <p class="text-muted">LED int./ext., sécurité, décoratif, projecteurs, gestion DALI, détecteurs de présence.</p>
-              <span class="inline-block mt-3 px-2.5 py-1 rounded-full bg-blue-100 text-brand text-xs font-extrabold">jusqu'à -60% conso</span>
-            </article>
-
-            <article class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl border border-gray-200 p-6 shadow-card">
-              <h4 class="text-lg sm:text-xl font-bold mb-1">Solaire & hybrides</h4>
-              <p class="text-muted">Dimensionnement, onduleurs hybrides, batteries Li-ion, couplage réseau/groupe.</p>
-              <span class="inline-block mt-3 px-2.5 py-1 rounded-full bg-blue-100 text-brand text-xs font-extrabold">ROI optimisé</span>
-            </article>
-          </div>
-        </section>
-
-        <!-- Bloc 2 : Maintenance & Support -->
-        <section aria-labelledby="srv-maintenance" data-cat="maintenance">
-          <h3 id="srv-maintenance" class="text-2xl font-bold mb-4">Maintenance & Support</h3>
-          <div class="grid grid-cols-12 gap-4">
-            <article class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl border border-gray-200 p-6 shadow-card">
-              <h4 class="text-lg sm:text-xl font-bold mb-1">Entretien & dépannage</h4>
-              <p class="text-muted">Diagnostic rapide, réparations, remplacement de composants, plan de maintenance.</p>
-              <span class="inline-block mt-3 px-2.5 py-1 rounded-full bg-blue-100 text-brand text-xs font-extrabold">24/7 sur contrat</span>
-            </article>
-          </div>
-        </section>
-
-        <!-- Bloc 3 : Sécurité électronique -->
-        <section aria-labelledby="srv-securite" data-cat="securite">
-          <h3 id="srv-securite" class="text-2xl font-bold mb-4">Sécurité électronique</h3>
-          <div class="grid grid-cols-12 gap-4">
-            <article class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl border border-gray-200 p-6 shadow-card">
-              <h4 class="text-lg sm:text-xl font-bold mb-1">Caméras CCTV & Alarmes</h4>
-              <p class="text-muted">Étude des angles morts, pose IP/analogique, NVR, accès mobile, détection de mouvement, alarmes intrusion.</p>
-              <span class="inline-block mt-3 px-2.5 py-1 rounded-full bg-blue-100 text-brand text-xs font-extrabold">Surveillance 24/7</span>
-            </article>
-          </div>
-        </section>
-
-        <!-- Bloc 4 : Services complémentaires -->
-        <section aria-labelledby="srv-complementaires" data-cat="complements">
-          <h3 id="srv-complementaires" class="text-2xl font-bold mb-4">Services complémentaires</h3>
-          <div class="grid grid-cols-12 gap-4">
-            <article class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl border border-gray-200 p-6 shadow-card">
-              <h4 class="text-lg sm:text-xl font-bold mb-1">Plomberie</h4>
-              <p class="text-muted">Alimentation eau froide/chaude, évacuations, chauffe-eau, pompes, détection & réparation de fuites.</p>
-              <span class="inline-block mt-3 px-2.5 py-1 rounded-full bg-blue-100 text-brand text-xs font-extrabold">Interventions rapides</span>
-            </article>
-
-            <article class="col-span-12 md:col-span-6 lg:col-span-4 bg-white rounded-xl border border-gray-200 p-6 shadow-card">
-              <h4 class="text-lg sm:text-xl font-bold mb-1">Apps web & mobile</h4>
-              <p class="text-muted">Sites vitrines, dashboards, e-commerce, Android/iOS, intégration API, hébergement & maintenance.</p>
-              <span class="inline-block mt-3 px-2.5 py-1 rounded-full bg-blue-100 text-brand text-xs font-extrabold">Sur mesure</span>
-            </article>
-          </div>
-        </section>
+    <!-- CTA bas de page -->
+    <section class="py-12 bg-slate-50 dark:bg-slate-900/40">
+      <div class="max-w-[1200px] mx-auto px-4 text-center">
+        <h2 class="text-2xl sm:text-3xl font-bold">Un chiffrage, une visite, une question ?</h2>
+        <p class="mt-1 text-slate-600 dark:text-slate-300">Choisissez un service et écrivez-nous — réponse rapide.</p>
+        <div class="mt-5 flex flex-wrap gap-3 justify-center">
+          <a href="support.html#contact"
+             class="inline-flex items-center justify-center rounded-xl font-semibold transition shadow-card
+                    bg-brand text-white hover:opacity-90 text-lg px-6 py-3"  data-prefill="contact">Contacter le support</a>
+          <a href="simulateur.html"
+             class="inline-flex items-center justify-center rounded-xl font-semibold transition shadow-card
+                    bg-white text-brand border border-black hover:bg-gray-50 text-lg px-6 py-3">📊 Estimer ma conso</a>
+        </div>
       </div>
-    </div>
+    </section>
   </main>
 
-  <!-- ===== Processus ===== -->
-  <section id="process" class="py-14 sm:py-16 bg-[#eef2f5] border-y border-gray-200">
-    <div class="container max-w-[1400px]">
-      <h2 class="text-2xl sm:text-3xl font-bold text-brand mb-2">Notre processus</h2>
-      <p class="text-muted mb-6">Clair, rapide et sécurisé. Chaque étape est documentée et validée avec vous.</p>
-      <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        <div class="bg-gradient-to-b from-white to-[#f9fbff] border border-gray-200 rounded-xl p-5 shadow-card">
-          <div class="w-9 h-9 grid place-items-center rounded-md bg-yellowBrand font-extrabold text-black">1</div>
-          <h4 class="mt-3 font-bold">Étude & devis</h4>
-          <small class="text-muted">Visite du site, calculs de charge, choix du matériel. Envoi d'un devis détaillé.</small>
-        </div>
-        <div class="bg-gradient-to-b from-white to-[#f9fbff] border border-gray-200 rounded-xl p-5 shadow-card">
-          <div class="w-9 h-9 grid place-items-center rounded-md bg-yellowBrand font-extrabold text-black">2</div>
-          <h4 class="mt-3 font-bold">Installation</h4>
-          <small class="text-muted">Traçage/saignées, pose des conduits & câbles, tableaux, éclairage, essais.</small>
-        </div>
-        <div class="bg-gradient-to-b from-white to-[#f9fbff] border border-gray-200 rounded-xl p-5 shadow-card">
-          <div class="w-9 h-9 grid place-items-center rounded-md bg-yellowBrand font-extrabold text-black">3</div>
-          <h4 class="mt-3 font-bold">Recette & garantie</h4>
-          <small class="text-muted">PV de tests, schémas, mise en service, garantie 6 mois (dommages mineurs).</small>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Footer injecté -->
+  <div data-include="partials/footer.html"></div>
 
-  <!-- ===== Footer ===== -->
-  <footer class="bg-[#001a33] text-white">
-    <div class="container max-w-[1400px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 py-10">
-      <div>
-        <strong>MED • Master Engineering DRC</strong>
-        <small class="block text-yellowBrand">RCCM/25-B-00693</small>
-        <small class="block">Lubumbashi — Interventions Kolwezi & région</small>
-      </div>
-      <div>
-        <strong>Contact</strong>
-        <small class="block text-yellowBrand">📞 +243 844 894 508</small>
-        <small class="block text-yellowBrand">📞 +243 900 174 502</small>
-        <small class="block">✉️ masterengineeringdrc1@gmail.com</small>
-      </div>
-      <div>
-        <strong>Horaires</strong>
-        <small class="block">Lun–Sam : 8h–17h</small>
-        <small class="block">Urgences sous contrat</small>
-      </div>
-      <div>
-        <strong>Légal</strong>
-        <small class="block">© 2025 — Tous droits réservés</small>
-        <small class="block">Conformité & sécurité électrique</small>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ===== Floating actions ===== -->
-  <div class="fixed right-4 bottom-4 z-50 grid gap-2">
-    <a class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl grid place-items-center bg-yellowBrand text-black font-extrabold shadow-card focus:outline-none focus-visible:ring-2 focus-visible:ring-yellowBrand/50"
-       title="Écrire sur WhatsApp" aria-label="WhatsApp"
-       href="https://wa.me/243844894508" target="_blank" rel="noopener noreferrer">WA</a>
-    <a class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl grid place-items-center bg-brand text-white font-extrabold shadow-card focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/50"
-       title="Haut de page" aria-label="Haut" href="#top">↑</a>
-  </div>
-
-  <!-- ===== JS ===== -->
+  <!-- Scripts -->
+  <script type="module" src="js/inject.js"></script>
+  <script src="js/include.js" defer></script>
   <script src="js/main.js" defer></script>
-  <script src="js/simulateurs.js" defer></script>
-  <script src="js/avis.js" defer></script>
 
-  <!-- Script menu mobile + onglets -->
+  <!-- Filtrage / recherche léger (sans dépendance) -->
   <script>
-    
+    const q = document.getElementById('q');
+    const sort = document.getElementById('sort');
+    const filters = document.getElementById('filters');
+    const clearBtn = document.getElementById('clearFilters');
+    const cards = [...document.querySelectorAll('.service-card')];
 
-    // Tabs / Filters
-    (function(){
-      const btns = document.querySelectorAll('.tab-btn');
-      const groups = document.querySelectorAll('[data-cat]');
-      function setFilter(cat){
-        groups.forEach(g => {
-          const show = (cat === 'all') || (g.dataset.cat === cat);
-          g.classList.toggle('hidden', !show);
-        });
-        btns.forEach(b => {
-          const active = b.dataset.target === cat || (cat==='all' && b.dataset.target==='all');
-          b.dataset.active = active;
-          b.setAttribute('aria-selected', active);
-        });
+    let activeTags = new Set();
+
+    function apply() {
+      const term = (q.value || '').toLowerCase().trim();
+      cards.forEach(c => {
+        const text = c.innerText.toLowerCase();
+        const tags = (c.dataset.tags || '').split(/\s+/);
+        const matchesText = !term || text.includes(term);
+        const matchesTags = activeTags.size === 0 || [...activeTags].every(t => tags.includes(t));
+        c.style.display = (matchesText && matchesTags) ? '' : 'none';
+      });
+
+      if (sort.value === 'alpha') {
+        cards.sort((a,b) => a.querySelector('h3').innerText.localeCompare(b.querySelector('h3').innerText))
+             .forEach(c => c.parentElement.appendChild(c));
+      } else if (sort.value === 'cat') {
+        // tri simple par ordre des sections déjà défini (pas de move global)
       }
-      btns.forEach(b => b.addEventListener('click', () => setFilter(b.dataset.target)));
-      const params = new URLSearchParams(location.search);
-      const cat = params.get('cat');
-      setFilter(cat || 'all');
-    })();
+    }
+
+    q.addEventListener('input', apply);
+    sort.addEventListener('change', apply);
+    filters.addEventListener('click', (e) => {
+      if (e.target.matches('[data-tag]')) {
+        const t = e.target.getAttribute('data-tag');
+        if (activeTags.has(t)) {
+          activeTags.delete(t);
+          e.target.classList.remove('bg-brand','text-white','border-black');
+        } else {
+          activeTags.add(t);
+          e.target.classList.add('bg-brand','text-white','border-black');
+        }
+        apply();
+      }
+    });
+    clearBtn.addEventListener('click', () => {
+      activeTags.clear();
+      [...filters.querySelectorAll('[data-tag]')].forEach(b => b.classList.remove('bg-brand','text-white','border-black'));
+      q.value = '';
+      sort.value = 'default';
+      apply();
+    });
+
+    apply();
+
+    document.addEventListener('click', (e) => {
+    const a = e.target.closest('a[data-prefill="info"]');
+    if (!a) return;
+
+    // On récupère le titre du service (h3 le plus proche dans la carte)
+    const card = a.closest('.service-card') || a.closest('article, section, div');
+    const title = card?.querySelector('h3')?.innerText?.trim() || 'Service MED';
+
+    // Message prérempli
+    const msg =
+`Bonjour MED,
+Je souhaite des informations sur : "${title}".
+Pouvez-vous me recontacter avec une estimation et les délais ?
+Merci.`;
+
+    // On redirige vers la page contact avec le message encodé
+    const base = 'support.html';
+    const url = `${base}?msg=${encodeURIComponent(msg)}#contact`;
+    a.href = url; // on modifie le href juste avant la navigation
+  });
   </script>
 </body>
 </html>

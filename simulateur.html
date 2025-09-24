@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-full scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MED • Électricité & Solaire | Lubumbashi & Kolwezi</title>
-  <meta name="description" content="Master Engineering DRC (MED) — installations électriques, maintenance, mise aux normes, éclairage, énergies renouvelables, tableaux électriques. Interventions rapides et garanties."/>
+  <title>Simulateur de consommation • MED</title>
+  <meta name="description" content="Simulateur express pour estimer votre consommation et votre solution de backup.">
 
   <!-- Open Graph / SEO -->
   <link rel="canonical" href="https://master-engineering-drc.github.io/web/">
@@ -14,7 +14,7 @@
   <meta property="og:image" content="image/og-cover.jpg" />
   <meta property="og:site_name" content="MED • Master Engineering DRC" />
   <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#004080" />
+  <meta name="theme-color" content="#012b52" />
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -22,12 +22,13 @@
     tailwind.config = {
       darkMode: 'media',
       theme: {
-        container: {
-          center: true,
-          padding: { DEFAULT:'1rem', md:'1rem', lg:'0.75rem', xl:'0.75rem', '2xl':'0.75rem' },
-        },
         extend: {
-          colors: { brand:'#004080', yellowBrand:'#FFD700', ink:'#000000', muted:'#555555' },
+          colors: {
+            brand: '#012b52',
+            yellowBrand: '#DCC69C',
+            ink: '#000000',
+            muted: '#555555'
+          },
           boxShadow: { card: '0 10px 30px rgba(0,0,0,0.08)' },
           borderRadius: { xl: '18px' }
         }
@@ -35,83 +36,32 @@
     }
   </script>
 
-  <!-- Mini CSS util pour le <dialog> + scroll doux -->
+  <!-- Mini CSS util pour le <dialog> -->
   <style>
     html{scroll-behavior:smooth}
     dialog.lightbox { border:none; border-radius:16px; padding:0; max-width:min(92vw,1000px); box-shadow:0 10px 30px rgba(0,0,0,.18) }
     dialog::backdrop { background:rgba(0,0,0,.6) }
-    /* masquer la scrollbar horizontale fine sur mobile pour les listes scrollables */
     .scrollbar-thin::-webkit-scrollbar{height:6px}
     .scrollbar-thin::-webkit-scrollbar-thumb{background:rgba(0,0,0,.2); border-radius:9999px}
   </style>
 </head>
-<body class="bg-white text-ink antialiased">
+<body class="h-full bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
   <div id="top"></div>
 
-  <!-- ===== Header ===== -->
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
-    <div class="container max-w-[1400px] flex items-center justify-between py-3">
-      <!-- Brand -->
-      <a href="#top" class="flex items-center gap-3 font-extrabold" aria-label="Revenir en haut de page">
-        <span class="w-10 h-10 rounded-lg overflow-hidden grid place-items-center bg-gradient-to-br from-yellowBrand to-brand shadow-card">
-          <img src="image/MED_img.png" alt="Logo MED" class="w-full h-full object-cover" loading="lazy">
-        </span>
-        <span class="text-sm sm:text-base">MED • Master Engineering DRC</span>
-      </a>
+  <!-- Header injecté -->
+  <div data-include="partials/header.html"></div>
 
-      <!-- Desktop nav -->
-      <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="index.html">Accueil</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="simulateur.html">Simulateur</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="service.html">Services</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="realisation.html">Réalisations</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="support.html">Contact</a>
-      </nav>
-
-      <!-- Actions -->
-      <div class="hidden md:flex items-center gap-2">
-        <a href="tel:+243844894508" class="inline-flex items-center px-3 sm:px-4 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card text-sm sm:text-base">📞 +243 844 894 508</a>
-        <a href="support.html#contact" class="inline-flex items-center px-3 sm:px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card text-sm sm:text-base">Demander un devis</a>
-      </div>
-
-      <!-- Mobile toggler -->
-      <button id="navToggle" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-gray-300 bg-white text-brand"
-        aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Mobile menu -->
-    <div id="mobileMenu" class="lg:hidden hidden border-t border-gray-200 bg-white">
-      <div class="container max-w-[1400px] py-3">
-        <nav class="grid gap-1">
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="index.html">Accueil</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="simulateur.html">Simulateur</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="service.html">Services</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="realisation.html">Réalisations</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="support.html">Contact</a>
-        </nav>
-        <div class="mt-3 grid gap-2 sm:flex sm:items-center sm:gap-2">
-          <a href="tel:+243844894508" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card">📞 +243 844 894 508</a>
-          <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card">Demander un devis</a>
-        </div>
-      </div>
-    </div>
-  </header>
-
-  <!-- ===== Simulateurs (accessible, 3 secteurs) ===== -->
-  <section id="simulateur" class="py-14 sm:py-16 bg-[#0b1220] text-gray-200">
-    <div class="container max-w-[1400px]">
+  <!-- ===== Simulateurs ===== -->
+  <section id="simulateur" class="py-14 sm:py-16 bg-brand text-slate-100">
+    <div class="max-w-[1400px] mx-auto px-4">
       <div class="flex items-center justify-between gap-4 flex-wrap mb-4">
-        <h2 class="text-2xl sm:text-3xl font-bold text-blue-300">Simulateurs simples</h2>
-        <span class="bg-yellow-100 text-black border border-yellowBrand px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
+        <h2 class="text-2xl sm:text-3xl font-bold text-yellowBrand">Simulateurs simples</h2>
+        <span class="bg-white text-brand border border-black px-3 py-1 rounded-full text-xs sm:text-sm font-semibold">
           Ajoutez vos appareils • Voir si ça passe • Estimez la durée
         </span>
       </div>
 
-      <!-- Onglets (scrollable en mobile) -->
+      <!-- Onglets -->
       <div class="overflow-x-auto scrollbar-thin -mx-2 px-2 mb-5" role="tablist" aria-label="Simulateurs">
         <div class="flex gap-2 whitespace-nowrap">
           <button class="sim-tab px-3 py-2 rounded-lg bg-white text-brand border border-black font-semibold shadow-card focus:outline-none focus-visible:ring-2 focus-visible:ring-yellowBrand/60"
@@ -124,13 +74,14 @@
       </div>
 
       <!-- Aide courte -->
-      <div class="rounded-xl border border-gray-200/30 bg-white/10 p-4 sm:p-5 shadow-card mb-6">
-        <p class="text-sm sm:text-base text-blue-100">
-          1) Ajoutez vos équipements (nom + W + heures/jour si besoin). 2) Regardez l’indicateur :
-          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded border bg-green-100/80 text-green-900 border-green-300">✅ OK</span>,
-          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded border bg-amber-100/80 text-amber-900 border-amber-300">⚠️ À surveiller</span>,
-          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded border bg-red-100/80 text-red-900 border-red-300">⛔ Dépassé</span>.
-          3) L’estimation de temps s’affiche automatiquement.
+      <div class="rounded-xl border border-white/20 bg-white/10 p-4 sm:p-5 shadow-card mb-6">
+        <p class="text-sm sm:text-base text-slate-100/90">
+          1) Ajoutez vos équipements (nom + W + heures/jour si besoin). 
+          <br>2) Regardez l’indicateur :
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded border bg-green-100/90 text-green-900 border-green-300">✅ OK</span>,
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded border bg-amber-100/90 text-amber-900 border-amber-300">⚠️ À surveiller</span>,
+          <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded border bg-red-100/90 text-red-900 border-red-300">⛔ Dépassé</span>.
+          <br>3) L’estimation de temps s’affiche automatiquement.
         </p>
       </div>
 
@@ -138,19 +89,21 @@
         <!-- ===================== SNEL (compteur) ===================== -->
         <section id="panel-grid" class="sim-panel grid gap-4">
           <header class="flex items-center justify-between gap-3 flex-wrap">
-            <h3 class="text-xl font-bold text-yellow-300">SNEL — Durée d’un achat (kWh)</h3>
-            <div id="grid_status" class="px-2 py-1 rounded border text-sm" aria-live="polite">—</div>
+            <h3 class="text-xl font-bold text-yellowBrand">SNEL — Durée d’un achat (kWh)</h3>
+            <div id="grid_status" class="px-2 py-1 rounded border text-sm bg-white/10 border-white/30" aria-live="polite">—</div>
           </header>
 
           <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-4">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               <label class="grid gap-1">
                 <span class="font-semibold">Achat énergie (kWh)</span>
-                <input id="grid_kwh" type="number" value="3" min="0" class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+                <input id="grid_kwh" type="number" value="3" min="0"
+                       class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
               </label>
               <label class="grid gap-1">
                 <span class="font-semibold">Tarif (CDF/kWh) <span class="opacity-60">(optionnel)</span></span>
-                <input id="grid_tarif" type="number" step="0.01" placeholder="ex: 800" class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+                <input id="grid_tarif" type="number" step="0.01" placeholder="ex: 800"
+                       class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
               </label>
               <div class="hidden lg:block"></div>
             </div>
@@ -174,9 +127,13 @@
             </div>
 
             <div class="flex flex-wrap gap-2">
-              <button id="grid_add" class="px-3 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card">➕ Ajouter</button>
+              <button id="grid_add"
+                class="inline-flex items-center justify-center px-3 py-2 rounded-lg font-semibold transition shadow-card
+                       bg-white text-brand border border-black hover:bg-gray-50">
+                ➕ Ajouter
+              </button>
               <div class="ml-auto text-sm grid gap-1">
-                <div>Conso/jour : <strong id="grid_kwh_day">0.00 kWh</strong></div>
+                <div>Conso/jour : <strong id="grid_kwh_day">0.00</strong> kWh</div>
                 <div>Durée estimée : <strong id="grid_days">—</strong></div>
                 <div id="grid_cost" class="opacity-80">Coût/jour : —</div>
               </div>
@@ -187,8 +144,8 @@
         <!-- ===================== SOLAIRE (PV + BAT) ===================== -->
         <section id="panel-pv" class="sim-panel hidden grid gap-4">
           <header class="flex items-center justify-between gap-3 flex-wrap">
-            <h3 class="text-xl font-bold text-yellow-300">Solaire — Production & autonomie</h3>
-            <div id="pv_status" class="px-2 py-1 rounded border text-sm" aria-live="polite">—</div>
+            <h3 class="text-xl font-bold text-yellowBrand">Solaire — Production & autonomie</h3>
+            <div id="pv_status" class="px-2 py-1 rounded border text-sm bg-white/10 border-white/30" aria-live="polite">—</div>
           </header>
 
           <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-4">
@@ -196,38 +153,33 @@
               <label class="grid gap-1">
                 <span class="font-semibold">Panneaux</span>
                 <div class="flex gap-2">
-                  <input id="pv_n" type="number" value="2" min="0" class="w-20 p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+                  <input id="pv_n" type="number" value="2" min="0"
+                         class="w-20 p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
                   <span class="self-center">×</span>
-                  <input id="pv_w" type="number" value="450" min="0" class="w-24 p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800"><span class="self-center">W</span>
+                  <input id="pv_w" type="number" value="450" min="0"
+                         class="w-24 p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800"><span class="self-center">W</span>
                 </div>
                 <small class="opacity-70">Ex: 2×450 W</small>
-              </label>
-
-              <label class="grid gap-1">
-                <span class="font-semibold">Heures de soleil (PSH)</span>
-                <input id="pv_psh" type="number" step="0.1" value="5" min="0" class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-              </label>
-
-              <label class="grid gap-1">
-                <span class="font-semibold">Rendement système</span>
-                <input id="pv_eff" type="number" step="0.01" value="0.75" min="0" max="1" class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
               </label>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               <label class="grid gap-1">
                 <span class="font-semibold">Batterie — Tension (V)</span>
-                <input id="pv_v" type="number" value="24" min="0" class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+                <input id="pv_v" type="number" value="24" min="0"
+                       class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
                 <small class="opacity-70">Ex: 2×12 V en série → 24 V</small>
               </label>
               <label class="grid gap-1">
                 <span class="font-semibold">Capacité (Ah)</span>
-                <input id="pv_ah" type="number" value="100" min="0" class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+                <input id="pv_ah" type="number" value="100" min="0"
+                       class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
                 <small class="opacity-70">Ah du pack total</small>
               </label>
               <label class="grid gap-1">
                 <span class="font-semibold">Onduleur ou Convertisseur (kW)</span>
-                <input id="pv_invkw" type="number" step="0.1" value="3" min="0" class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+                <input id="pv_invkw" type="number" step="0.1" value="3" min="0"
+                       class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
                 <small class="opacity-70">Ex: hybride 3 kW</small>
               </label>
             </div>
@@ -251,10 +203,14 @@
             </div>
 
             <div class="flex flex-wrap gap-2">
-              <button id="pv_add" class="px-3 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card">➕ Ajouter</button>
+              <button id="pv_add"
+                class="inline-flex items-center justify-center px-3 py-2 rounded-lg font-semibold transition shadow-card
+                       bg-white text-brand border border-black hover:bg-gray-50">
+                ➕ Ajouter
+              </button>
               <div class="ml-auto text-sm grid gap-1">
-                <div>Prod. PV/jour : <strong id="pv_kwh_prod">0.00 kWh</strong></div>
-                <div>Conso/jour : <strong id="pv_kwh_day">0.00 kWh</strong></div>
+                <div>Prod. PV/jour : <strong id="pv_kwh_prod">0.00</strong> kWh</div>
+                <div>Conso/jour : <strong id="pv_kwh_day">0.00</strong> kWh</div>
                 <div>Solde/jour : <strong id="pv_kwh_balance">—</strong></div>
                 <div>Autonomie batterie (toutes charges en même temps) : <strong id="pv_runtime">—</strong></div>
               </div>
@@ -265,26 +221,17 @@
         <!-- ===================== GROUPE ÉLECTROGÈNE ===================== -->
         <section id="panel-gen" class="sim-panel hidden grid gap-4">
           <header class="flex items-center justify-between gap-3 flex-wrap">
-            <h3 class="text-xl font-bold text-yellow-300">Groupe — Puissance & durée</h3>
-            <div id="gen_status" class="px-2 py-1 rounded border text-sm" aria-live="polite">—</div>
+            <h3 class="text-xl font-bold text-yellowBrand">Groupe — Puissance & durée</h3>
+            <div id="gen_status" class="px-2 py-1 rounded border text-sm bg-white/10 border-white/30" aria-live="polite">—</div>
           </header>
 
           <div class="bg-white text-ink dark:bg-[#111827] dark:text-white rounded-xl border border-gray-200 dark:border-slate-700 p-5 shadow-card grid gap-4">
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               <label class="grid gap-1">
                 <span class="font-semibold">Puissance groupe (kVA)</span>
-                <input id="gen_kva" type="number" step="0.1" value="5.5" min="0" class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+                <input id="gen_kva" type="number" step="0.1" value="5.5" min="0"
+                       class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
                 <small class="opacity-70">Ex: 5,5 kVA</small>
-              </label>
-              <label class="grid gap-1">
-                <span class="font-semibold">Facteur de puissance (PF)</span>
-                <input id="gen_pf" type="number" step="0.01" value="0.8" min="0" max="1" class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-                <small class="opacity-70">kW = kVA × PF</small>
-              </label>
-              <label class="grid gap-1">
-                <span class="font-semibold">Charge continue recommandée</span>
-                <input id="gen_cont" type="number" step="0.05" value="0.8" min="0.5" max="1" class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
-                <small class="opacity-70">Ex: 80% en continu</small>
               </label>
             </div>
 
@@ -293,7 +240,8 @@
               <div class="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <label class="grid gap-1">
                   <span class="font-semibold">Type de carburant</span>
-                  <select id="gen_type" class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+                  <select id="gen_type"
+                          class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
                     <option value="diesel">Diesel</option>
                     <option value="essence">Essence</option>
                   </select>
@@ -312,14 +260,14 @@
                 <label class="grid gap-1">
                   <span class="font-semibold">Réservoir (L)</span>
                   <input id="gen_tank" type="number" step="0.1" value="15" min="0"
-                        class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
+                         class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800">
                 </label>
 
                 <label class="grid gap-1">
                   <span class="font-semibold">Conso moyenne (L/h)</span>
                   <input id="gen_fuel" type="number" step="0.1" value="1.5" min="0"
-                        class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800"
-                        placeholder="ex: 1.5 (mode manuel)">
+                         class="w-full p-3 rounded-lg border border-gray-300 dark:border-slate-600 bg-white dark:bg-slate-800"
+                         placeholder="ex: 1.5 (mode manuel)">
                   <small class="opacity-70">Actif seulement si Auto est décoché</small>
                 </label>
               </div>
@@ -344,11 +292,15 @@
             </div>
 
             <div class="flex flex-wrap gap-2">
-              <button id="gen_add" class="px-3 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card">➕ Ajouter</button>
+              <button id="gen_add"
+                class="inline-flex items-center justify-center px-3 py-2 rounded-lg font-semibold transition shadow-card
+                       bg-white text-brand border border-black hover:bg-gray-50">
+                ➕ Ajouter
+              </button>
               <div class="ml-auto text-sm grid gap-1">
                 <div>Budget continu (80% par défaut) : <strong id="gen_budget">— W</strong></div>
-                <div>Charge en régime : <strong id="gen_run">— W</strong></div>
-                <div>Pic au démarrage : <strong id="gen_peak">— W</strong></div>
+                <div>Charge en régime : <strong id="gen_run">—</strong>W</div>
+                <div>Pic au démarrage : <strong id="gen_peak">—</strong>W</div>
                 <div>Autonomie (si réservoir/consommation fournis) : <strong id="gen_runtime">—</strong></div>
                 <div>Conso estimée : <strong id="gen_lph">—</strong></div>
               </div>
@@ -360,119 +312,11 @@
     </div>
   </section>
 
-  <!-- ===== Équipe ===== -->
-  <section id="equipe" class="py-14 sm:py-16 bg-[#f9fbff] border-y border-gray-200">
-    <div class="container max-w-[1400px]">
-      <h2 class="text-2xl sm:text-3xl font-bold text-brand mb-2">Notre équipe</h2>
-      <p class="text-muted mb-8">Une équipe pluridisciplinaire composée d’ingénieurs, de techniciens et d’associés, experts en électricité, informatique, sécurité et plomberie.</p>
+  <!-- Footer injecté -->
+  <div data-include="partials/footer.html"></div>
 
-      <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-        <!-- Ingénieurs -->
-        <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
-          <img src="image/team/frederic.jpg" alt="Frederic B.K." class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
-          <h3 class="text-lg font-bold">Frederic B.K.</h3>
-          <p class="text-yellowBrand font-semibold text-sm">Ingénieur électricité & réseaux</p>
-          <p class="text-muted mt-2 text-sm">Diplômé en électricité et licencié en informatique réseau. Chef de projet et coordinateur technique.</p>
-        </div>
-
-        <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
-          <img src="image/team/roger.jpg" alt="Roger P." class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
-          <h3 class="text-lg font-bold">Roger P.</h3>
-          <p class="text-yellowBrand font-semibold text-sm">Ingénieur électricité</p>
-          <p class="text-muted mt-2 text-sm">Diplômé et licencié en électricité. Spécialiste en installations industrielles et maintenance.</p>
-        </div>
-
-        <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
-          <img src="image/team/elie.jpg" alt="Elie" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
-          <h3 class="text-lg font-bold">Elie</h3>
-          <p class="text-yellowBrand font-semibold text-sm">Ingénieur électricité</p>
-          <p class="text-muted mt-2 text-sm">Diplômé et licencié en électricité. Expert en mise aux normes et tableaux électriques.</p>
-        </div>
-
-        <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
-          <img src="image/team/paul.jpg" alt="Paul M." class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
-          <h3 class="text-lg font-bold">Paul M.</h3>
-          <p class="text-yellowBrand font-semibold text-sm">Ingénieur réseaux & télécoms</p>
-          <p class="text-muted mt-2 text-sm">Diplômé en électricité et licencié en informatique réseau et télécommunication.</p>
-        </div>
-
-        <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
-          <img src="image/team/team.jpg" alt="Nephtalie" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
-          <h3 class="text-lg font-bold">Nephtalie</h3>
-          <p class="text-yellowBrand font-semibold text-sm">Ingénieure electronique & réseaux</p>
-          <p class="text-muted mt-2 text-sm">Diplômée en electronique et licenciée en informatique réseau.</p>
-        </div>
-
-        <!-- Technicien -->
-        <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
-          <img src="image/team/team.jpg" alt="Joseph B." class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
-          <h3 class="text-lg font-bold">Joseph B.</h3>
-          <p class="text-yellowBrand font-semibold text-sm">Technicien électricité</p>
-          <p class="text-muted mt-2 text-sm">Diplômé en électricité. Support aux installations et maintenance.</p>
-        </div>
-
-        <!-- Associés -->
-        <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
-          <img src="image/team/team.jpg" alt="Martial" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
-          <h3 class="text-lg font-bold">Martial</h3>
-          <p class="text-yellowBrand font-semibold text-sm">Associé & Expert sécurité</p>
-          <p class="text-muted mt-2 text-sm">Licence en informatique réseau. Spécialiste en cybersécurité et systèmes de protection.</p>
-        </div>
-
-        <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
-          <img src="image/team/arielle.jpg" alt="Arielle M." class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
-          <h3 class="text-lg font-bold">Arielle M.</h3>
-          <p class="text-yellowBrand font-semibold text-sm">Développeuse web</p>
-          <p class="text-muted mt-2 text-sm">Spécialiste en développement web et conception d’applications connectées aux projets MED.</p>
-        </div>
-
-        <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center">
-          <img src="image/team/team.jpg" alt="Isaac" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
-          <h3 class="text-lg font-bold">Isaac</h3>
-          <p class="text-yellowBrand font-semibold text-sm">Associé – Ingénieur plomberie & froid</p>
-          <p class="text-muted mt-2 text-sm">Expert en plomberie et systèmes de réfrigération industrielle.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Footer ===== -->
-  <footer class="bg-[#001a33] text-white">
-    <div class="container max-w-[1400px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 py-10">
-      <div>
-        <strong>MED • Master Engineering DRC</strong>
-        <small class="block text-yellowBrand">RCCM/25-B-00693</small>
-        <small class="block">Lubumbashi — Interventions Kolwezi & région</small>
-      </div>
-      <div>
-        <strong>Contact</strong>
-        <small class="block text-yellowBrand">📞 +243 844 894 508</small>
-        <small class="block text-yellowBrand">📞 +243 900 174 502</small>
-        <small class="block">✉️ masterengineeringdrc1@gmail.com</small>
-      </div>
-      <div>
-        <strong>Horaires</strong>
-        <small class="block">Lun–Sam : 8h–17h</small>
-        <small class="block">Urgences sous contrat</small>
-      </div>
-      <div>
-        <strong>Légal</strong>
-        <small class="block">© 2025 — Tous droits réservés</small>
-        <small class="block">Conformité & sécurité électrique</small>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ===== Floating actions ===== -->
-  <div class="fixed right-4 bottom-4 z-50 grid gap-2">
-    <a class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl grid place-items-center bg-yellowBrand text-black font-extrabold shadow-card"
-       title="Écrire sur WhatsApp" aria-label="WhatsApp"
-       href="https://wa.me/243844894508" target="_blank" rel="noopener noreferrer">WA</a>
-    <a class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl grid place-items-center bg-brand text-white font-extrabold shadow-card"
-       title="Haut de page" aria-label="Haut" href="#top">↑</a>
-  </div>
-
-  <!-- JS -->
+  <!-- Scripts -->
+  <script type="module" src="js/inject.js"></script>
   <script src="js/main.js" defer></script>
   <script src="js/simulateurs.js" defer></script>
 </body>

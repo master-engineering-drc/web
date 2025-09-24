@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Simulateur de consommation • MED</title>
+  <meta name="description" content="Simulateur express pour estimer votre consommation et votre solution de backup.">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={darkMode:'media',theme:{extend:{colors:{brand:'#012b52',yellowBrand:'#DCC69C'},boxShadow:{card:'0 8px 30px rgba(0,0,0,.12)'}}}}</script>
+  <style type="text/tailwindcss">
+  @layer components {
+    .btn{ @apply inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold transition shadow-card; }
+    .btn-primary{ @apply bg-brand text-white hover:opacity-90; }
+    .btn-ghost{ @apply bg-white text-brand border border-black hover:bg-gray-50; }
+    .section{ @apply py-14 sm:py-16; }
+    .container{ @apply max-w-[1100px] mx-auto px-4; }
+    .badge{ @apply inline-block text-xs px-2 py-0.5 rounded border; }
+   }
+  </style>
+</head>
+<body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+
+  <!-- Header injecté -->
+  <div data-include="partials/header.html"></div>
+
+  <main>
+    <section class="section">
+      <div class="container">
+        <header class="flex items-end justify-between flex-wrap gap-2 mb-6">
+          <div>
+            <h1 class="text-2xl sm:text-3xl font-bold">Simulateur express</h1>
+            <p class="text-sm text-slate-600 dark:text-slate-300">Choisissez un preset, adaptez 2–3 paramètres, envoyez pour devis.</p>
+          </div>
+          <div class="flex gap-2">
+            <button id="ctaSend" class="btn btn-primary">Envoyer pour devis</button>
+            <a href="#avance" class="btn btn-ghost">Mode avancé</a>
+          </div>
+        </header>
+
+        <!-- Presets Express -->
+        <div class="grid md:grid-cols-3 gap-4">
+          <button class="p-4 rounded-xl border dark:border-slate-800 text-left hover:bg-blue-50 dark:hover:bg-slate-800" data-preset="maison2p">
+            <div class="font-semibold">Maison 2 pièces</div>
+            <div class="text-sm text-slate-600 dark:text-slate-300">Éclairage, TV, frigo, chargeurs.</div>
+          </button>
+          <button class="p-4 rounded-xl border dark:border-slate-800 text-left hover:bg-blue-50 dark:hover:bg-slate-800" data-preset="maison4p">
+            <div class="font-semibold">Maison 3–4 pièces</div>
+            <div class="text-sm text-slate-600 dark:text-slate-300">+ Congélateur, pompe (petite).</div>
+          </button>
+          <button class="p-4 rounded-xl border dark:border-slate-800 text-left hover:bg-blue-50 dark:hover:bg-slate-800" data-preset="boutique">
+            <div class="font-semibold">Boutique</div>
+            <div class="text-sm text-slate-600 dark:text-slate-300">Éclairage, caisse, caméras, frigo.</div>
+          </button>
+        </div>
+
+        <!-- Résumé Express -->
+        <div id="resume" class="mt-6 p-5 rounded-2xl border dark:border-slate-800 hidden">
+          <h2 class="text-lg font-bold">Résumé</h2>
+          <div id="resumeList" class="mt-2 text-sm"></div>
+          <div class="mt-3 text-sm">
+            <span class="badge border-slate-300 dark:border-slate-700" id="totalWh"></span>
+            <span class="badge border-slate-300 dark:border-slate-700" id="suggestion"></span>
+          </div>
+        </div>
+
+        <!-- Avancé replié -->
+        <details id="avance" class="mt-8 rounded-xl border dark:border-slate-800">
+          <summary class="px-4 py-3 font-semibold cursor-pointer">Mode avancé (optionnel)</summary>
+          <div class="p-4 grid md:grid-cols-2 gap-4">
+            <div>
+              <h3 class="font-semibold mb-2">Appareils</h3>
+              <form id="formApp" class="grid gap-2">
+                <div class="grid grid-cols-5 gap-2 text-sm">
+                  <input class="col-span-2 border rounded-lg px-2 py-1 dark:bg-slate-900" placeholder="Nom (ex: TV)" />
+                  <input class="border rounded-lg px-2 py-1 dark:bg-slate-900" placeholder="W" type="number" />
+                  <input class="border rounded-lg px-2 py-1 dark:bg-slate-900" placeholder="h/j" type="number" />
+                  <button class="btn btn-ghost px-2 py-1">Ajouter</button>
+                </div>
+              </form>
+              <ul id="listApp" class="mt-2 text-sm space-y-1"></ul>
+            </div>
+            <div>
+              <h3 class="font-semibold mb-2">Autonomie souhaitée</h3>
+              <div class="flex items-center gap-2">
+                <input id="autonomie" type="range" min="2" max="24" value="6" class="w-full"/>
+                <span class="text-sm"><span id="autonomieVal">6</span> h</span>
+              </div>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">Aide à dimensionner batteries / groupe.</p>
+            </div>
+          </div>
+        </details>
+
+        <!-- CTA bas -->
+        <div class="mt-8 flex flex-wrap gap-3">
+          <a href="support.html#contact" class="btn btn-ghost">Contacter le support</a>
+          <a href="service.html" class="btn btn-ghost">Voir nos services</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+   <!-- Footer injecté -->
+  <div data-include="partials/footer.html"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/inject.js"></script>
+
+  <script src="js/include.js" defer></script>
+  <script src="js/simulateurs.js" defer></script>
+</body>
+</html>

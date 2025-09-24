@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full scroll-smooth">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>MED • Électricité & Solaire | Lubumbashi & Kolwezi</title>
+  <meta name="description" content="Master Engineering DRC (MED) — installations électriques, solaires hybrides, maintenance, tableaux électriques, mise aux normes. Interventions rapides et garanties."/>
+  <link rel="canonical" href="https://master-engineering-drc.github.io/web/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="MED • Électricité & Solaire" />
+  <meta property="og:description" content="Installations électriques fiables, solaires hybrides, maintenance et mise aux normes." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="image/og-cover.jpg" />
+  <meta property="og:site_name" content="MED • Master Engineering DRC" />
+
+  <!-- Tailwind CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  // Tailwind config + dark auto (media)
+  tailwind.config = {
+    darkMode: 'media',
+    theme: {
+      extend: {
+        colors: {
+          brand: '#012b52',
+          yellowBrand: '#DCC69C',
+        },
+        boxShadow: {
+          card: '0 8px 30px rgba(0,0,0,.12)',
+        }
+      }
+    }
+  }
+</script>
+
+<!-- ✅ IMPORTANT : utiliser type="text/tailwindcss" + @layer -->
+<style type="text/tailwindcss">
+  @layer components {
+    .btn { @apply inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-semibold transition shadow-card; }
+    .btn-primary { @apply bg-brand text-white hover:opacity-90; }
+    .btn-ghost { @apply bg-white text-brand border border-black hover:bg-gray-50 dark:bg-transparent dark:text-white dark:border-white/20 dark:hover:bg-slate-900; }
+    .chip { @apply inline-flex items-center px-3 py-1 rounded-full text-sm border; }
+    .section { @apply py-14 sm:py-16; }
+    .container { @apply max-w-[1200px] mx-auto px-4; }
+  }
+</style>
+
+</head>
+<body class="h-full bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
+
+  <!-- Header injecté -->
+  <div data-include="partials/header.html"></div>
+
+  <!-- Hero (image muette, pas de texte dans l'image) -->
+  <section class="relative section pt-10">
+    <div class="container grid md:grid-cols-2 items-center gap-8">
+      <div>
+        <h1 class="text-3xl sm:text-4xl font-extrabold leading-tight">
+          Électricité & Solaire fiables, <span class="text-yellowBrand">clés en main</span>
+        </h1>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">
+          Conception, installation, maintenance et mise aux normes. Tableaux, backups solaires hybrides et sécurisation.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="simulateur.html" class="btn btn-primary text-lg px-6 py-3 ring-2 ring-yellowBrand/50">📊 Estimer ma consommation</a>
+          <a href="support.html#contact" class="btn btn-ghost">Demander un devis</a>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-2 text-sm">
+          <span class="chip border-slate-300 dark:border-slate-700">Normes CENELEC/IEC</span>
+          <span class="chip border-slate-300 dark:border-slate-700">Interventions rapides</span>
+          <span class="chip border-slate-300 dark:border-slate-700">Garantie & SAV</span>
+        </div>
+      </div>
+      <div class="relative">
+        <img src="image/realisation/IMG-20250128-WA0053.jpg" alt="Intervention MED" class="w-full rounded-2xl shadow-card object-cover aspect-[4/3]" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Pourquoi nous choisir -->
+  <section class="section bg-slate-50 dark:bg-slate-900/40">
+    <div class="container">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6">Pourquoi nous choisir</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <article class="p-5 rounded-xl border dark:border-slate-800">
+          <h3 class="font-semibold">Expertise certifiée</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Ingénieurs & techniciens expérimentés, référentiels IEC.</p>
+        </article>
+        <article class="p-5 rounded-xl border dark:border-slate-800">
+          <h3 class="font-semibold">Qualité & sécurité</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Sélection d’équipements fiables, tests & mise en service.</p>
+        </article>
+        <article class="p-5 rounded-xl border dark:border-slate-800">
+          <h3 class="font-semibold">Délais tenus</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Planification claire, suivi et rapports.</p>
+        </article>
+        <article class="p-5 rounded-xl border dark:border-slate-800">
+          <h3 class="font-semibold">SAV & garantie</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Support réactif, pièces & maintenance.</p>
+        </article>
+      </div>
+
+      <!-- Qui sommes-nous -->
+      <div class="mt-10 grid lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2">
+          <h3 class="text-xl font-bold mb-2">Qui sommes-nous ?</h3>
+          <p class="text-slate-600 dark:text-slate-300">
+            Née à Lubumbashi, MED est une équipe soudée d’ingénieurs et de techniciens pragmatiques. Notre motivation :
+            des installations sûres, durables et esthétiques qui réduisent vos coûts et vos pannes. Nous opérons sur
+            habitat, commerces, industries et sites miniers, avec une approche terrain et des livrables clairs.
+          </p>
+          <ul class="mt-3 grid sm:grid-cols-3 gap-3 text-sm">
+            <li class="p-3 rounded-lg border dark:border-slate-800"><strong>Notre promesse :</strong><br/>Fiabilité & transparence.</li>
+            <li class="p-3 rounded-lg border dark:border-slate-800"><strong>Notre méthode :</strong><br/>Audit → Conception → Exécution → Réception.</li>
+            <li class="p-3 rounded-lg border dark:border-slate-800"><strong>Nos engagements :</strong><br/>Sécurité, propreté, délais.</li>
+          </ul>
+        </div>
+        <aside class="p-5 rounded-xl border dark:border-slate-800">
+          <h4 class="font-semibold">Prêt à démarrer ?</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Utilisez notre simulateur express ou contactez-nous.</p>
+          <div class="mt-4 grid gap-2">
+            <a href="simulateur.html" class="btn btn-primary">📊 Simulateur express</a>
+            <a href="support.html#contact" class="btn btn-ghost">Écrire au support</a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- Notre équipe (dupliquée depuis simulateur, simplifiée) -->
+  <section id="equipe" class="section">
+    <div class="container">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6">Notre équipe</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Cartes exemples -->
+        <article class="p-5 rounded-xl border dark:border-slate-800 flex items-center gap-4">
+          <img src="image/MED.png" class="h-16 w-16 rounded-full object-cover" alt="Ingénieur électricité"/>
+          <div><h3 class="font-semibold">Électricité</h3><p class="text-sm">Basse/Haute tension, distributions, TGBT.</p></div>
+        </article>
+        <article class="p-5 rounded-xl border dark:border-slate-800 flex items-center gap-4">
+          <img src="image/MED.png" class="h-16 w-16 rounded-full object-cover" alt="Spécialiste solaire"/>
+          <div><h3 class="font-semibold">Solaire hybride</h3><p class="text-sm">Dimensionnement PV, batteries LiFePO₄.</p></div>
+        </article>
+        <article class="p-5 rounded-xl border dark:border-slate-800 flex items-center gap-4">
+          <img src="image/MED.png" class="h-16 w-16 rounded-full object-cover" alt="Tableaux"/>
+          <div><h3 class="font-semibold">Tableaux</h3><p class="text-sm">Conception/assemblage, protections, sélectivité.</p></div>
+        </article>
+        <article class="p-5 rounded-xl border dark:border-slate-800 flex items-center gap-4">
+          <img src="image/MED.png" class="h-16 w-16 rounded-full object-cover" alt="Sécurité & CCTV"/>
+          <div><h3 class="font-semibold">Sécurité</h3><p class="text-sm">CCTV, contrôle d’accès, câblage structuré.</p></div>
+        </article>
+        <article class="p-5 rounded-xl border dark:border-slate-800 flex items-center gap-4">
+          <img src="image/MED.png" class="h-16 w-16 rounded-full object-cover" alt="Réseaux"/>
+          <div><h3 class="font-semibold">Réseaux</h3><p class="text-sm">Switching, baie, brassage propre.</p></div>
+        </article>
+        <article class="p-5 rounded-xl border dark:border-slate-800 flex items-center gap-4">
+          <img src="image/MED.png" class="h-16 w-16 rounded-full object-cover" alt="Partenaires plomberie"/>
+          <div><h3 class="font-semibold">Partenaire plomberie</h3><p class="text-sm">Équipe Wafle (partenaire dédié).</p></div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-slate-50 dark:bg-slate-900/40">
+    <div class="container text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold">Besoin d’un chiffrage rapide ?</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">Utilisez le simulateur express puis envoyez-nous vos résultats.</p>
+      <div class="mt-5 flex flex-wrap gap-3 justify-center">
+        <a href="simulateur.html" class="btn btn-primary text-lg px-6 py-3">📊 Estimer ma consommation</a>
+        <a href="support.html#contact" class="btn btn-ghost">Contacter le support</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer injecté -->
+  <div data-include="partials/footer.html"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/inject.js"></script>
+
+  <script src="js/include.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

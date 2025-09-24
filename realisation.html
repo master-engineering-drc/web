@@ -1,235 +1,86 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-full">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MED • Électricité & Solaire | Lubumbashi & Kolwezi</title>
-  <meta name="description" content="Master Engineering DRC (MED) — installations électriques, maintenance, mise aux normes, éclairage, énergies renouvelables, tableaux électriques. Interventions rapides et garanties."/>
+  <title>Réalisations • MED</title>
 
-  <!-- Open Graph / SEO -->
-  <link rel="canonical" href="https://master-engineering-drc.github.io/web/">
-  <meta property="og:title" content="MED • Électricité & Solaire" />
-  <meta property="og:description" content="Installations électriques fiables, solaires hybrides, maintenance et mise aux normes." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="image/og-cover.jpg" />
-  <meta property="og:site_name" content="MED • Master Engineering DRC" />
-  <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#004080" />
-
-  <!-- Tailwind CDN -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-  tailwind.config = {
-    darkMode: 'media',
-    theme: {
-      container: {
-        center: true,
-        padding: {
-          DEFAULT: '1rem', // mobile/tablette
-          md: '1rem',
-          lg: '0.75rem',   // desktop + serré
-          xl: '0.75rem',   // grand écran
-          '2xl': '0.75rem' // très grand écran
-        },
-      },
-      extend: {
-        colors: { brand:'#004080', yellowBrand:'#FFD700', ink:'#000000', muted:'#555555' },
-        boxShadow: { card: '0 10px 30px rgba(0,0,0,0.08)' },
-        borderRadius: { xl: '18px' }
+    tailwind.config = {
+      darkMode: 'media',
+      theme: {
+        extend: {
+          colors: { brand: '#012b52', yellowBrand: '#DCC69C' },
+          boxShadow: { card: '0 8px 30px rgba(0,0,0,.12)' }
+        }
       }
     }
-  }
-</script>
-
-
-
-  <!-- Mini CSS util pour le <dialog> + scroll doux -->
-  <style>
-    html{scroll-behavior:smooth}
-    dialog.lightbox { border: none; border-radius: 16px; padding: 0; max-width: min(92vw, 1000px); box-shadow: 0 10px 30px rgba(0,0,0,.18) }
-    dialog::backdrop { background: rgba(0,0,0,.6) }
-  </style>
+  </script>
 </head>
-<body class="bg-white text-ink antialiased">
-  <div id="top"></div>
+<body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
 
-  <!-- ===== Header ===== -->
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
-    <div class="container max-w-[1400px] flex items-center justify-between py-3">
-      <!-- Brand -->
-      <a href="#top" class="flex items-center gap-3 font-extrabold" aria-label="Revenir en haut de page">
-        <span class="w-10 h-10 rounded-lg overflow-hidden grid place-items-center bg-gradient-to-br from-yellowBrand to-brand shadow-card">
-          <img src="image/MED_img.png" alt="Logo MED" class="w-full h-full object-cover" loading="lazy">
-        </span>
-        <span class="text-sm sm:text-base">MED • Master Engineering DRC</span>
-      </a>
+  <!-- Header injecté -->
+  <div data-include="partials/header.html"></div>
 
-      <!-- Desktop nav -->
-      <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50" href="index.html">Accueil</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50" href="simulateur.html">Simulateur</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50" href="service.html">Services</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50" href="realisation.html">Réalisations</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50" href="support.html">Contact</a>
-      </nav>
+  <main>
+    <section class="py-14 sm:py-16">
+      <div class="max-w-[1200px] mx-auto px-4">
+        <h1 class="text-2xl sm:text-3xl font-bold mb-6">Réalisations</h1>
 
-      <!-- Actions -->
-      <div class="hidden md:flex items-center gap-2">
-        <a href="tel:+243844894508" class="inline-flex items-center px-3 sm:px-4 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card text-sm sm:text-base">📞 +243 844 894 508</a>
-        <a href="support.html#contact" class="inline-flex items-center px-3 sm:px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card text-sm sm:text-base">Demander un devis</a>
-      </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Exemples existants + 4 nouveaux -->
+          <figure class="rounded-2xl overflow-hidden border dark:border-slate-800 shadow-card">
+            <img src="image/realisation/IMG-20250128-WA0050.jpg" alt="Tableau principal" class="w-full aspect-[4/3] object-cover" loading="lazy">
+            <figcaption class="p-3 text-sm">Tableau principal — Habitat, Lubumbashi</figcaption>
+          </figure>
 
-      <!-- Mobile toggler -->
-      <button id="navToggle" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-gray-300 bg-white text-brand"
-        aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </div>
+          <figure class="rounded-2xl overflow-hidden border dark:border-slate-800 shadow-card">
+            <img src="image/realisation/cctv-hero.jpg" alt="CCTV dépôt" class="w-full aspect-[4/3] object-cover" loading="lazy">
+            <figcaption class="p-3 text-sm">CCTV — Dépôt logistique</figcaption>
+          </figure>
 
-    <!-- Mobile menu -->
-    <div id="mobileMenu" class="lg:hidden hidden border-t border-gray-200 bg-white">
-      <div class="container max-w-[1400px] py-3">
-        <nav class="grid gap-1">
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50" href="index.html">Accueil</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50" href="simulateur.html">Simulateur</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50" href="service.html">Services</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50" href="realisation.html">Réalisations</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50" href="support.html">Contact</a>
-        </nav>
-        <div class="mt-3 grid gap-2 sm:flex sm:items-center sm:gap-2">
-          <a href="tel:+243844894508" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card">📞 +243 844 894 508</a>
-          <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card">Demander un devis</a>
+          <figure class="rounded-2xl overflow-hidden border dark:border-slate-800 shadow-card">
+            <img src="image/realisation/IMG-20250128-WA0047.jpg" alt="Solaire hybride" class="w-full aspect-[4/3] object-cover" loading="lazy">
+            <figcaption class="p-3 text-sm">Solaire hybride 5kVA — Maison</figcaption>
+          </figure>
+
+          <figure class="rounded-2xl overflow-hidden border dark:border-slate-800 shadow-card">
+            <img src="image/realisation/IMG-20250128-WA0055.jpg" alt="Réseaux & baie" class="w-full aspect-[4/3] object-cover" loading="lazy">
+            <figcaption class="p-3 text-sm">Baie & brassage — Commerce</figcaption>
+          </figure>
+
+          <!-- 4 nouvelles -->
+          <figure class="rounded-2xl overflow-hidden border dark:border-slate-800 shadow-card">
+            <img src="image/realisation/IMG-20230724-WA0071.jpg" alt="Éclairage extérieur" class="w-full aspect-[4/3] object-cover" loading="lazy">
+            <figcaption class="p-3 text-sm">Éclairage extérieur — Résidence</figcaption>
+          </figure>
+
+          <figure class="rounded-2xl overflow-hidden border dark:border-slate-800 shadow-card">
+            <img src="image/realisation/IMG-20250128-WA0056.jpg" alt="Onduleur & batteries" class="w-full aspect-[4/3] object-cover" loading="lazy">
+            <figcaption class="p-3 text-sm">Onduleur + LiFePO₄ — Backup bureau</figcaption>
+          </figure>
+
+          <!-- (Ajoute d’autres figures ici au besoin) -->
+        </div>
+
+        <div class="mt-8 text-center">
+          <a href="support.html#contact"
+             class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-black bg-white text-brand hover:bg-gray-50 shadow-card" data-prefill="contact">
+            Vous souhaitez un devis sur un cas similaire ?
+          </a>
         </div>
       </div>
-    </div>
-  </header>
+    </section>
+  </main>
 
-  
+  <!-- Footer injecté -->
+  <div data-include="partials/footer.html"></div>
 
-
-   <!-- ===== Réalisations ===== -->
-  <section id="realisations" class="py-14 sm:py-16">
-    <div class="container max-w-[1400px]">
-      <h2 class="text-2xl sm:text-3xl font-bold text-brand mb-2">Réalisations récentes</h2>
-      <p class="text-muted mb-6">Un aperçu de nos chantiers. Cliquez pour agrandir.</p>
-
-      <div class="grid grid-cols-12 gap-2 sm:gap-3">
-        <!-- images lazy -->
-        
-        
-        <a class="col-span-12 sm:col-span-6 md:col-span-3 relative overflow-hidden rounded-lg group gl" href="#" data-img="image/IMG-20250128-WA0053.jpg">
-          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/realisation/IMG-20250128-WA0053.jpg" alt="Installation 4" loading="lazy">
-          <span class="absolute right-2 bottom-2 text-white text-xs bg-black/65 px-2 py-1 rounded">Voir</span>
-        </a>
-        <a class="col-span-12 sm:col-span-6 md:col-span-3 relative overflow-hidden rounded-lg group gl" href="#" data-img="image/IMG-20250128-WA0047.jpg">
-          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/realisation/IMG-20250128-WA0047.jpg" alt="Installation 6" loading="lazy">
-          <span class="absolute right-2 bottom-2 text-white text-xs bg-black/65 px-2 py-1 rounded">Voir</span>
-        </a>
-        <a class="col-span-12 sm:col-span-6 md:col-span-3 relative overflow-hidden rounded-lg group gl" href="#" data-img="image/IMG-20250128-WA0048.jpg">
-          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/realisation/IMG-20250128-WA0048.jpg" alt="Installation 7" loading="lazy">
-          <span class="absolute right-2 bottom-2 text-white text-xs bg-black/65 px-2 py-1 rounded">Voir</span>
-        </a>
-        <a class="col-span-12 sm:col-span-6 md:col-span-3 relative overflow-hidden rounded-lg group gl" href="#" data-img="image/cctv-hero.jpg">
-          <img class="aspect-square object-cover transition-transform duration-300 group-hover:scale-105" src="image/realisation/cctv-hero.jpg" alt="Installation 8" loading="lazy">
-          <span class="absolute right-2 bottom-2 text-white text-xs bg-black/65 px-2 py-1 rounded">Voir</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ===== Avis ===== -->
-  <section class="py-14 sm:py-16">
-    <div class="container max-w-[1400px]">
-      <h2 class="text-2xl sm:text-3xl font-bold text-brand mb-2">Avis clients</h2>
-      <p class="text-muted mb-6">La satisfaction au cœur de notre travail.</p>
-
-      <div class="flex gap-3 overflow-x-auto pb-2 snap-x" id="reviewsList">
-        <!-- Items injectés par JS -->
-      </div>
-
-      <!-- Bouton pour ouvrir le formulaire d'avis -->
-      <div class="mt-4">
-        <button id="openReview"
-          class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card">
-          Laisser un avis
-        </button>
-      </div>
-    </div>
-  </section>
-
-    <!-- ===== Footer ===== -->
-  <footer class="bg-[#001a33] text-white">
-    <div class="container max-w-[1400px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 py-10">
-      <div>
-        <strong>MED • Master Engineering DRC</strong>
-        <small class="block text-yellowBrand">RCCM/25-B-00693</small>
-        <small class="block">Lubumbashi — Interventions Kolwezi & région</small>
-      </div>
-      <div>
-        <strong>Contact</strong>
-        <small class="block text-yellowBrand">📞 +243 844 894 508</small>
-        <small class="block text-yellowBrand">📞 +243 900 174 502</small>
-        <small class="block">✉️ masterengineeringdrc1@gmail.com</small>
-      </div>
-      <div>
-        <strong>Horaires</strong>
-        <small class="block">Lun–Sam : 8h–17h</small>
-        <small class="block">Urgences sous contrat</small>
-      </div>
-      <div>
-        <strong>Légal</strong>
-        <small class="block">© 2025 — Tous droits réservés</small>
-        <small class="block">Conformité & sécurité électrique</small>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ===== Floating actions ===== -->
-  <div class="fixed right-4 bottom-4 z-50 grid gap-2">
-    <a class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl grid place-items-center bg-yellowBrand text-black font-extrabold shadow-card"
-       title="Écrire sur WhatsApp" aria-label="WhatsApp"
-       href="https://wa.me/243844894508" target="_blank" rel="noopener noreferrer">WA</a>
-    <a class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl grid place-items-center bg-brand text-white font-extrabold shadow-card"
-       title="Haut de page" aria-label="Haut" href="#top">↑</a>
-  </div>
-
-  <!-- ===== Lightboxes / Modals ===== -->
-  <dialog class="lightbox" id="lightbox"><img id="lightImg" alt="Photo chantier"/></dialog>
-
-  <dialog class="lightbox" id="reviewDlg">
-    <form id="reviewForm" class="p-5 sm:p-6 bg-white rounded-xl text-ink grid gap-3 min-w-[min(92vw,520px)]">
-      <h3 class="text-lg font-bold">Laisser un avis</h3>
-
-      <input name="name" required placeholder="Votre nom" class="p-3 rounded-lg border border-gray-300" />
-
-      <div class="flex items-center gap-2">
-        <span class="font-semibold">Note :</span>
-        <div id="stars" class="flex gap-1 text-2xl select-none" role="radiogroup" aria-label="Note (0.5 à 5)"></div>
-        <input type="hidden" name="rating" id="rating" value="0" required/>
-      </div>
-
-      <textarea name="message" rows="4" required placeholder="Votre message…" class="p-3 rounded-lg border border-gray-300"></textarea>
-
-      <!-- Honeypot -->
-      <div class="sr-only" aria-hidden="true">
-        <label>Site web <input type="text" name="website" id="hp_website" tabindex="-1" autocomplete="off"></label>
-      </div>
-
-      <div class="grid gap-2 sm:flex sm:justify-end">
-        <button type="button" id="reviewMail" class="px-3 py-2 rounded-lg border border-black text-brand font-semibold">Envoyer par e-mail</button>
-        <button type="button" id="reviewWA" class="px-3 py-2 rounded-lg border border-yellowBrand text-yellowBrand font-semibold">Envoyer par WhatsApp</button>
-        <button type="button" id="reviewPublish" class="px-3 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold">Publier sur le site</button>
-        <button type="button" id="reviewCancel" class="px-3 py-2 rounded-lg border border-gray-300">Annuler</button>
-      </div>
-    </form>
-  </dialog>
-
-  <!-- JS (découpé) -->
+  <!-- Scripts -->
+  <script type="module" src="js/inject.js"></script>
+  <script src="js/include.js" defer></script>
   <script src="js/main.js" defer></script>
-  <script src="js/simulateurs.js" defer></script>
-  <script src="js/avis.js" defer></script>
 </body>
 </html>

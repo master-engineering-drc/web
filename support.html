@@ -1,274 +1,226 @@
- <!DOCTYPE html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MED • Électricité & Solaire | Lubumbashi & Kolwezi</title>
-  <meta name="description" content="Master Engineering DRC (MED) — installations électriques, maintenance, mise aux normes, éclairage, énergies renouvelables, tableaux électriques. Interventions rapides et garanties."/>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Contact & Avis • MED</title>
+  <meta name="description" content="Contact direct MED : téléphone, email, WhatsApp. Laissez aussi un avis client (modéré) pour partager votre expérience.">
 
-  <!-- Open Graph / SEO -->
-  <link rel="canonical" href="https://master-engineering-drc.github.io/web/">
-  <meta property="og:title" content="MED • Électricité & Solaire" />
-  <meta property="og:description" content="Installations électriques fiables, solaires hybrides, maintenance et mise aux normes." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="image/og-cover.jpg" />
-  <meta property="og:site_name" content="MED • Master Engineering DRC" />
-  <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#004080" />
-
-  <!-- Tailwind CDN -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-  tailwind.config = {
-    darkMode: 'media',
-    theme: {
-      container: {
-        center: true,
-        padding: {
-          DEFAULT: '1rem', // mobile/tablette
-          md: '1rem',
-          lg: '0.75rem',   // desktop + serré
-          xl: '0.75rem',   // grand écran
-          '2xl': '0.75rem' // très grand écran
-        },
-      },
-      extend: {
-        colors: { brand:'#004080', yellowBrand:'#FFD700', ink:'#000000', muted:'#555555' },
-        boxShadow: { card: '0 10px 30px rgba(0,0,0,0.08)' },
-        borderRadius: { xl: '18px' }
+    tailwind.config = {
+      darkMode: 'media',
+      theme: {
+        extend: {
+          colors: { brand: '#012b52', yellowBrand: '#DCC69C' },
+          boxShadow: { card: '0 8px 30px rgba(0,0,0,.12)' }
+        }
       }
     }
-  }
-</script>
-
-
-
-  <!-- Mini CSS util pour le <dialog> + scroll doux -->
-  <style>
-    html{scroll-behavior:smooth}
-    dialog.lightbox { border: none; border-radius: 16px; padding: 0; max-width: min(92vw, 1000px); box-shadow: 0 10px 30px rgba(0,0,0,.18) }
-    dialog::backdrop { background: rgba(0,0,0,.6) }
-  </style>
+  </script>
 </head>
-<body class="bg-white text-ink antialiased">
-  <div id="top"></div>
+<body class="bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
 
-  <!-- ===== Header ===== -->
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
-    <div class="container max-w-[1400px] flex items-center justify-between py-3">
-      <!-- Brand -->
-      <a href="#top" class="flex items-center gap-3 font-extrabold" aria-label="Revenir en haut de page">
-        <span class="w-10 h-10 rounded-lg overflow-hidden grid place-items-center bg-gradient-to-br from-yellowBrand to-brand shadow-card">
-          <img src="image/MED_img.png" alt="Logo MED" class="w-full h-full object-cover" loading="lazy">
-        </span>
-        <span class="text-sm sm:text-base">MED • Master Engineering DRC</span>
-      </a>
+  <!-- Header injecté -->
+  <div data-include="partials/header.html"></div>
 
-      <!-- Desktop nav -->
-      <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="index.html">Accueil</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="simulateur.html">Simulateur</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="service.html">Services</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="realisation.html">Réalisations</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="support.html">Contact</a>
-      </nav>
+  <main>
+    <!-- CONTACT -->
+    <section id="contact" class="py-14 sm:py-16" aria-labelledby="contact-title">
+      <div class="max-w-[1100px] mx-auto px-4">
+        <h1 id="contact-title" class="text-2xl sm:text-3xl font-bold">Contact direct</h1>
+        <p class="mt-2 text-slate-600 dark:text-slate-300">Cliquez sur un numéro ou un lien pour nous joindre immédiatement.</p>
 
+        <div class="grid md:grid-cols-2 gap-6 mt-6">
+          <!-- Coordonnées -->
+          <div class="p-5 rounded-xl border border-slate-200 dark:border-slate-800">
+            <p class="text-sm"><strong>📞 Téléphone :</strong> <a class="underline-offset-2 hover:underline" href="tel:+243990880720">+243 990 880 720</a></p>
+            <p class="text-sm"><strong>✉️ Email :</strong> <a class="underline-offset-2 hover:underline" href="mailto:contact@masterengineeringdrc.com">contact@masterengineeringdrc.com</a></p>
+            <p class="text-sm"><strong>📍 Adresse :</strong> Lubumbashi, RDC</p>
+            <div class="mt-3 flex gap-2">
+              <a class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50 dark:bg-transparent dark:text-white dark:border-white/20 dark:hover:bg-slate-900" href="https://www.instagram.com/master_engineering_drc" target="_blank" rel="noopener noreferrer">Instagram</a>
+              <a class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50 dark:bg-transparent dark:text-white dark:border-white/20 dark:hover:bg-slate-900" href="https://www.facebook.com/share/1FWJdhwg39/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer">Facebook</a>
+              <a class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50 dark:bg-transparent dark:text-white dark:border-white/20 dark:hover:bg-slate-900" href="https://wa.me/243990880720" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+            </div>
+          </div>
 
-      <!-- Actions -->
-      <div class="hidden md:flex items-center gap-2">
-        <a href="tel:+243844894508" class="inline-flex items-center px-3 sm:px-4 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card text-sm sm:text-base">📞 +243 844 894 508</a>
-        <a href="support.html#contact" class="inline-flex items-center px-3 sm:px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card text-sm sm:text-base">Demander un devis</a>
-      </div>
+          <!-- Formulaire (envoi via WhatsApp) -->
+          <form id="contactForm" class="p-5 rounded-xl border border-slate-200 dark:border-slate-800 grid gap-3" aria-describedby="contact-help">
+            <div class="grid sm:grid-cols-2 gap-3">
+              <input name="nom" required placeholder="Nom complet" autocomplete="name" class="border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 dark:bg-slate-900"/>
+              <input name="tel" required placeholder="Téléphone" type="tel" inputmode="tel" autocomplete="tel" class="border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 dark:bg-slate-900"/>
+            </div>
+            <input name="email" type="email" placeholder="Email (optionnel)" autocomplete="email" class="border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 dark:bg-slate-900"/>
+            <input id="subject" name="subject" placeholder="Sujet (optionnel)" class="border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 dark:bg-slate-900"/>
+            <textarea id="message" name="msg" required rows="8" placeholder="Votre message" class="border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 dark:bg-slate-900"></textarea>
 
-      <!-- Mobile toggler -->
-      <button id="navToggle" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-gray-300 bg-white text-brand"
-        aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </div>
+            <!-- Important : type="button" pour ne pas déclencher submit -->
+            <button type="button" id="contactSend"
+              class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold transition shadow-card bg-brand text-white hover:opacity-90">
+              Envoyer via WhatsApp
+            </button>
 
-    <!-- Mobile menu -->
-    <div id="mobileMenu" class="lg:hidden hidden border-t border-gray-200 bg-white">
-      <div class="container max-w-[1400px] py-3">
-        <nav class="grid gap-1">
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="index.html">Accueil</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="simulateur.html">Simulateur</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="service.html">Services</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="realisation.html">Réalisations</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="support.html">Contact</a>
-        </nav>
-
-        <div class="mt-3 grid gap-2 sm:flex sm:items-center sm:gap-2">
-          <a href="tel:+243844894508" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card">📞 +243 844 894 508</a>
-          <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card">Demander un devis</a>
+            <p id="contact-help" class="text-sm text-slate-600 dark:text-slate-300 mt-2">
+              Nous vous répondrons dans les plus brefs délais.
+            </p>
+            <!-- anti-bot -->
+            <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          </form>
         </div>
       </div>
-    </div>
-  </header>
 
-  
+      <!-- Modal alerte / fallback -->
+      <dialog id="alertModal" class="rounded-xl p-0 overflow-hidden">
+        <div class="p-6 bg-white dark:bg-slate-950 min-w-[300px] w-[min(420px,92vw)] text-center">
+          <div class="text-2xl mb-2">ℹ️</div>
+          <div id="alertModalMsg" class="mb-4 text-slate-800 dark:text-slate-100">
+            Si votre navigateur bloque l’ouverture de WhatsApp, utilisez le bouton ci-dessous.
+          </div>
+          <div class="grid gap-2">
+            <a id="alertWhatsApp"
+               class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold transition shadow-card bg-brand text-white hover:opacity-90"
+               href="https://wa.me/243990880720" target="_blank" rel="noopener noreferrer">Ouvrir WhatsApp</a>
+            <button id="alertModalBtn"
+              class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50 dark:bg-transparent dark:text-white dark:border-white/20 dark:hover:bg-slate-900">
+              OK
+            </button>
+          </div>
+        </div>
+      </dialog>
+    </section>
 
- <!-- ===== FAQ ===== -->
-  <section class="py-14 sm:py-16 bg-[#eef2f5] dark:bg-[#111827]">
-    <div class="container max-w-[1400px]">
-      <h2 class="text-2xl sm:text-3xl font-bold text-brand mb-4">Questions fréquentes</h2>
-      <details class="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-lg p-4 mb-3 dark:text-white">
-        <summary class="font-bold cursor-pointer">Proposez-vous des contrats de maintenance ?</summary>
-        <p class="text-muted dark:text-gray-300 mt-2">Oui. Préventif (visites planifiées) et curatif (interventions rapides). Remises pour sites multi-points.</p>
-      </details>
-      <details class="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-lg p-4 mb-3 dark:text-white">
-        <summary class="font-bold cursor-pointer">Faites-vous des installations solaires hybrides ?</summary>
-        <p class="text-muted dark:text-gray-300 mt-2">Oui : onduleurs hybrides, batteries Li-ion, priorités réseau/groupe/solaire selon votre profil de charge.</p>
-      </details>
-      <details class="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-lg p-4 dark:text-white">
-        <summary class="font-bold cursor-pointer">Quelles garanties ?</summary>
-        <p class="text-muted dark:text-gray-300 mt-2">Garantie 6 mois sur nos travaux (dommages mineurs) + garanties constructeur sur le matériel.</p>
-      </details>
-      <details class="bg-white dark:bg-[#111827] border border-gray-200 dark:border-slate-700 rounded-lg p-4 mb-3 dark:text-white">
-        <summary class="font-bold cursor-pointer">Puis-je voir mes caméras sur téléphone ?</summary>
-        <p class="text-muted dark:text-gray-300 mt-2">Oui. Nous configurons l’accès sécurisé (app mobile/PC), alertes mouvement, partage d’accès et sauvegarde distante.</p>
-      </details>
-    </div>
-  </section>
+    <!-- AVIS -->
+    <section class="py-14 sm:py-16 bg-slate-50 dark:bg-slate-900/40" aria-labelledby="avis-title">
+      <div class="max-w-[1100px] mx-auto px-4">
+        <div class="flex items-end justify-between flex-wrap gap-2">
+          <div>
+            <h2 id="avis-title" class="text-2xl sm:text-3xl font-bold">Témoignages</h2>
+            <p class="text-sm text-slate-600 dark:text-slate-300">Retours vérifiés (publication après modération).</p>
+          </div>
+          <button id="openReview" class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50 dark:bg-transparent dark:text-white dark:border-white/20 dark:hover:bg-slate-900">
+            Laisser un avis
+          </button>
+        </div>
 
-  <!-- ===== Contact ===== -->
-<section id="contact" class="py-14 sm:py-16 text-[#e5f4ff]" style="background:linear-gradient(135deg,#012b52,#004080)">
-  <div class="container max-w-[1400px]">
-    <h2 class="text-2xl sm:text-3xl font-bold text-yellowBrand mb-2">Contact direct</h2>
-    <p class="text-blue-100 mb-6">Cliquez sur un numéro ou un lien pour nous joindre immédiatement.</p>
+        <ul id="reviewsList" class="mt-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <li class="p-5 rounded-xl border border-slate-200 dark:border-slate-800">
+            <div class="font-semibold">Patrick — Golf</div>
+            <div class="text-yellow-500" aria-label="4 sur 5">★★★★☆</div>
+            <p class="text-sm mt-1">Mise en conformité rapide et propre. Je recommande.</p>
+          </li>
+          <li class="p-5 rounded-xl border border-slate-200 dark:border-slate-800">
+            <div class="font-semibold">Ariel — Kenya</div>
+            <div class="text-yellow-500" aria-label="5 sur 5">★★★★★</div>
+            <p class="text-sm mt-1">Installation solaire impeccable, équipe très pro.</p>
+          </li>
+        </ul>
 
-    <div class="mb-6 text-[1.02rem] sm:text-[1.05rem] leading-8">
-      <p><strong>📞 Téléphone :</strong>
-        <a class="text-yellowBrand underline-offset-2 hover:underline" href="tel:+243990880720">+243 990 880 720</a> |
-        <a class="text-yellowBrand underline-offset-2 hover:underline" href="tel:+243977078717">+243 977 078 717</a>
-      </p>
-
-      <p><strong>💬 WhatsApp :</strong>
-        <a class="text-yellowBrand underline-offset-2 hover:underline" target="_blank" href="https://wa.me/243844894508" rel="noopener noreferrer">+243 844 894 508</a>
-      </p>
-
-
-      <p><strong>📷 Instagram :</strong>
-        <a class="text-yellowBrand underline-offset-2 hover:underline" target="_blank"
-           href="https://www.instagram.com/master_engineering_drc?igsh=dGdncG16cmRzbGph&utm_source=qr"
-           rel="noopener noreferrer">@master_engineering_drc</a>
-      </p>
-
-      <p><strong>👍 Facebook :</strong>
-        <a class="text-yellowBrand underline-offset-2 hover:underline" target="_blank"
-           href="https://www.facebook.com/share/1FWJdhwg39/?mibextid=wwXIfr"
-           rel="noopener noreferrer">facebook.com/MasterEngineeringDRC</a>
-      </p>
-    </div>
-
-    <!-- Form -->
-    <form id="devisForm" class="grid gap-3 md:grid-cols-2">
-      <input name="name" required placeholder="Votre nom"
-             class="p-3 rounded-lg border border-white/40 bg-white/10 placeholder-blue-100/70 text-white md:col-span-1 w-full" />
-      <input name="phone" required placeholder="Téléphone / WhatsApp"
-             class="p-3 rounded-lg border border-white/40 bg-white/10 placeholder-blue-100/70 text-white md:col-span-1 w-full" />
-
-      <select name="service" required
-              class="p-3 rounded-lg border border-white/40 bg-white/10 text-white md:col-span-2 w-full">
-        <option value="">Choisir un service…</option>
-        <option>Installation électrique</option>
-        <option>Maintenance / Dépannage</option>
-        <option>Mise aux normes</option>
-        <option>Éclairage LED</option>
-        <option>Solaire / Hybride</option>
-        <option>Tableaux & Comptage</option>
-        <option>Caméras CCTV / Alarme</option>
-        <option>Plomberie</option>
-        <option>Applications web & mobile</option>
-      </select>
-
-      <textarea name="message" rows="4" placeholder="Décrivez le site, la puissance approximative, les délais…"
-                class="p-3 rounded-lg border border-white/40 bg-white/10 placeholder-blue-100/70 text-white md:col-span-2 w-full"></textarea>
-
-      <div class="flex flex-wrap gap-2 md:col-span-2">
-        <button type="reset" class="px-4 py-2 rounded-lg bg-transparent border border-yellowBrand text-yellowBrand font-semibold">Effacer</button>
-        <button type="submit" class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card">Envoyer la demande</button>
-        <a id="waQuick" href="https://wa.me/243844894508" target="_blank" rel="noopener noreferrer"
-           class="px-4 py-2 rounded-lg bg-transparent border border-yellowBrand text-yellowBrand font-semibold">WhatsApp direct</a>
+        <!-- Dialog avis -->
+        <dialog id="reviewDlg" class="rounded-xl p-0 overflow-hidden">
+          <form id="reviewForm" class="p-5 bg-white dark:bg-slate-950 min-w-[300px] w-[min(520px,92vw)]">
+            <h3 class="text-lg font-semibold">Laisser un avis</h3>
+            <p class="text-xs text-slate-500 dark:text-slate-400">Votre avis sera vérifié avant publication.</p>
+            <div class="grid gap-3 mt-3">
+              <input name="nom" required placeholder="Prénom" class="border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 dark:bg-slate-900"/>
+              <input name="zone" required placeholder="Quartier / Ville" class="border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 dark:bg-slate-900"/>
+              <label class="text-sm">Note (0–5)
+                <input name="note" type="number" min="0" max="5" step="1" value="5" class="mt-1 border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 w-24 dark:bg-slate-900"/>
+              </label>
+              <textarea name="message" rows="4" maxlength="240" placeholder="Votre avis (max 240 caractères)" class="border border-slate-300 dark:border-slate-700 rounded-lg px-3 py-2 dark:bg-slate-900" required></textarea>
+            </div>
+            <div class="mt-4 flex justify-end gap-2">
+              <button type="button" id="cancelReview" class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold transition shadow-card bg-white text-brand border border-black hover:bg-gray-50 dark:bg-transparent dark:text-white dark:border-white/20 dark:hover:bg-slate-900">Annuler</button>
+              <button class="inline-flex items-center justify-center px-4 py-2.5 rounded-xl font-semibold transition shadow-card bg-brand text-white hover:opacity-90">Envoyer</button>
+            </div>
+            <input type="text" name="website" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true"/>
+          </form>
+        </dialog>
       </div>
+    </section>
+  </main>
 
-      <small id="formMsg" class="text-blue-100 md:col-span-2" aria-live="polite"></small>
-    </form>
-  </div>
-</section>
+  <!-- Footer injecté -->
+  <div data-include="partials/footer.html"></div>
 
-
-  <!-- ===== Footer ===== -->
-  <footer class="bg-[#001a33] text-white">
-    <div class="container max-w-[1400px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 py-10">
-      <div>
-        <strong>MED • Master Engineering DRC</strong>
-        <small class="block text-yellowBrand">RCCM/25-B-00693</small>
-        <small class="block">Lubumbashi — Interventions Kolwezi & région</small>
-      </div>
-      <div>
-        <strong>Contact</strong>
-        <small class="block text-yellowBrand">📞 +243 844 894 508</small>
-        <small class="block text-yellowBrand">📞 +243 900 174 502</small>
-        <small class="block">✉️ masterengineeringdrc1@gmail.com</small>
-      </div>
-      <div>
-        <strong>Horaires</strong>
-        <small class="block">Lun–Sam : 8h–17h</small>
-        <small class="block">Urgences sous contrat</small>
-      </div>
-      <div>
-        <strong>Légal</strong>
-        <small class="block">© 2025 — Tous droits réservés</small>
-        <small class="block">Conformité & sécurité électrique</small>
-      </div>
-    </div>
-  </footer>
-
-  <!-- ===== Floating actions ===== -->
-  <div class="fixed right-4 bottom-4 z-50 grid gap-2">
-    <a class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl grid place-items-center bg-yellowBrand text-black font-extrabold shadow-card"
-       title="Écrire sur WhatsApp" aria-label="WhatsApp"
-       href="https://wa.me/243844894508" target="_blank" rel="noopener noreferrer">WA</a>
-    <a class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl grid place-items-center bg-brand text-white font-extrabold shadow-card"
-       title="Haut de page" aria-label="Haut" href="#top">↑</a>
-  </div>
-
-  <!-- ===== Lightboxes / Modals ===== -->
-  <dialog class="lightbox" id="lightbox"><img id="lightImg" alt="Photo chantier"/></dialog>
-
-  <dialog class="lightbox" id="reviewDlg">
-    <form id="reviewForm" class="p-5 sm:p-6 bg-white rounded-xl text-ink grid gap-3 min-w-[min(92vw,520px)]">
-      <h3 class="text-lg font-bold">Laisser un avis</h3>
-
-      <input name="name" required placeholder="Votre nom" class="p-3 rounded-lg border border-gray-300" />
-
-      <div class="flex items-center gap-2">
-        <span class="font-semibold">Note :</span>
-        <div id="stars" class="flex gap-1 text-2xl select-none" role="radiogroup" aria-label="Note (0.5 à 5)"></div>
-        <input type="hidden" name="rating" id="rating" value="0" required/>
-      </div>
-
-      <textarea name="message" rows="4" required placeholder="Votre message…" class="p-3 rounded-lg border border-gray-300"></textarea>
-
-      <!-- Honeypot -->
-      <div class="sr-only" aria-hidden="true">
-        <label>Site web <input type="text" name="website" id="hp_website" tabindex="-1" autocomplete="off"></label>
-      </div>
-
-      <div class="grid gap-2 sm:flex sm:justify-end">
-        <button type="button" id="reviewMail" class="px-3 py-2 rounded-lg border border-black text-brand font-semibold">Envoyer par e-mail</button>
-        <button type="button" id="reviewWA" class="px-3 py-2 rounded-lg border border-yellowBrand text-yellowBrand font-semibold">Envoyer par WhatsApp</button>
-        <button type="button" id="reviewPublish" class="px-3 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold">Publier sur le site</button>
-        <button type="button" id="reviewCancel" class="px-3 py-2 rounded-lg border border-gray-300">Annuler</button>
-      </div>
-    </form>
-  </dialog>
-
-  <!-- JS (découpé) -->
-  <script src="js/main.js" defer></script>
+  <!-- Scripts -->
+  <script type="module" src="js/inject.js"></script>
+  <script src="js/include.js" defer></script>
   <script src="js/avis.js" defer></script>
+
+  <!-- Spécifique à cette page : empêcher submit, envoyer WhatsApp avec le message + sujet, gérer le dialog -->
+  <script>
+    (function () {
+      const form = document.getElementById('contactForm');
+      const btnSend = document.getElementById('contactSend');
+      const dlg = document.getElementById('alertModal');
+      const btnOk = document.getElementById('alertModalBtn');
+      const aWA = document.getElementById('alertWhatsApp');
+
+      const textarea = document.getElementById('message');
+      const subjectField = document.getElementById('subject');
+      const waNumber = "243990880720";
+
+      // Bloquer toute soumission (empêche un mailto de include.js par ex.)
+      
+
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          e.stopImmediatePropagation(); // évite un handler externe (ex: include.js) de déclencher un mailto
+          if (dlg?.showModal) dlg.showModal();
+        });
+      }
+
+      // Ouvrir WhatsApp en récupérant message + sujet
+      function buildWhatsAppURL() {
+        const msg = (textarea?.value || "").trim();
+        const subject = (subjectField?.value || "").trim();
+        if (!msg) return null;
+        const full = subject ? `Sujet : ${subject}\n\n${msg}` : msg;
+        return `https://wa.me/${waNumber}?text=${encodeURIComponent(full)}`;
+      }
+
+      function openWhatsAppFromFields() {
+        const url = buildWhatsAppURL();
+        if (!url) {
+          alert("Merci de saisir votre message avant l’envoi.");
+          textarea?.focus();
+          return;
+        }
+        if (dlg?.showModal) dlg.showModal();
+        if (aWA) aWA.href = url;
+        // Essayer d’ouvrir dans un nouvel onglet
+        
+      }
+
+      if (btnSend) {
+        btnSend.addEventListener('click', openWhatsAppFromFields);
+      }
+
+      // Fermer le dialog (OK)
+      if (btnOk && dlg) {
+        btnOk.addEventListener('click', () => dlg.close());
+      }
+
+      // Fermer le dialog en cliquant hors contenu
+      if (dlg) {
+        dlg.addEventListener('click', (e) => {
+          const content = dlg.querySelector('div');
+          const r = content?.getBoundingClientRect?.();
+          if (!r) return;
+          const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+          if (!inside) dlg.close();
+        });
+        // Échap
+        dlg.addEventListener('cancel', (e) => { e.preventDefault(); dlg.close(); });
+      }
+
+      
+    })();
+  </script>
 </body>
 </html>
+
+
+      

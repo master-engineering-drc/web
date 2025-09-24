@@ -1,0 +1,31 @@
+<!-- partials/header.html -->
+<header class="sticky top-0 z-50 backdrop-blur bg-white/80 dark:bg-slate-950/80 border-b">
+  <div class="container max-w-[1200px] mx-auto px-4 flex items-center justify-between h-16">
+    <a href="index.html" class="flex items-center gap-2 font-bold">
+      <img src="image/logo-med.svg" alt="MED" class="h-8 w-8" />
+      <span>Master Engineering DRC</span>
+    </a>
+    <nav class="hidden md:flex items-center gap-4" id="mainNav">
+      <a data-nav="index.html"       class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 dark:hover:bg-slate-800" href="index.html">Accueil</a>
+      <a data-nav="simulateur.html"  class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 dark:hover:bg-slate-800" href="simulateur.html">Simulateur</a>
+      <a data-nav="service.html"     class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 dark:hover:bg-slate-800" href="service.html">Services</a>
+      <a data-nav="realisation.html" class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 dark:hover:bg-slate-800" href="realisation.html">Réalisations</a>
+      <a data-nav="support.html"     class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 dark:hover:bg-slate-800" href="support.html">Contact</a>
+    </nav>
+    <div class="flex items-center gap-2">
+      <a href="simulateur.html" class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-semibold transition shadow-[0_8px_30px_rgba(0,0,0,.12)] bg-white text-brand border border-black hover:bg-gray-50 hidden sm:inline-flex">📊 Estimer ma conso</a>
+      <button id="menuBtn" class="md:hidden inline-flex items-center justify-center px-4 py-2 rounded-xl font-semibold bg-white text-brand border border-black">☰</button>
+    </div>
+  </div>
+
+  <!-- mobile menu -->
+  <div id="mobileMenu" class="md:hidden hidden border-t">
+    <nav class="container max-w-[1200px] mx-auto px-4 grid py-2" id="mobileNav">
+      <a data-nav="index.html"       class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 dark:hover:bg-slate-800" href="index.html">Accueil</a>
+      <a data-nav="simulateur.html"  class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 dark:hover:bg-slate-800" href="simulateur.html">Simulateur</a>
+      <a data-nav="service.html"     class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 dark:hover:bg-slate-800" href="service.html">Services</a>
+      <a data-nav="realisation.html" class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 dark:hover:bg-slate-800" href="realisation.html">Réalisations</a>
+      <a data-nav="support.html"     class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 dark:hover:bg-slate-800" href="support.html">Contact</a>
+    </nav>
+  </div>
+</header>

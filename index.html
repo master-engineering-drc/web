@@ -1,206 +1,357 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-full scroll-smooth">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MED • Électricité & Solaire | Lubumbashi & Kolwezi</title>
-  <meta name="description" content="Master Engineering DRC (MED) — installations électriques, maintenance, mise aux normes, éclairage, énergies renouvelables, tableaux électriques. Interventions rapides et garanties."/>
-
-  <!-- Open Graph / SEO -->
+  <title>MED • Électricité & Informatique | Lubumbashi, Likasi & Kolwezi</title>
+  <meta name="description" content="MED — Cœur de métier : électricité (installations, tableaux, solaire/backup, normes). Extension naturelle : informatique (sites web & logiciels). Interventions rapides, garanties claires."/>
   <link rel="canonical" href="https://master-engineering-drc.github.io/web/">
-  <meta property="og:title" content="MED • Électricité & Solaire" />
-  <meta property="og:description" content="Installations électriques fiables, solaires hybrides, maintenance et mise aux normes." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="MED • Électricité & Informatique" />
+  <meta property="og:description" content="Électricité maîtrisée (tableaux, normes, solaire/backup) + Informatique sur-mesure (sites & logiciels). Une seule équipe pour le terrain et le digital." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="image/og-cover.jpg" />
   <meta property="og:site_name" content="MED • Master Engineering DRC" />
-  <meta name="robots" content="index,follow" />
-  <meta name="theme-color" content="#004080" />
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-  tailwind.config = {
-    darkMode: 'media',
-    theme: {
-      container: {
-        center: true,
-        padding: {
-          DEFAULT: '1rem', // mobile/tablette
-          md: '1rem',
-          lg: '0.75rem',   // desktop + serré
-          xl: '0.75rem',   // grand écran
-          '2xl': '0.75rem' // très grand écran
-        },
-      },
-      extend: {
-        colors: { brand:'#004080', yellowBrand:'#FFD700', ink:'#000000', muted:'#555555' },
-        boxShadow: { card: '0 10px 30px rgba(0,0,0,0.08)' },
-        borderRadius: { xl: '18px' }
+    tailwind.config = {
+      darkMode: 'media',
+      theme: {
+        extend: {
+          colors: { brand:'#012b52', yellowBrand:'#DCC69C' },
+          boxShadow: { card:'0 8px 30px rgba(0,0,0,.12)' }
+        }
       }
     }
-  }
-</script>
-
-
-
-  <!-- Mini CSS util pour le <dialog> + scroll doux -->
-  <style>
-    html{scroll-behavior:smooth}
-    dialog.lightbox { border: none; border-radius: 16px; padding: 0; max-width: min(92vw, 1000px); box-shadow: 0 10px 30px rgba(0,0,0,.18) }
-    dialog::backdrop { background: rgba(0,0,0,.6) }
-  </style>
+  </script>
 </head>
-<body class="bg-white text-ink antialiased">
-  <div id="top"></div>
+<body class="h-full bg-white text-slate-800 dark:bg-slate-950 dark:text-slate-100">
 
-  <!-- ===== Header ===== -->
-  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b border-gray-200">
-    <div class="container max-w-[1400px] flex items-center justify-between py-3">
-      <!-- Brand -->
-      <a href="#top" class="flex items-center gap-3 font-extrabold" aria-label="Revenir en haut de page">
-        <span class="w-10 h-10 rounded-lg overflow-hidden grid place-items-center bg-gradient-to-br from-yellowBrand to-brand shadow-card">
-          <img src="image/MED_img.png" alt="Logo MED" class="w-full h-full object-cover" loading="lazy">
-        </span>
-        <span class="text-sm sm:text-base">MED • Master Engineering DRC</span>
-      </a>
+  <!-- Header injecté -->
+  <div data-include="partials/header.html"></div>
 
-      <!-- Desktop nav -->
-      <nav class="hidden lg:flex items-center gap-1 xl:gap-2">
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="index.html">Accueil</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="simulateur.html">Simulateur</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="service.html">Services</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="realisation.html">Réalisations</a>
-        <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="support.html">Contact</a>
-      </nav>
-
-
-      <!-- Actions -->
-      <div class="hidden md:flex items-center gap-2">
-        <a href="tel:+243844894508" class="inline-flex items-center px-3 sm:px-4 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card text-sm sm:text-base">📞 +243 844 894 508</a>
-        <a href="support.html#contact" class="inline-flex items-center px-3 sm:px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card text-sm sm:text-base">Demander un devis</a>
-      </div>
-
-      <!-- Mobile toggler -->
-      <button id="navToggle" class="lg:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg border border-gray-300 bg-white text-brand"
-        aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
-        </svg>
-      </button>
-    </div>
-
-    <!-- Mobile menu -->
-    <div id="mobileMenu" class="lg:hidden hidden border-t border-gray-200 bg-white">
-      <div class="container max-w-[1400px] py-3">
-        <nav class="grid gap-1">
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="index.html">Accueil</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="simulateur.html">Simulateur</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="service.html">Services</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="realisation.html">Réalisations</a>
-          <a class="px-3 py-2 rounded-md font-semibold hover:bg-blue-50 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand/40" href="support.html">Contact</a>
-        </nav>
-
-        <div class="mt-3 grid gap-1 sm:flex sm:items-center sm:gap-2">
-          <a href="tel:+243844894508" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-white border border-black text-brand font-semibold shadow-card">📞 +243 844 894 508</a>
-          <a href="support.html#contact" class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card">Demander un devis</a>
+  <!-- HERO -->
+  <section class="relative pt-10 py-14 sm:py-16">
+    <div class="max-w-[1200px] mx-auto px-4 grid md:grid-cols-2 items-center gap-8">
+      <div>
+        <p class="text-sm tracking-wide uppercase text-yellowBrand font-semibold">MED • Lubumbashi, Likasi  & Kolwezi</p>
+        <h1 class="mt-2 text-3xl sm:text-4xl font-extrabold leading-tight">
+          <span class="block">Électricité <span class="text-yellowBrand">&</span> Informatique</span>
+          <span class="block text-slate-600 dark:text-slate-300 text-xl sm:text-2xl font-semibold">
+            L’électricité comme fondation. Le digital comme accélérateur.
+          </span>
+        </h1>
+        <p class="mt-3 text-slate-600 dark:text-slate-300">
+          <strong>Électricité (cœur de métier)</strong> : tableaux & TGBT, mise aux normes CENELEC/IEC, solaire/backup LiFePO₄, maintenance.<br/>
+          <strong>Informatique (extension)</strong> : sites vitrines, dashboards et petits logiciels qui servent vos opérations.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href="service.html#r-electricite"
+             class="inline-flex items-center justify-center rounded-xl font-semibold transition shadow-card
+                    bg-brand text-white hover:opacity-90 text-base px-5 py-2.5"
+             data-prefill="info">
+            ⚡ Électricité — Voir les services
+          </a>
+          <a href="service.html#r-webapps"
+             class="inline-flex items-center justify-center rounded-xl font-semibold transition shadow-card
+                    bg-white text-brand border border-black px-3 hover:bg-gray-50
+                    dark:bg-transparent dark:text-white dark:border-white/20 dark:hover:bg-slate-900"
+             data-prefill="info">
+            💻 Informatique — Web & Logiciel
+          </a>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-2 text-sm">
+          <span class="inline-flex items-center px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700">Normes CENELEC/IEC</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700">Interventions rapides</span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700">Garantie & SAV</span>
         </div>
       </div>
-    </div>
-  </header>
-
-  <!-- ===== Hero ===== -->
-  <section class="relative min-h-[64vh] sm:min-h-[70vh] md:min-h-[72vh] grid items-center text-white">
-    <div class="absolute inset-0 bg-[url('image/MED.png')] bg-cover bg-center -z-10" aria-hidden="true"></div>
-    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-black/60 via-black/40 to-transparent" aria-hidden="true"></div>
-
-    <div class="container max-w-[1400px] grid gap-5 py-16 sm:py-20 md:py-24">
-      <span class="inline-flex items-center gap-2 bg-yellow-100 text-black border border-yellowBrand px-3 py-1 rounded-full text-xs sm:text-sm font-semibold w-fit">
-        Lubumbashi Likasi & Kolwezi
-      </span>
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-        Installations électriques <em class="not-italic text-yellowBrand">fiables</em> & solutions solaires <em class="not-italic text-yellowBrand">performantes</em>.
-      </h1>
-      <p class="text-base sm:text-lg text-gray-200 max-w-3xl">
-        Conception, installation, maintenance et mise aux normes pour particuliers, sociétés et sites industriels. Interventions rapides, garanties, conformité assurée.
-      </p>
-      <div class="flex flex-wrap gap-2 sm:gap-3">
-        <a class="px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-bold shadow-card" href="support.html">Parler à un expert</a>
-        <a class="px-4 sm:px-5 py-2.5 sm:py-3 rounded-lg bg-white text-brand border border-black font-bold shadow-card" href="simulateur.html#simulateur">📊 Estimer ma consommation</a>
+      <div class="relative">
+        <img src="image/realisation/IMG-20250128-WA0053.jpg" alt="Intervention MED"
+             class="w-full rounded-2xl shadow-card object-cover aspect-[4/3]" />
       </div>
     </div>
   </section>
 
-  <!-- ===== Sécurité ===== -->
-  <section id="securite" class="py-16 bg-gray-50">
-    <div class="container max-w-[1200px] grid gap-10 text-center">
-      <h2 class="text-2xl md:text-3xl font-bold">Pourquoi nous choisir ?</h2>
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        <div class="p-6 bg-white rounded-xl shadow-card">
-          <h3 class="font-semibold text-brand">✅ Normes & Conformité</h3>
-          <p class="text-sm text-muted">Installations 100% conformes aux normes électriques.</p>
-        </div>
-        <div class="p-6 bg-white rounded-xl shadow-card">
-          <h3 class="font-semibold text-brand">⚡ Interventions rapides</h3>
-          <p class="text-sm text-muted">Disponibilité pour urgences et dépannages.</p>
-        </div>
-        <div class="p-6 bg-white rounded-xl shadow-card">
-          <h3 class="font-semibold text-brand">🔒 Sécurité garantie</h3>
-          <p class="text-sm text-muted">Protection des personnes et des biens assurée.</p>
-        </div>
-        <div class="p-6 bg-white rounded-xl shadow-card">
-          <h3 class="font-semibold text-brand">🌍 Énergies renouvelables</h3>
-          <p class="text-sm text-muted">Solutions solaires hybrides performantes.</p>
+  <!-- BLOCS PHARES -->
+  <section class="py-14 sm:py-16 bg-slate-50 dark:bg-slate-900/40">
+    <div class="max-w-[1200px] mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-2">Nos pôles phares</h2>
+      <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">Un seul interlocuteur : <em>terrain</em> (électricité) + <em>digital</em> (web & logiciel).</p>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- ÉLECTRICITÉ -->
+        <article class="p-6 rounded-2xl border dark:border-slate-800 shadow-card bg-white dark:bg-slate-900/40">
+          <div class="flex items-start justify-between gap-4">
+            <h3 class="text-xl font-bold">⚡ Électricité</h3>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs border border-yellowBrand/50 bg-yellowBrand/20">Fondation</span>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm">
+            Installations BT, tableaux & TGBT, mises aux normes CENELEC/IEC, dépannage,
+            solaire/backup (onduleurs, LiFePO₄), essais & PV.
+          </p>
+          <ul class="mt-3 grid sm:grid-cols-2 gap-2 text-sm">
+            <li class="p-3 rounded-xl border dark:border-slate-800">Tableaux & protections</li>
+            <li class="p-3 rounded-xl border dark:border-slate-800">Solaire hybride & backup</li>
+            <li class="p-3 rounded-xl border dark:border-slate-800">Conformité & audits</li>
+            <li class="p-3 rounded-xl border dark:border-slate-800">Maintenance & SAV</li>
+          </ul>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <a href="simulateur.html"
+               class="inline-flex items-center justify-center rounded-xl font-semibold transition shadow-card
+                      bg-brand text-white hover:opacity-90 px-4 py-2" data-prefill="info">
+              📊 Simulateur express
+            </a>
+            <a href="service.html#r-electricite"
+               class="inline-flex items-center justify-center rounded-xl font-semibold transition shadow-card
+                      bg-white text-brand border border-black hover:bg-gray-50 px-4 py-2" data-prefill="devis">
+              Voir le rayon Électricité
+            </a>
+          </div>
+        </article>
+
+        <!-- INFORMATIQUE -->
+        <article class="p-6 rounded-2xl border dark:border-slate-800 shadow-card bg-white dark:bg-slate-900/40">
+          <div class="flex items-start justify-between gap-4">
+            <h3 class="text-xl font-bold">💻 Informatique — Web & Logiciel</h3>
+            <span class="inline-flex items-center px-3 py-1 rounded-full text-xs border border-yellowBrand/50 bg-yellowBrand/20">Extension</span>
+          </div>
+          <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm">
+            Sites vitrines, dashboards, petites apps métiers et automatisations légères
+            qui accompagnent vos opérations électriques (monitoring, tickets, rapports).
+          </p>
+          <ul class="mt-3 grid sm:grid-cols-2 gap-2 text-sm">
+            <li class="p-3 rounded-xl border dark:border-slate-800">Sites & vitrines</li>
+            <li class="p-3 rounded-xl border dark:border-slate-800">Apps web (dashboards)</li>
+            <li class="p-3 rounded-xl border dark:border-slate-800">Automatisation légère</li>
+            <li class="p-3 rounded-xl border dark:border-slate-800">Maintenance applicative</li>
+          </ul>
+          <div class="mt-4 flex flex-wrap gap-2">
+            <a href="service.html#r-webapps"
+               class="inline-flex items-center justify-center rounded-xl font-semibold transition shadow-card
+                      bg-brand text-white hover:opacity-90 px-4 py-2" data-prefill="info">
+              Découvrir nos offres web
+            </a>
+            <a href="support.html#contact"
+               class="inline-flex items-center justify-center rounded-xl font-semibold transition shadow-card
+                      bg-white text-brand border border-black hover:bg-gray-50 px-4 py-2" data-prefill="devis">
+              Discuter d’un projet logiciel
+            </a>
+          </div>
+        </article>
+      </div>
+
+      <!-- Secondaire -->
+      <div class="mt-10">
+        <h3 class="text-lg font-bold mb-3">Autres services (secondaires)</h3>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <article class="p-5 rounded-xl border dark:border-slate-800">
+            <h4 class="font-semibold">🛡️ Sécurité (Caméras & CCTV)</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">CCTV IP, NVR, contrôle d’accès — pour commerces & résidences.</p>
+            <div class="mt-3">
+              <a href="service.html#r-securite"
+                 class="inline-flex items-center justify-center rounded-xl font-semibold transition shadow-card
+                        bg-white text-brand border border-black hover:bg-gray-50 px-4 py-2" data-prefill="info">
+                En savoir plus
+              </a>
+            </div>
+          </article>
+          <article class="p-5 rounded-xl border dark:border-slate-800">
+            <h4 class="font-semibold">☀️ Solaire (backup)</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Hybrides, batteries LiFePO₄, onduleurs — continuité d’énergie.</p>
+            <div class="mt-3">
+              <a href="simulateur.html"
+                 class="inline-flex items-center justify-center rounded-xl font-semibold transition shadow-card
+                        bg-white text-brand border border-black hover:bg-gray-50 px-4 py-2">
+                Simuler mon besoin
+              </a>
+            </div>
+          </article>
+          <article class="p-5 rounded-xl border dark:border-slate-800">
+            <h4 class="font-semibold">🧯 Maintenance & MCO</h4>
+            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Visites planifiées, rapports, remises à niveau ciblées.</p>
+            <div class="mt-3">
+              <a href="support.html#contact"
+                 class="inline-flex items-center justify-center rounded-xl font-semibold transition shadow-card
+                        bg-white text-brand border border-black hover:bg-gray-50 px-4 py-2" data-prefill="planifier">
+                Planifier une visite
+              </a>
+            </div>
+          </article>
         </div>
       </div>
     </div>
   </section>
 
-
-  
-
- 
-
-  
-
-  <!-- ===== Footer ===== -->
-  <footer class="bg-[#001a33] text-white">
-    <div class="container max-w-[1400px] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 py-10">
-      <div>
-        <strong>MED • Master Engineering DRC</strong>
-        <small class="block text-yellowBrand">RCCM/25-B-00693</small>
-        <small class="block">Lubumbashi — Interventions Kolwezi & région</small>
-      </div>
-      <div>
-        <strong>Contact</strong>
-        <small class="block text-yellowBrand">📞 +243 844 894 508</small>
-        <small class="block text-yellowBrand">📞 +243 900 174 502</small>
-        <small class="block">✉️ masterengineeringdrc1@gmail.com</small>
-      </div>
-      <div>
-        <strong>Horaires</strong>
-        <small class="block">Lun–Sam : 8h–17h</small>
-        <small class="block">Urgences sous contrat</small>
-      </div>
-      <div>
-        <strong>Légal</strong>
-        <small class="block">© 2025 — Tous droits réservés</small>
-        <small class="block">Conformité & sécurité électrique</small>
+  <!-- QUI SOMMES-NOUS -->
+  <section class="py-14 sm:py-16">
+    <div class="max-w-[1200px] mx-auto px-4">
+      <h2 class="text-2xl sm:text-3xl font-bold mb-6">Qui sommes-nous ?</h2>
+      <div class="grid lg:grid-cols-3 gap-6">
+        <div class="lg:col-span-2">
+          <p class="text-slate-600 dark:text-slate-300">
+            Née à Lubumbashi, MED réunit ingénieurs et développeurs pragmatiques. Notre ligne :
+            des projets électriques sûrs et durables, et des outils numériques simples qui réduisent vos coûts et vos pannes.
+          </p>
+          <ul class="mt-3 grid sm:grid-cols-3 gap-3 text-sm">
+            <li class="p-3 rounded-lg border dark:border-slate-800"><strong>Promesse :</strong><br/>Fiabilité & transparence.</li>
+            <li class="p-3 rounded-lg border dark:border-slate-800"><strong>Méthode :</strong><br/>Audit → Conception → Exécution → Réception.</li>
+            <li class="p-3 rounded-lg border dark:border-slate-800"><strong>Engagements :</strong><br/>Sécurité, propreté, délais.</li>
+          </ul>
+        </div>
+        <aside class="p-5 rounded-xl border dark:border-slate-800">
+          <h4 class="font-semibold">Prêt à démarrer ?</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-300 mt-1">Simulez votre besoin ou contactez-nous.</p>
+          <div class="mt-4 grid gap-2">
+            <a href="simulateur.html"
+               class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-semibold transition shadow-card
+                      bg-brand text-white hover:opacity-90">
+              📊 Simulateur express
+            </a>
+            <a href="support.html#contact"
+               class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-semibold transition shadow-card
+                      bg-white text-brand border border-black hover:bg-gray-50
+                      dark:bg-transparent dark:text-white dark:border-white/20 dark:hover:bg-slate-900" data-prefill="info">
+              Écrire au support
+            </a>
+          </div>
+        </aside>
       </div>
     </div>
-  </footer>
+  </section>
 
-  <!-- ===== Floating actions ===== -->
-  <div class="fixed right-4 bottom-4 z-50 grid gap-2">
-    <a class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl grid place-items-center bg-yellowBrand text-black font-extrabold shadow-card"
-       title="Écrire sur WhatsApp" aria-label="WhatsApp"
-       href="https://wa.me/243844894508" target="_blank" rel="noopener noreferrer">WA</a>
-    <a class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl grid place-items-center bg-brand text-white font-extrabold shadow-card"
-       title="Haut de page" aria-label="Haut" href="#top">↑</a>
+  <section id="equipe" class="py-14 sm:py-16">
+  <div class="max-w-[1200px] mx-auto px-4">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-6">Notre équipe</h2>
+    <div class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+
+      <!-- Frederic -->
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center dark:bg-slate-900/40 dark:border-slate-800">
+        <img src="image/team/frederic.jpg" alt="Frederic B.K." class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Frederic B.K.</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Ingénieur électricité & réseaux</p>
+        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm">
+          Coordinateur technique, il pilote les projets de bout en bout : de l’audit à la mise en service. Expert en tableaux électriques et intégration réseau, il assure qualité et conformité aux normes.
+        </p>
+      </div>
+
+      <!-- Roger -->
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center dark:bg-slate-900/40 dark:border-slate-800">
+        <img src="image/team/roger.jpg" alt="Roger P." class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Roger P.</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Ingénieur électricité</p>
+        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm">
+          Spécialiste en installations industrielles et maintenance. Il maîtrise les environnements exigeants (mines, industries, bâtiments), garantissant fiabilité et sécurité des systèmes.
+        </p>
+      </div>
+
+      <!-- Elie -->
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center dark:bg-slate-900/40 dark:border-slate-800">
+        <img src="image/team/elie.jpg" alt="Elie" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Elie</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Ingénieur électricité</p>
+        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm">
+          Expert en mise aux normes et en tableaux électriques, il veille à la conformité CENELEC/IEC des installations pour garantir sécurité et durabilité.
+        </p>
+      </div>
+
+      <!-- Paul -->
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center dark:bg-slate-900/40 dark:border-slate-800">
+        <img src="image/team/paul.jpg" alt="Paul M." class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Paul M.</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Ingénieur réseaux & télécoms</p>
+        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm">
+          Avec une double compétence en électricité et télécoms, il conçoit et déploie des solutions réseaux intégrées aux infrastructures électriques (câblage, supervision, VoIP).
+        </p>
+      </div>
+
+      <!-- Nephtali -->
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center dark:bg-slate-900/40 dark:border-slate-800">
+        <img src="image/team/team.jpg" alt="Nephtalie" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Nephtali</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Ingénieur logiciel</p>
+        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm">
+          Passionné par l’innovation, titulaire d’une licence en génie logiciel et d’une base solide en électronique. Il conçoit des solutions robustes, alliant créativité et précision technique.
+        </p>
+      </div>
+
+      <!-- Joseph -->
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center dark:bg-slate-900/40 dark:border-slate-800">
+        <img src="image/team/team.jpg" alt="Joseph B." class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Joseph B.</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Technicien électricité</p>
+        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm">
+          Technicien de terrain spécialisé en installation et maintenance. Polyvalent, il assure la continuité des services et le bon fonctionnement des systèmes électriques.
+        </p>
+      </div>
+
+      <!-- Martial -->
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center dark:bg-slate-900/40 dark:border-slate-800">
+        <img src="image/team/team.jpg" alt="Martial" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Martial</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Associé & Expert sécurité</p>
+        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm">
+          Spécialiste en cybersécurité et systèmes de protection (CCTV, contrôle d’accès). Il conçoit des solutions intégrées pour sécuriser commerces et résidences.
+        </p>
+      </div>
+
+      <!-- Arielle -->
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center dark:bg-slate-900/40 dark:border-slate-800">
+        <img src="image/team/arielle.jpg" alt="Arielle M." class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Arielle M.</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Développeuse web</p>
+        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm">
+          Spécialiste en développement web et conception d’applications connectées. Elle crée des sites modernes et des dashboards intégrés aux projets électriques.
+        </p>
+      </div>
+
+      <!-- Isaac -->
+      <div class="bg-white rounded-xl border border-gray-200 p-6 shadow-card text-center dark:bg-slate-900/40 dark:border-slate-800">
+        <img src="image/team/team.jpg" alt="Isaac" class="w-24 h-24 mx-auto rounded-full object-cover mb-4 shadow-md" loading="lazy">
+        <h3 class="text-lg font-bold">Isaac</h3>
+        <p class="text-yellowBrand font-semibold text-sm">Associé – Ingénieur plomberie & froid</p>
+        <p class="text-slate-600 dark:text-slate-300 mt-2 text-sm">
+          Expert en plomberie et systèmes de réfrigération industrielle. Il assure performance et durabilité des installations hydrauliques et frigorifiques.
+        </p>
+      </div>
+
+    </div>
   </div>
+</section>
 
- 
 
-  <!-- JS (découpé) -->
+
+
+  <!-- CTA final -->
+  <section class="py-14 sm:py-16">
+    <div class="max-w-[1200px] mx-auto px-4 text-center">
+      <h2 class="text-2xl sm:text-3xl font-bold">Un chiffrage ou un projet web ?</h2>
+      <p class="mt-2 text-slate-600 dark:text-slate-300">Expliquez-nous votre besoin — réponse rapide.</p>
+      <div class="mt-5 flex flex-wrap gap-3 justify-center">
+        <a href="support.html#contact"
+           class="inline-flex items-center justify-center rounded-xl font-semibold transition shadow-card
+                  bg-brand text-white hover:opacity-90 text-lg px-6 py-3" data-prefill="support">
+          Contacter le support
+        </a>
+        <a href="simulateur.html"
+           class="inline-flex items-center justify-center px-5 py-2.5 rounded-xl font-semibold transition shadow-card
+                  bg-white text-brand border border-black hover:bg-gray-50
+                  dark:bg-transparent dark:text-white dark:border-white/20 dark:hover:bg-slate-900">
+          📊 Estimer ma consommation
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer injecté -->
+  <div data-include="partials/footer.html"></div>
+
+  <!-- Scripts -->
+  <script type="module" src="js/inject.js"></script>
+  <script src="js/include.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

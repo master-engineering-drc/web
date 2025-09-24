@@ -175,7 +175,7 @@ function recalcPV(){
   // Production
   const n   = +(+qs('#pv_n')?.value || 0);
   const w   = +(+qs('#pv_w')?.value || 0);
-  const psh = +(+qs('#pv_psh')?.value || 0);
+  const psh = +(+qs('#pv_psh')?.value || 5);
   const eff = +(+qs('#pv_eff')?.value || 0.75);
   const pvDayKWh = (n*w*psh*eff)/1000;
   qs('#pv_kwh_prod') && (qs('#pv_kwh_prod').textContent = nf(pvDayKWh));
@@ -282,7 +282,7 @@ function recalcGen(){
   if (!tbody) return;
 
   const kva   = +(+qs('#gen_kva')?.value || 0);
-  const pf    = +(+qs('#gen_pf')?.value || 0);
+  const pf    = +(+qs('#gen_pf')?.value || 0.8);
   const cont  = +(+qs('#gen_cont')?.value || 0.8);
   const kw    = kva*pf;
   const contW = kw*1000*cont;
