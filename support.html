@@ -134,49 +134,71 @@
   </section>
 
   <!-- ===== Contact ===== -->
-  <section id="contact" class="py-14 sm:py-16 text-[#e5f4ff]" style="background:linear-gradient(135deg,#012b52,#004080)">
-    <div class="container max-w-[1400px]">
-      <h2 class="text-2xl sm:text-3xl font-bold text-yellowBrand mb-2">Contact direct</h2>
-      <p class="text-blue-100 mb-6">Cliquez sur un numéro ou un lien pour nous joindre immédiatement.</p>
+<section id="contact" class="py-14 sm:py-16 text-[#e5f4ff]" style="background:linear-gradient(135deg,#012b52,#004080)">
+  <div class="container max-w-[1400px]">
+    <h2 class="text-2xl sm:text-3xl font-bold text-yellowBrand mb-2">Contact direct</h2>
+    <p class="text-blue-100 mb-6">Cliquez sur un numéro ou un lien pour nous joindre immédiatement.</p>
 
-      <div class="mb-6 text-[1.02rem] sm:text-[1.05rem] leading-8">
-        <p><strong>📞 Téléphone :</strong> <a class="text-yellowBrand underline-offset-2 hover:underline" href="tel:+243990880720">+243 990 880 720</a> | <a class="text-yellowBrand underline-offset-2 hover:underline" href="tel:+243977078717">+243 977 078 717</a></p>
-        <p><strong>💬 WhatsApp :</strong> <a class="text-yellowBrand underline-offset-2 hover:underline" target="_blank" href="https://wa.me/243844894508" rel="noopener noreferrer">+243 844 894 508</a></p>
-        <p><strong>🌐 Site web :</strong> <a class="text-yellowBrand underline-offset-2 hover:underline" target="_blank" href="https://master-engineering-drc.github.io/web/" rel="noopener noreferrer">med-electricite.com</a></p>
-        <p><strong>🔗 Facebook :</strong> <a class="text-yellowBrand underline-offset-2 hover:underline" target="_blank" href="https://facebook.com/MEDLubumbashi" rel="noopener noreferrer">facebook.com/MEDLubumbashi</a></p>
+    <div class="mb-6 text-[1.02rem] sm:text-[1.05rem] leading-8">
+      <p><strong>📞 Téléphone :</strong>
+        <a class="text-yellowBrand underline-offset-2 hover:underline" href="tel:+243990880720">+243 990 880 720</a> |
+        <a class="text-yellowBrand underline-offset-2 hover:underline" href="tel:+243977078717">+243 977 078 717</a>
+      </p>
+
+      <p><strong>💬 WhatsApp :</strong>
+        <a class="text-yellowBrand underline-offset-2 hover:underline" target="_blank" href="https://wa.me/243844894508" rel="noopener noreferrer">+243 844 894 508</a>
+      </p>
+
+
+      <p><strong>📷 Instagram :</strong>
+        <a class="text-yellowBrand underline-offset-2 hover:underline" target="_blank"
+           href="https://www.instagram.com/master_engineering_drc?igsh=dGdncG16cmRzbGph&utm_source=qr"
+           rel="noopener noreferrer">@master_engineering_drc</a>
+      </p>
+
+      <p><strong>👍 Facebook :</strong>
+        <a class="text-yellowBrand underline-offset-2 hover:underline" target="_blank"
+           href="https://www.facebook.com/share/1FWJdhwg39/?mibextid=wwXIfr"
+           rel="noopener noreferrer">facebook.com/MasterEngineeringDRC</a>
+      </p>
+    </div>
+
+    <!-- Form -->
+    <form id="devisForm" class="grid gap-3 md:grid-cols-2">
+      <input name="name" required placeholder="Votre nom"
+             class="p-3 rounded-lg border border-white/40 bg-white/10 placeholder-blue-100/70 text-white md:col-span-1 w-full" />
+      <input name="phone" required placeholder="Téléphone / WhatsApp"
+             class="p-3 rounded-lg border border-white/40 bg-white/10 placeholder-blue-100/70 text-white md:col-span-1 w-full" />
+
+      <select name="service" required
+              class="p-3 rounded-lg border border-white/40 bg-white/10 text-white md:col-span-2 w-full">
+        <option value="">Choisir un service…</option>
+        <option>Installation électrique</option>
+        <option>Maintenance / Dépannage</option>
+        <option>Mise aux normes</option>
+        <option>Éclairage LED</option>
+        <option>Solaire / Hybride</option>
+        <option>Tableaux & Comptage</option>
+        <option>Caméras CCTV / Alarme</option>
+        <option>Plomberie</option>
+        <option>Applications web & mobile</option>
+      </select>
+
+      <textarea name="message" rows="4" placeholder="Décrivez le site, la puissance approximative, les délais…"
+                class="p-3 rounded-lg border border-white/40 bg-white/10 placeholder-blue-100/70 text-white md:col-span-2 w-full"></textarea>
+
+      <div class="flex flex-wrap gap-2 md:col-span-2">
+        <button type="reset" class="px-4 py-2 rounded-lg bg-transparent border border-yellowBrand text-yellowBrand font-semibold">Effacer</button>
+        <button type="submit" class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card">Envoyer la demande</button>
+        <a id="waQuick" href="https://wa.me/243844894508" target="_blank" rel="noopener noreferrer"
+           class="px-4 py-2 rounded-lg bg-transparent border border-yellowBrand text-yellowBrand font-semibold">WhatsApp direct</a>
       </div>
 
-      <!-- Form -->
-      <form id="devisForm" class="grid gap-3 md:grid-cols-2">
-        <input name="name" required placeholder="Votre nom"
-               class="p-3 rounded-lg border border-white/40 bg-white/10 placeholder-blue-100/70 text-white md:col-span-1" />
-        <input name="phone" required placeholder="Téléphone / WhatsApp"
-               class="p-3 rounded-lg border border-white/40 bg-white/10 placeholder-blue-100/70 text-white md:col-span-1" />
-        <select name="service" required
-                class="p-3 rounded-lg border border-white/40 bg-white/10 text-white md:col-span-2">
-          <option value="">Choisir un service…</option>
-          <option>Installation électrique</option>
-          <option>Maintenance / Dépannage</option>
-          <option>Mise aux normes</option>
-          <option>Éclairage LED</option>
-          <option>Solaire / Hybride</option>
-          <option>Tableaux & Comptage</option>
-          <option>Caméras CCTV / Alarme</option>
-          <option>Plomberie</option>
-          <option>Applications web & mobile</option>
-        </select>
-        <textarea name="message" rows="4" placeholder="Décrivez le site, la puissance approximative, les délais…"
-                  class="p-3 rounded-lg border border-white/40 bg-white/10 placeholder-blue-100/70 text-white md:col-span-2"></textarea>
+      <small id="formMsg" class="text-blue-100 md:col-span-2" aria-live="polite"></small>
+    </form>
+  </div>
+</section>
 
-        <div class="flex flex-wrap gap-2 md:col-span-2">
-          <button type="reset" class="px-4 py-2 rounded-lg bg-transparent border border-yellowBrand text-yellowBrand font-semibold">Effacer</button>
-          <button type="submit" class="px-4 py-2 rounded-lg bg-gradient-to-r from-brand to-yellowBrand text-white font-semibold shadow-card">Envoyer la demande</button>
-          <a id="waQuick" href="#" class="px-4 py-2 rounded-lg bg-transparent border border-yellowBrand text-yellowBrand font-semibold">WhatsApp direct</a>
-        </div>
-        <small id="formMsg" class="text-blue-100 md:col-span-2"></small>
-      </form>
-    </div>
-  </section>
 
   <!-- ===== Footer ===== -->
   <footer class="bg-[#001a33] text-white">
@@ -247,7 +269,6 @@
 
   <!-- JS (découpé) -->
   <script src="js/main.js" defer></script>
-  <script src="js/simulateurs.js" defer></script>
   <script src="js/avis.js" defer></script>
 </body>
 </html>
